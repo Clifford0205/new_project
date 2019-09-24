@@ -1,0 +1,121 @@
+.CaseStudies {
+    .classification {
+        #all {
+            background-image: url(/images/btm_all.svg);
+            background-repeat: no-repeat;
+            width: 60px;
+            height: 60px;
+        }
+
+        .active1 {
+            width: 50px;
+            height: 50px;
+            background-image: url(/images/btm_all_hover.svg) !important;
+
+        }
+
+        #cig {
+            background-image: url(/images/组-46.svg);
+            background-repeat: no-repeat;
+            width: 60px;
+            height: 60px;
+        }
+
+        .active2 {
+            background-image: url(/images/组-1.svg) !important;
+            background-repeat: no-repeat;
+            width: 60px;
+            height: 60px;
+
+        }
+
+        #house {
+            background-image: url(/images/btm_hous.svg);
+            background-repeat: no-repeat;
+            width: 60px;
+            height: 60px;
+        }
+
+        .active3 {
+            background-image: url(/images/btm_hous_hover.svg) !important;
+            background-repeat: no-repeat;
+            width: 60px;
+            height: 60px;
+
+        }
+
+        #wind {
+            background-image: url(/images/btm_na.svg);
+            background-repeat: no-repeat;
+            width: 60px;
+            height: 60px;
+        }
+
+        .active4 {
+            background-image: url(/images/btm_na_hover.svg) !important;
+            background-repeat: no-repeat;
+            width: 60px;
+            height: 60px;
+
+        }
+
+        #factory {
+            background-image: url(/images/btm_work.svg);
+            background-repeat: no-repeat;
+            width: 60px;
+            height: 60px;
+        }
+
+        .active5 {
+            background-image: url(/images/btm_work_hover.svg) !important;
+            background-repeat: no-repeat;
+            width: 60px;
+            height: 60px;
+
+        }
+
+        #sick {
+            background-image: url(/images/btm_sick.svg);
+            background-repeat: no-repeat;
+            width: 60px;
+            height: 60px;
+        }
+
+        .active6 {
+            background-image: url(/images/btm_sick_hover.svg) !important;
+            background-repeat: no-repeat;
+            width: 60px;
+            height: 60px;
+
+        }
+
+    }
+
+    .lotsCase {
+        a {
+            color: #000000;
+
+            .linkimg {
+                height: 250px;
+            }
+
+            .linktext {
+                height: 1.5rem;
+                overflow: hidden;
+            }
+        }
+    }
+
+    .pagination {
+
+        li {
+            margin: 0 5px;
+            cursor: pointer;
+        }
+
+        .previous {}
+
+    }
+
+
+}

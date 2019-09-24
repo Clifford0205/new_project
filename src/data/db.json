@@ -1,0 +1,720 @@
+{
+  "article": [
+    {
+      "aboutus": {
+        "chinese": "台北市立聯合醫院仁愛院區中醫科主治醫師周宗翰表示，粉塵可分為大顆粒和極細微顆粒等不同級別，大的可以隨著咳痰而被帶出體外，極細微顆粒則會被呼吸道吞噬細胞所吞噬，在呼吸道沉積下來，也就是說，PM2.5的粉塵要藉由身體排出來，幾乎不可能。而且，粉塵和食物在人體內的動向不同，食物入口後會直接進入消化道而不會進入肺，跟肺裡那些大於0.1微米的微粒根本沒有見面的機會，自然也就無法將粉塵吸附且清除排出體外。根本之道還是要遠離汙染源，盡可能戴上口罩，減少在戶外運動時間，或是家中擺放空氣清淨機。",
+        "english": "When resting, the air exchange rate of individuals is about 6 liters per minute. When exercising, the air exchange rate of individuals can reach 100 liters per minute. In other words, individuals inhale about 10,000 to 20,000 liters of air daily equals to a reservoir fire-fighting truck. With the progress of civilization, a variety of air pollutants exist in our living surroundings, decreasing air quality gradually. The air pollutants, however, enter our bodies through lungs."
+      },
+      "item2": {
+        "chinese": "「血液成份分離術」的概念源自於「放血療法」，最早載於古埃及的草卷經典，盛行於15世紀之中古歐洲，一直到18、19世紀在現代醫學出現前，仍風行於歐美，根據當時報導，光是法國一區每年就進口了上千萬隻的水蛭做為「放血療法」之用，相傳美國國父華盛頓也熱中「放血療法」，甚至有一說法指向或許放血過多是華盛頓病逝的原因。",
+        "english": "Blood types were once thought to be with people for life. And, in almost every case, they're still thought to be with a person for life. But there is one patient whose blood type actually changed. A liver transplant, apparently, has a shot of changing a person's blood type."
+      }
+    }
+  ],
+  "clientmessage": [
+    {
+      "clientname": "555",
+      "phonenumber": "666",
+      "mail": "555@gmail.com",
+      "message": "安安你好",
+      "id": 785125
+    },
+    {
+      "clientname": "755",
+      "phonenumber": "555",
+      "mail": "33",
+      "message": "21",
+      "id": 785126
+    },
+    {
+      "clientname": "53",
+      "phonenumber": "53",
+      "mail": "33",
+      "message": "33",
+      "id": 785127
+    },
+    {
+      "clientname": "ktyu",
+      "phonenumber": "tyutyi",
+      "mail": "tyityi",
+      "message": "ityityi",
+      "id": 785128
+    },
+    {
+      "clientname": "hhh",
+      "phonenumber": "hhh",
+      "mail": "hhh",
+      "message": "hhh",
+      "id": 785129
+    },
+    {
+      "clientname": "ggg",
+      "phonenumber": "ggg",
+      "mail": "ggg",
+      "message": "ggg",
+      "id": 785130
+    },
+    {
+      "clientname": "gf",
+      "phonenumber": "hg",
+      "mail": "hff",
+      "message": "ff",
+      "id": 785131
+    }
+  ],
+
+  "lungcase": [
+    {
+      "img": "https://i.imgur.com/JDufAOD.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2001,
+      "tag": "cig"
+    },
+    {
+      "img": "https://i.imgur.com/JDufAOD.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2002,
+      "tag": "cig"
+    },
+    {
+      "img": "https://i.imgur.com/JDufAOD.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2003,
+      "tag": "cig"
+    },
+    {
+      "img": "https://i.imgur.com/gxpZQu6.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2004,
+      "tag": "house"
+    },
+    {
+      "img": "https://i.imgur.com/gxpZQu6.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2005,
+      "tag": "house"
+    },
+    {
+      "img": "https://i.imgur.com/gxpZQu6.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2006,
+      "tag": "house"
+    },
+
+    {
+      "img": "https://i.imgur.com/xmmItvl.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2007,
+      "tag": "wind"
+    },
+    {
+      "img": "https://i.imgur.com/xmmItvl.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2008,
+      "tag": "wind"
+    },
+    {
+      "img": "https://i.imgur.com/xmmItvl.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2009,
+      "tag": "wind"
+    },
+    {
+      "img": "https://i.imgur.com/kqVqO0h.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2010,
+      "tag": "factory"
+    },
+    {
+      "img": "https://i.imgur.com/kqVqO0h.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2011,
+      "tag": "factory"
+    },
+    {
+      "img": "https://i.imgur.com/kqVqO0h.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2012,
+      "tag": "factory"
+    },
+    {
+      "img": "https://i.imgur.com/kqVqO0h.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2013,
+      "tag": "factory"
+    },
+    {
+      "img": "https://i.imgur.com/kqVqO0h.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2014,
+      "tag": "factory"
+    },
+    {
+      "img": "https://i.imgur.com/kqVqO0h.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2015,
+      "tag": "factory"
+    },
+    {
+      "img": "https://i.imgur.com/kqVqO0h.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2016,
+      "tag": "factory"
+    },
+    {
+      "img": "https://i.imgur.com/kqVqO0h.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2017,
+      "tag": "factory"
+    },
+    {
+      "img": "https://i.imgur.com/kqVqO0h.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2018,
+      "tag": "factory"
+    },
+
+    {
+      "img": "https://i.imgur.com/kqVqO0h.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2019,
+      "tag": "factory"
+    },
+    {
+      "img": "https://i.imgur.com/kqVqO0h.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2020,
+      "tag": "factory"
+    },
+    {
+      "img": "https://i.imgur.com/kqVqO0h.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2021,
+      "tag": "factory"
+    },
+    {
+      "img": "https://i.imgur.com/kqVqO0h.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2022,
+      "tag": "factory"
+    },
+    {
+      "img": "https://i.imgur.com/kqVqO0h.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2023,
+      "tag": "factory"
+    },
+    {
+      "img": "https://i.imgur.com/kqVqO0h.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2024,
+      "tag": "factory"
+    },
+    {
+      "img": "https://i.imgur.com/kqVqO0h.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2025,
+      "tag": "factory"
+    },
+    {
+      "img": "https://i.imgur.com/kqVqO0h.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2026,
+      "tag": "factory"
+    },
+    {
+      "img": "https://i.imgur.com/kqVqO0h.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2027,
+      "tag": "factory"
+    },
+    {
+      "img": "https://i.imgur.com/kqVqO0h.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2028,
+      "tag": "factory"
+    },
+    {
+      "img": "https://i.imgur.com/kqVqO0h.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2029,
+      "tag": "factory"
+    },
+    {
+      "img": "https://i.imgur.com/kqVqO0h.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2030,
+      "tag": "factory"
+    },
+    {
+      "img": "https://i.imgur.com/kqVqO0h.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2031,
+      "tag": "factory"
+    },
+    {
+      "img": "https://i.imgur.com/kqVqO0h.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2032,
+      "tag": "factory"
+    },
+    {
+      "img": "https://i.imgur.com/kqVqO0h.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2033,
+      "tag": "factory"
+    },
+    {
+      "img": "https://i.imgur.com/kqVqO0h.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2034,
+      "tag": "factory"
+    },
+    {
+      "img": "https://i.imgur.com/kqVqO0h.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2035,
+      "tag": "factory"
+    },
+    {
+      "img": "https://i.imgur.com/kqVqO0h.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2036,
+      "tag": "factory"
+    },
+    {
+      "img": "https://i.imgur.com/kqVqO0h.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2037,
+      "tag": "factory"
+    },
+    {
+      "img": "https://i.imgur.com/kqVqO0h.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2038,
+      "tag": "factory"
+    },
+    {
+      "img": "https://i.imgur.com/kqVqO0h.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2039,
+      "tag": "factory"
+    },
+    {
+      "img": "https://i.imgur.com/kqVqO0h.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2040,
+      "tag": "factory"
+    },
+    {
+      "img": "https://i.imgur.com/kqVqO0h.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2041,
+      "tag": "factory"
+    },
+    {
+      "img": "https://i.imgur.com/kqVqO0h.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2042,
+      "tag": "factory"
+    },
+    {
+      "img": "https://i.imgur.com/kqVqO0h.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2043,
+      "tag": "factory"
+    },
+    {
+      "img": "https://i.imgur.com/kqVqO0h.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2044,
+      "tag": "factory"
+    },
+    {
+      "img": "https://i.imgur.com/kqVqO0h.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2045,
+      "tag": "factory"
+    },
+    {
+      "img": "https://i.imgur.com/kqVqO0h.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2046,
+      "tag": "factory"
+    },
+    {
+      "img": "https://i.imgur.com/kqVqO0h.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2047,
+      "tag": "factory"
+    },
+    {
+      "img": "https://i.imgur.com/kqVqO0h.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2048,
+      "tag": "factory"
+    },
+    {
+      "img": "https://i.imgur.com/kqVqO0h.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2049,
+      "tag": "factory"
+    },
+    {
+      "img": "https://i.imgur.com/kqVqO0h.jpg",
+      "chinese": {
+        "title": "菸害對肺部造成的影響",
+        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+      },
+      "english": {
+        "title": "The impact of smoke damage on the lungs",
+        "text": "Smoker, 40 years old, male, smoking long smoke, causing a variety of chemicals to accumulate in the lungs, accumulating for a long time, causing damage to the lungs, coughing, talk more, shortness of breath, poor mobility, and a high rate of carcinogenicity"
+      },
+      "id": 2050,
+      "tag": "factory"
+    }
+  ]
+}

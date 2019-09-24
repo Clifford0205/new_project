@@ -1,0 +1,36 @@
+.CaseDetail {
+    .top-area {
+        margin-bottom: 100px;
+
+        .casetitle {
+            padding-top: 120px;
+        }
+    }
+
+    .bottom-area {
+        background: -moz-linear-gradient(-45deg, #0aacdd 1%, #27d9e0 36%, #1a79cb 100%);
+        /* FF3.6-15 */
+        background: -webkit-linear-gradient(-45deg, #0aacdd 1%, #27d9e0 36%, #1a79cb 100%);
+        /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(135deg, #0aacdd 1%, #27d9e0 36%, #1a79cb 100%);
+
+
+    }
+
+    .bg-border {
+        height: 40px;
+        width: 120px;
+        border: 1px solid #ffffff;
+        border-radius: 5rem;
+
+    }
+
+    .sendbtn {
+        border-radius: 5rem;
+        width: 120px;
+        background-color: rgba(255, 255, 255, 0.6);
+        margin-left: -5px;
+        margin-top: -3px;
+        color: #1A79CB;
+    }
+}

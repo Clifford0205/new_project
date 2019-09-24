@@ -1,0 +1,115 @@
+@mixin lg {
+    @media (max-width: 992px) {
+        @content;
+    }
+}
+
+@mixin md {
+    @media (max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin sm {
+    @media (max-width: 576px) {
+        @content;
+    }
+}
+
+
+
+.MyNav {
+    position: fixed;
+    z-index: 500;
+    // left: 50%;
+    // transform: translateX(-50%);
+    width: 100%;
+
+    .transition {
+        transition: 0.8s;
+    }
+
+    .hanburger {
+        display: none;
+
+        @include md {
+            display: block;
+        }
+
+        .hanburger-icon {
+            display: block;
+            height: 50px;
+            width: 50px;
+            margin-left: auto;
+        }
+
+        .bar {
+            width: 36px;
+            height: 6px;
+            background: #666;
+            margin: 6px 0;
+            border-radius: 2px;
+
+        }
+
+
+    }
+
+    .active .bar1 {
+        -webkit-transform: rotate(-45deg) translate(-9px, 7px);
+        transform: rotate(-45deg) translate(-9px, 7px);
+    }
+
+    .active .bar2 {
+        opacity: 0;
+    }
+
+    .active .bar3 {
+        -webkit-transform: rotate(45deg) translate(-9px, -8px);
+        transform: rotate(45deg) translate(-9px, -8px);
+    }
+
+    .my-nav-all {
+        @include md {
+            max-height: 0;
+            overflow: hidden;
+            position: fixed;
+            z-index: 99;
+            right: 0;
+            left: 0;
+        }
+
+        .my-navbar-nav {
+            padding: 0;
+            list-style: none;
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: center;
+
+            @include md {
+                display: block;
+            }
+
+            li {
+                margin-left: 25px;
+                margin-right: 25px;
+                white-space: nowrap;
+                cursor: pointer;
+
+                @include md {
+                    text-align: center;
+                    background: #ffffff;
+                    margin: 0;
+                }
+            }
+        }
+    }
+
+    .my-nav-all.show {
+        max-height: 800px;
+
+        @include md {}
+    }
+
+
+}
