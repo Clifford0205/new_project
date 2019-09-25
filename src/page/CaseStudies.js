@@ -1,5 +1,5 @@
 import React from 'react';
-import TopMenu from '../component/TopMenu';
+
 import GoBack from '../component/GoBack';
 import Language from '../component/Language';
 import ReactDOM from 'react-dom';
@@ -300,7 +300,7 @@ class CaseStudies extends React.Component {
     return (
       <>
         <GoBack />
-        <TopMenu />
+
         <Container className="CaseStudies pb-5">
           <Row>
             <Col>

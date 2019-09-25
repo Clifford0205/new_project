@@ -41,6 +41,12 @@ const defaultState = {
   loading: false,
   currentPage: 1,
   postPerPage: 9,
+  m_mail: '',
+  m_password: '',
+  m_repassword: '',
+  m_name: '',
+  m_mobile: '',
+  m_birthday: '',
   //窩窩專案
 };
 
@@ -54,6 +60,7 @@ export default (state = defaultState, action) => {
       if (s === action.name) {
         newState[s] = action.value;
         // 注意：id(學號)與生日，需先轉為數字類型再進入state中
+        if (action.name === 'm_birthday') action.value = +action.value;
         console.log(s, newState[s]);
       }
     }

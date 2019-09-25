@@ -42,9 +42,10 @@ class MyNavbar extends React.Component {
   componentDidMount() {
     $('.hanburger').click(function(e) {
       e.stopPropagation();
+      console.log($(this));
       $(this).toggleClass('active');
       $('.my-nav-all').toggleClass('show');
-      // $('body').toggleClass('menu-open');
+      $('body').toggleClass('menu-open');
     });
   }
 

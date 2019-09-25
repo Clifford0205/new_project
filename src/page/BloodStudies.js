@@ -1,5 +1,5 @@
 import React from 'react';
-import TopMenu from '../component/TopMenu';
+
 import GoBack from '../component/GoBack';
 import Language from '../component/Language';
 import Pagination from '../component/Pagination';
@@ -172,7 +172,7 @@ class BloodStudies extends React.Component {
     return (
       <>
         <GoBack />
-        <TopMenu />
+
         <Container className="CaseStudies pb-5">
           <Row>
             <Col>

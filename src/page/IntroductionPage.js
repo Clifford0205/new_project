@@ -1,5 +1,5 @@
 import React from 'react';
-import TopMenu from '../component/TopMenu';
+
 import Language from '../component/Language';
 import ReactDOM from 'react-dom';
 import ReactFullpage from '@fullpage/react-fullpage';
@@ -33,7 +33,6 @@ class IntroductionPage extends React.Component {
   render() {
     return (
       <>
-        <TopMenu />
         <Container fluid={true} className="IntroductionPage pt-5">
           <Row className="describe">
             <Col className="">

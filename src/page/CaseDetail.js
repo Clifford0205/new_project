@@ -1,5 +1,5 @@
 import React from 'react';
-import TopMenu from '../component/TopMenu';
+
 import GoBack from '../component/GoBack';
 import Language from '../component/Language';
 import ReactDOM from 'react-dom';
@@ -47,7 +47,7 @@ class CaseDetail extends React.Component {
     return (
       <div className="CaseDetail">
         <GoBack />
-        <TopMenu />
+
         <Container className="top-area">
           <Row>
             <Col>
