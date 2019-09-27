@@ -12,6 +12,11 @@ import {
   CLEAN_ALL_INPUT,
   LUNG_IN_LIST,
   PAGE_CHANGE,
+  REGISTER_MODAL_SHOW,
+  REGISTER_MODAL_CLOSE,
+  LOGIN_MODAL_SHOW,
+  LOGIN_MODAL_CLOSE,
+  LOGIN_STATE,
 } from './actionTypes.js';
 
 const defaultState = {
@@ -47,12 +52,49 @@ const defaultState = {
   m_name: '',
   m_mobile: '',
   m_birthday: '',
+  showModalRegister: false,
+  showModalLogin: false,
+  login_email: '',
+  login_password: '',
+  login_state: false,
+  login_user: '',
   //窩窩專案
 };
 
 //reducer 可以接受state, 但絕不能修改state
 export default (state = defaultState, action) => {
   //窩窩專案
+
+  if (action.type === LOGIN_STATE) {
+    const newState = JSON.parse(JSON.stringify(state));
+    console.log(action);
+    // newState.login_user = true;
+    return newState;
+  }
+
+  if (action.type === LOGIN_MODAL_SHOW) {
+    const newState = JSON.parse(JSON.stringify(state));
+    newState.showModalLogin = true;
+    return newState;
+  }
+
+  if (action.type === LOGIN_MODAL_CLOSE) {
+    const newState = JSON.parse(JSON.stringify(state));
+    newState.showModalLogin = false;
+    return newState;
+  }
+
+  if (action.type === REGISTER_MODAL_SHOW) {
+    const newState = JSON.parse(JSON.stringify(state));
+    newState.showModalRegister = true;
+    return newState;
+  }
+
+  if (action.type === REGISTER_MODAL_CLOSE) {
+    const newState = JSON.parse(JSON.stringify(state));
+    newState.showModalRegister = false;
+    return newState;
+  }
 
   if (action.type === HANDLE_INPUT_CHANGE) {
     const newState = JSON.parse(JSON.stringify(state));
@@ -81,6 +123,12 @@ export default (state = defaultState, action) => {
     newState.phonenumber = '';
     newState.mail = '';
     newState.message = '';
+    newState.m_mail = '';
+    newState.m_password = '';
+    newState.m_repassword = '';
+    newState.m_name = '';
+    newState.m_mobile = '';
+    newState.m_birthday = '';
     console.log(newState);
     return newState;
   }

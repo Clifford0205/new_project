@@ -21,6 +21,13 @@ import { FaPlus, FaPen, FaTrashAlt } from 'react-icons/fa';
 
 import { Link, Redirect, withRouter } from 'react-router-dom';
 import RegisterModal from './RegisterModal';
+import LoginModal from './LoginModal';
+import {
+  memberModalShowAction,
+  memberModalCloseAction,
+  loginModalShowAction,
+  loginModalCloseAction,
+} from '../store/actionCreators.js';
 
 class MyNavbar extends React.Component {
   constructor(props) {
@@ -28,9 +35,6 @@ class MyNavbar extends React.Component {
     this.state = store.getState();
     store.subscribe(this.handleStoreChange);
     console.log(this.state);
-    this.state = {
-      showModalLogin: false,
-    };
   }
 
   handleStoreChange = () => {
@@ -53,17 +57,30 @@ class MyNavbar extends React.Component {
   //   alert('000');
   // };
 
-  // 開啟登入視窗
+  // 開啟註冊視窗
   hanldleOpenRegister = () => {
     console.log(this.state);
-    this.setState({
-      showModalLogin: true,
-    });
+    const action = memberModalShowAction();
+    store.dispatch(action);
+  };
+
+  // 關閉註冊視窗
+  hanldleCloseRegister = () => {
+    const action = memberModalCloseAction();
+    store.dispatch(action);
+  };
+
+  // 開啟登入視窗
+  hanldleOpenLogin = () => {
+    console.log(this.state);
+    const action = loginModalShowAction();
+    store.dispatch(action);
   };
 
   // 關閉登入視窗
-  hanldleCloseRegister = () => {
-    this.setState({ showModalLogin: false });
+  hanldleCloseLogin = () => {
+    const action = loginModalCloseAction();
+    store.dispatch(action);
   };
 
   render() {
@@ -82,7 +99,7 @@ class MyNavbar extends React.Component {
               <div className="my-nav-all transition">
                 <ul className="my-navbar-nav">
                   <li onClick={this.hanldleOpenRegister}>註冊</li>
-                  <li>登入</li>
+                  <li onClick={this.hanldleOpenLogin}>登入</li>
                   <li>商品專區</li>
                   <li>關於我們</li>
                   <li>關於我們</li>
@@ -90,10 +107,13 @@ class MyNavbar extends React.Component {
               </div>
             </div>
           </Container>
-
           <RegisterModal
-            show={this.state.showModalLogin}
+            show={this.state.showModalRegister}
             close={this.hanldleCloseRegister}
+          />
+          <LoginModal
+            show={this.state.showModalLogin}
+            close={this.hanldleCloseLogin}
           />
         </div>
       </>

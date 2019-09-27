@@ -18,9 +18,47 @@ import {
   GET_LUNG_CASE,
   LUNG_IN_LIST,
   PAGE_CHANGE,
+  MEMBER_REGISTER,
+  REGISTER_MODAL_SHOW,
+  REGISTER_MODAL_CLOSE,
+  LOGIN_MODAL_SHOW,
+  LOGIN_MODAL_CLOSE,
+  MEMBER_LOGIN,
+  LOGIN_STATE,
 } from './actionTypes.js';
 
 //窩窩專案的
+
+export const checkLoginState = userdata => ({
+  type: LOGIN_STATE,
+  userdata,
+});
+
+export const memberLoginAction = login_data => ({
+  type: MEMBER_LOGIN,
+  login_data,
+});
+
+export const loginModalShowAction = () => ({
+  type: LOGIN_MODAL_SHOW,
+});
+
+export const loginModalCloseAction = () => ({
+  type: LOGIN_MODAL_CLOSE,
+});
+
+export const memberModalShowAction = () => ({
+  type: REGISTER_MODAL_SHOW,
+});
+
+export const memberModalCloseAction = () => ({
+  type: REGISTER_MODAL_CLOSE,
+});
+
+export const memberRegisterAction = m_data => ({
+  type: MEMBER_REGISTER,
+  m_data,
+});
 
 export const setCaesfilter = id => ({
   type: CASE_FILTER_CHANGE,

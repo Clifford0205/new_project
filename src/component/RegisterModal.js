@@ -22,7 +22,10 @@ import { FaPlus, FaPen, FaTrashAlt } from 'react-icons/fa';
 
 import { Link, Redirect, withRouter } from 'react-router-dom';
 
-import { InputChangeAction } from '../store/actionCreators.js';
+import {
+  InputChangeAction,
+  memberRegisterAction,
+} from '../store/actionCreators.js';
 
 class RegisterModal extends React.Component {
   constructor(props) {
@@ -42,6 +45,19 @@ class RegisterModal extends React.Component {
 
   handleFormInputChange = e => {
     const action = InputChangeAction(e.target.value, e.target.name);
+    store.dispatch(action);
+  };
+
+  handleMemberRegister = () => {
+    const m_data = {
+      m_mail: this.state.m_mail,
+      m_password: this.state.m_password,
+      m_name: this.state.m_name,
+      m_mobile: this.state.m_mobile,
+      m_birthday: this.state.m_birthday,
+    };
+    const action = memberRegisterAction(m_data);
+    console.log(action);
     store.dispatch(action);
   };
 
@@ -117,7 +133,12 @@ class RegisterModal extends React.Component {
                 </Col>
 
                 <Col>
-                  <Button className="d-block mx-auto">確認送出 </Button>
+                  <Button
+                    className="d-block mx-auto"
+                    onClick={this.handleMemberRegister}
+                  >
+                    確認送出
+                  </Button>
                 </Col>
               </Row>
             </Container>
