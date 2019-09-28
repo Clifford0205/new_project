@@ -57,7 +57,12 @@ const defaultState = {
   login_email: '',
   login_password: '',
   login_state: false,
-  login_user: '',
+  my_name: '',
+  my_mail: '',
+  my_pswd: '',
+  my_mobile: '',
+  my_birthday: '',
+  my_id: '',
   //窩窩專案
 };
 
@@ -67,8 +72,13 @@ export default (state = defaultState, action) => {
 
   if (action.type === LOGIN_STATE) {
     const newState = JSON.parse(JSON.stringify(state));
-    console.log(action);
-    // newState.login_user = true;
+    console.log(action.userdata);
+    newState.my_name = action.userdata.m_name;
+    newState.my_mail = action.userdata.m_mail;
+    newState.my_pswd = action.userdata.m_password;
+    newState.my_mobile = action.userdata.m_mobile;
+    newState.my_birthday = action.userdata.m_birthday;
+    newState.my_id = action.userdata.id;
     return newState;
   }
 

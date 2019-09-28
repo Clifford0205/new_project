@@ -27,6 +27,7 @@ import {
   memberModalCloseAction,
   loginModalShowAction,
   loginModalCloseAction,
+  checkLoginState,
 } from '../store/actionCreators.js';
 
 class MyNavbar extends React.Component {
@@ -51,6 +52,11 @@ class MyNavbar extends React.Component {
       $('.my-nav-all').toggleClass('show');
       $('body').toggleClass('menu-open');
     });
+
+    let this_user = JSON.parse(localStorage.getItem('user'));
+    const action = checkLoginState(this_user);
+    console.log(action);
+    store.dispatch(action);
   }
 
   // hanldleOpenRegister = () => {
@@ -98,8 +104,37 @@ class MyNavbar extends React.Component {
               </div>
               <div className="my-nav-all transition">
                 <ul className="my-navbar-nav">
-                  <li onClick={this.hanldleOpenRegister}>註冊</li>
-                  <li onClick={this.hanldleOpenLogin}>登入</li>
+                  <li
+                    onClick={this.hanldleOpenRegister}
+                    className={
+                      this.state.my_id !== '' || this.state.my_id !== undefined
+                        ? 'd-none'
+                        : 'd-block'
+                    }
+                  >
+                    註冊
+                  </li>
+                  <li
+                    onClick={this.hanldleOpenLogin}
+                    className={
+                      this.state.my_id !== '' || this.state.my_id !== undefined
+                        ? 'd-none'
+                        : 'd-block'
+                    }
+                  >
+                    登入
+                  </li>
+
+                  <li
+                    onClick={this.hanldleOpenLogin}
+                    className={
+                      this.state.my_id !== '' || this.state.my_id !== undefined
+                        ? 'd-block'
+                        : 'd-none'
+                    }
+                  >
+                    {this.state.my_name}
+                  </li>
                   <li>商品專區</li>
                   <li>關於我們</li>
                   <li>關於我們</li>

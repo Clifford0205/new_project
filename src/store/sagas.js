@@ -16,6 +16,7 @@ import {
   LungInListAction,
   memberModalCloseAction,
   checkLoginState,
+  loginModalCloseAction,
 } from './actionCreators';
 
 //窩窩專案
@@ -132,14 +133,19 @@ function* MemberLogin(newItem) {
     const jsonObject = yield response.json();
     yield console.log(jsonObject);
     if (jsonObject.length !== 0) {
-      alert('對');
-      localStorage.setItem('user', jsonObject[0].m_name);
-      console.log(localStorage.getItem('user'));
-      let login_user = localStorage.getItem('user');
-      const action = checkLoginState(login_user);
+      alert('登入成功');
+      console.log(jsonObject[0]);
+      localStorage.setItem('user', JSON.stringify(jsonObject[0]));
+      console.log(JSON.parse(localStorage.getItem('user')));
+      let this_user = JSON.parse(localStorage.getItem('user'));
+      console.log(this_user);
+      let action = '';
+      action = checkLoginState(this_user);
+      yield put(action);
+      action = loginModalCloseAction();
       yield put(action);
     } else {
-      alert('錯');
+      alert('帳號密碼錯誤');
     }
   } catch (e) {
     console.log(e);
