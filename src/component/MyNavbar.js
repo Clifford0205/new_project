@@ -22,11 +22,14 @@ import { FaPlus, FaPen, FaTrashAlt } from 'react-icons/fa';
 import { Link, Redirect, withRouter } from 'react-router-dom';
 import RegisterModal from './RegisterModal';
 import LoginModal from './LoginModal';
+import LogoutModal from './LogoutModal';
 import {
   memberModalShowAction,
   memberModalCloseAction,
   loginModalShowAction,
   loginModalCloseAction,
+  logoutModalShowAction,
+  logoutModalCloseAction,
   checkLoginState,
 } from '../store/actionCreators.js';
 
@@ -54,14 +57,23 @@ class MyNavbar extends React.Component {
     });
 
     $('.my-dropdown').click(function(e) {
+      // alert('yyy');
       e.stopPropagation();
       $('.my-menu').toggleClass('show');
     });
 
-    // let this_user = JSON.parse(localStorage.getItem('user'));
-    // const action = checkLoginState(this_user);
-    // console.log(action);
-    // store.dispatch(action);
+    let this_user = JSON.parse(localStorage.getItem('user'));
+    const action = checkLoginState(this_user);
+    console.log(action);
+    store.dispatch(action);
+  }
+
+  componentDidUpdate() {
+    // $('.my-dropdown').click(function(e) {
+    //   e.stopPropagation();
+    //   console.log('yyy');
+    //   // $('.my-menu').toggleClass('show');
+    // });
   }
 
   // hanldleOpenRegister = () => {
@@ -94,6 +106,19 @@ class MyNavbar extends React.Component {
     store.dispatch(action);
   };
 
+  // 開啟登出視窗
+  hanldleOpenLogout = () => {
+    console.log(this.state);
+    const action = logoutModalShowAction();
+    store.dispatch(action);
+  };
+
+  // 關閉登出視窗
+  hanldleCloseLogout = () => {
+    const action = logoutModalCloseAction();
+    store.dispatch(action);
+  };
+
   render() {
     console.log(this.state.my_id);
     return (
@@ -112,33 +137,25 @@ class MyNavbar extends React.Component {
                 <ul className="my-navbar-nav">
                   <li
                     onClick={this.hanldleOpenRegister}
-                    className={
-                      this.state.my_id !== '' || this.state.my_id !== undefined
-                        ? 'd-none'
-                        : 'd-block'
-                    }
+                    className={this.state.my_id !== '' ? 'd-none' : 'd-block'}
                   >
                     註冊
                   </li>
                   <li
                     onClick={this.hanldleOpenLogin}
-                    className={
-                      this.state.my_id !== '' || this.state.my_id !== undefined
-                        ? 'd-none'
-                        : 'd-block'
-                    }
+                    className={this.state.my_id !== '' ? 'd-none' : 'd-block'}
                   >
                     登入
                   </li>
 
                   <li
                     className={
-                      this.state.my_id !== '' || this.state.my_id !== undefined
-                        ? 'my-dropdown d-block'
-                        : 'd-none'
+                      this.state.my_id !== '' ? 'the-drop d-block' : 'd-none'
                     }
                   >
-                    <a href="javascript:;">{this.state.my_name} 會員您好</a>
+                    <div className="my-dropdown">
+                      {this.state.my_name} 會員您好
+                    </div>
                     <div className="my-menu">
                       <ul>
                         <li>
@@ -147,10 +164,11 @@ class MyNavbar extends React.Component {
                           </Link>
                         </li>
                         <li>購物車</li>
-                        <li>登出</li>
+                        <li onClick={this.hanldleOpenLogout}>登出</li>
                       </ul>
                     </div>
                   </li>
+
                   <li>商品專區</li>
                   <li>關於我們</li>
                   <li>關於我們</li>
@@ -165,6 +183,11 @@ class MyNavbar extends React.Component {
           <LoginModal
             show={this.state.showModalLogin}
             close={this.hanldleCloseLogin}
+          />
+
+          <LogoutModal
+            show={this.state.showModalLogout}
+            close={this.hanldleCloseLogout}
           />
         </div>
       </>

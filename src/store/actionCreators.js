@@ -23,6 +23,8 @@ import {
   REGISTER_MODAL_CLOSE,
   LOGIN_MODAL_SHOW,
   LOGIN_MODAL_CLOSE,
+  LOGOUT_MODAL_SHOW,
+  LOGOUT_MODAL_CLOSE,
   MEMBER_LOGIN,
   LOGIN_STATE,
 } from './actionTypes.js';
@@ -39,8 +41,16 @@ export const memberLoginAction = login_data => ({
   login_data,
 });
 
+export const logoutModalShowAction = () => ({
+  type: LOGOUT_MODAL_SHOW,
+});
+
+export const logoutModalCloseAction = () => ({
+  type: LOGOUT_MODAL_CLOSE,
+});
+
 export const loginModalShowAction = () => ({
-  type: LOGIN_MODAL_SHOW,
+  type: LOGOUT_MODAL_SHOW,
 });
 
 export const loginModalCloseAction = () => ({

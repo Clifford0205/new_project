@@ -16,6 +16,8 @@ import {
   REGISTER_MODAL_CLOSE,
   LOGIN_MODAL_SHOW,
   LOGIN_MODAL_CLOSE,
+  LOGOUT_MODAL_SHOW,
+  LOGOUT_MODAL_CLOSE,
   LOGIN_STATE,
 } from './actionTypes.js';
 
@@ -54,6 +56,7 @@ const defaultState = {
   m_birthday: '',
   showModalRegister: false,
   showModalLogin: false,
+  showModalLogout: false,
   login_email: '',
   login_password: '',
   login_state: false,
@@ -63,6 +66,7 @@ const defaultState = {
   my_mobile: '',
   my_birthday: '',
   my_id: '',
+
   //窩窩專案
 };
 
@@ -79,6 +83,18 @@ export default (state = defaultState, action) => {
     newState.my_mobile = action.userdata.m_mobile;
     newState.my_birthday = action.userdata.m_birthday;
     newState.my_id = action.userdata.id;
+    return newState;
+  }
+
+  if (action.type === LOGOUT_MODAL_SHOW) {
+    const newState = JSON.parse(JSON.stringify(state));
+    newState.showModalLogout = true;
+    return newState;
+  }
+
+  if (action.type === LOGOUT_MODAL_CLOSE) {
+    const newState = JSON.parse(JSON.stringify(state));
+    newState.showModalLogout = false;
     return newState;
   }
 
