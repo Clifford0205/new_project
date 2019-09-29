@@ -53,10 +53,15 @@ class MyNavbar extends React.Component {
       $('body').toggleClass('menu-open');
     });
 
-    let this_user = JSON.parse(localStorage.getItem('user'));
-    const action = checkLoginState(this_user);
-    console.log(action);
-    store.dispatch(action);
+    $('.my-dropdown').click(function(e) {
+      e.stopPropagation();
+      $('.my-menu').toggleClass('show');
+    });
+
+    // let this_user = JSON.parse(localStorage.getItem('user'));
+    // const action = checkLoginState(this_user);
+    // console.log(action);
+    // store.dispatch(action);
   }
 
   // hanldleOpenRegister = () => {
@@ -90,6 +95,7 @@ class MyNavbar extends React.Component {
   };
 
   render() {
+    console.log(this.state.my_id);
     return (
       <>
         <div className="MyNav">
@@ -126,14 +132,24 @@ class MyNavbar extends React.Component {
                   </li>
 
                   <li
-                    onClick={this.hanldleOpenLogin}
                     className={
                       this.state.my_id !== '' || this.state.my_id !== undefined
-                        ? 'd-block'
+                        ? 'my-dropdown d-block'
                         : 'd-none'
                     }
                   >
-                    {this.state.my_name}
+                    <a href="javascript:;">{this.state.my_name} 會員您好</a>
+                    <div className="my-menu">
+                      <ul>
+                        <li>
+                          <Link to={`/member/edit/${this.state.my_id}`}>
+                            會員中心
+                          </Link>
+                        </li>
+                        <li>購物車</li>
+                        <li>登出</li>
+                      </ul>
+                    </div>
                   </li>
                   <li>商品專區</li>
                   <li>關於我們</li>

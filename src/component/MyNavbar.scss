@@ -101,6 +101,44 @@
                     background: #ffffff;
                     margin: 0;
                 }
+
+
+            }
+
+            .my-dropdown {
+                position: relative;
+
+                a {
+                    color: #000;
+                    text-decoration: none;
+                }
+
+                .my-menu {
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    max-height: 0;
+                    overflow: hidden;
+
+                    @include md {
+                        position: static;
+                    }
+
+                    ul {
+                        list-style: none;
+                        padding-inline-start: 0;
+
+                        li {
+                            margin-left: 0;
+                            margin-right: 0;
+                            text-align: center;
+                        }
+                    }
+                }
+
+                .my-menu.show {
+                    max-height: 300px;
+                }
             }
         }
     }
