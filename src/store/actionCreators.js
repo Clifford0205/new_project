@@ -25,6 +25,7 @@ import {
   LOGIN_MODAL_CLOSE,
   LOGOUT_MODAL_SHOW,
   LOGOUT_MODAL_CLOSE,
+  CLEAN_STORAGE,
   MEMBER_LOGIN,
   LOGIN_STATE,
 } from './actionTypes.js';
@@ -34,6 +35,10 @@ import {
 export const checkLoginState = userdata => ({
   type: LOGIN_STATE,
   userdata,
+});
+
+export const cleanlocalstorage = () => ({
+  type: CLEAN_STORAGE,
 });
 
 export const memberLoginAction = login_data => ({
@@ -50,7 +55,7 @@ export const logoutModalCloseAction = () => ({
 });
 
 export const loginModalShowAction = () => ({
-  type: LOGOUT_MODAL_SHOW,
+  type: LOGIN_MODAL_SHOW,
 });
 
 export const loginModalCloseAction = () => ({

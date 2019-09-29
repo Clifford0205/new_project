@@ -26,5 +26,6 @@ export const LOGIN_MODAL_SHOW = 'login_modal_show';
 export const LOGIN_MODAL_CLOSE = 'login_modal_close';
 export const LOGOUT_MODAL_SHOW = 'logout_modal_show';
 export const LOGOUT_MODAL_CLOSE = 'logout_modal_close';
+export const CLEAN_STORAGE = 'clean_storage';
 export const MEMBER_LOGIN = 'member_login';
 export const LOGIN_STATE = 'login_state';

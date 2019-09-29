@@ -240,6 +240,7 @@ function* mySaga() {
   yield takeEvery(GET_LUNG_CASE, getLungCaseInstate);
   yield takeEvery(MEMBER_REGISTER, addMemberAction);
   yield takeEvery(MEMBER_LOGIN, MemberLogin);
+
   //窩窩專案
 }
 

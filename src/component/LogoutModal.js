@@ -25,6 +25,7 @@ import { Link, Redirect, withRouter } from 'react-router-dom';
 import {
   InputChangeAction,
   memberRegisterAction,
+  cleanlocalstorage,
 } from '../store/actionCreators.js';
 
 class LogoutModal extends React.Component {
@@ -38,6 +39,10 @@ class LogoutModal extends React.Component {
   handleStoreChange = () => {
     this.setState(store.getState());
     // console.log('store change');
+  };
+
+  handleCleanStorage = () => {
+    localStorage.removeItem('user');
   };
 
   //生命週期:一開始載入資料
@@ -58,8 +63,12 @@ class LogoutModal extends React.Component {
             </Container>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary">登出</Button>
-            <Button variant="primary">取消</Button>
+            <Button variant="secondary" onClick={this.handleCleanStorage}>
+              登出
+            </Button>
+            <Button variant="primary" onClick={this.props.close}>
+              取消
+            </Button>
           </Modal.Footer>
         </Modal>
       </>

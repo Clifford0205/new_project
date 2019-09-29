@@ -108,7 +108,6 @@ class MyNavbar extends React.Component {
 
   // 開啟登出視窗
   hanldleOpenLogout = () => {
-    console.log(this.state);
     const action = logoutModalShowAction();
     store.dispatch(action);
   };
@@ -120,7 +119,6 @@ class MyNavbar extends React.Component {
   };
 
   render() {
-    console.log(this.state.my_id);
     return (
       <>
         <div className="MyNav">

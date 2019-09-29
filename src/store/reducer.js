@@ -18,6 +18,7 @@ import {
   LOGIN_MODAL_CLOSE,
   LOGOUT_MODAL_SHOW,
   LOGOUT_MODAL_CLOSE,
+  CLEAN_STORAGE,
   LOGIN_STATE,
 } from './actionTypes.js';
 
@@ -84,6 +85,11 @@ export default (state = defaultState, action) => {
     newState.my_birthday = action.userdata.m_birthday;
     newState.my_id = action.userdata.id;
     return newState;
+  }
+
+  if (action.type === CLEAN_STORAGE) {
+    const newState = JSON.parse(JSON.stringify(state));
+    console.log('aaa');
   }
 
   if (action.type === LOGOUT_MODAL_SHOW) {
