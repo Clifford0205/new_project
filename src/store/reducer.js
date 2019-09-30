@@ -62,10 +62,12 @@ const defaultState = {
   login_password: '',
   login_state: false,
   my_name: '',
+  o_name: '',
   my_mail: '',
   my_pswd: '',
   my_mobile: '',
   my_birthday: '',
+  my_cart: [],
   my_id: '',
 
   //窩窩專案
@@ -79,10 +81,12 @@ export default (state = defaultState, action) => {
     const newState = JSON.parse(JSON.stringify(state));
     console.log(action.userdata);
     newState.my_name = action.userdata.m_name;
+    newState.o_name = action.userdata.m_name;
     newState.my_mail = action.userdata.m_mail;
     newState.my_pswd = action.userdata.m_password;
     newState.my_mobile = action.userdata.m_mobile;
     newState.my_birthday = action.userdata.m_birthday;
+    newState.my_cart = action.userdata.shopping_cart;
     newState.my_id = action.userdata.id;
     return newState;
   }

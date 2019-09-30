@@ -70,6 +70,8 @@ class MyNavbar extends React.Component {
     }
   }
 
+  componentDidUpdate() {}
+
   // 開啟註冊視窗
   hanldleOpenRegister = () => {
     console.log(this.state);
@@ -142,7 +144,7 @@ class MyNavbar extends React.Component {
                     }
                   >
                     <div className="my-dropdown">
-                      {this.state.my_name} 會員您好
+                      {this.state.o_name} 會員您好
                     </div>
                     <div className="my-menu">
                       <ul>

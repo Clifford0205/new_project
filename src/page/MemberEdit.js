@@ -41,14 +41,17 @@ class BloodStudies extends React.Component {
   };
 
   handleMemberModify = () => {
-    const m_data = {
+    const edit_data = {
       m_mail: this.state.my_mail,
+      m_password: this.state.my_pswd,
       m_name: this.state.my_name,
       m_mobile: this.state.my_mobile,
       m_birthday: this.state.my_birthday,
+      shopping_cart: this.state.my_cart,
+      id: this.state.my_id,
     };
 
-    const action = editMemberAction(m_data);
+    const action = editMemberAction(edit_data);
     console.log(action);
     store.dispatch(action);
   };
@@ -65,7 +68,7 @@ class BloodStudies extends React.Component {
           </section>
           <Container className="CaseStudies pb-5">
             <h2 className="text-center">會員中心</h2>
-            <h3 className="text-center">我的個人檔案</h3>
+            <h3 className="text-center">編輯我的個人檔案</h3>
             <ul>
               <li>
                 姓名:

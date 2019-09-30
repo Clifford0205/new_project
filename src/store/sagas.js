@@ -116,6 +116,7 @@ function* addMemberAction(newItem) {
   }
 }
 
+//會員登入
 function* MemberLogin(newItem) {
   try {
     const mail = newItem.login_data.login_email;
@@ -153,41 +154,34 @@ function* MemberLogin(newItem) {
   }
 }
 
+//修改會員資料
 function* editMemberaction(newItem) {
-  try {
-    const mail = newItem.login_data.login_email;
-    const pswd = newItem.login_data.login_password;
-    const response = yield fetch(
-      'http://localhost:5555/memberdata?m_mail=' + mail + '&m_password=' + pswd,
-      {
-        method: 'GET',
-        headers: new Headers({
-          Accept: 'application/json',
-          'Content-Type': 'application/json',
-        }),
-      }
-    );
-    // if (!response.ok) throw new Error(response.statusText);
-    const jsonObject = yield response.json();
-    yield console.log(jsonObject);
-    if (jsonObject.length !== 0) {
-      alert('登入成功');
-      console.log(jsonObject[0]);
-      localStorage.setItem('user', JSON.stringify(jsonObject[0]));
-      console.log(JSON.parse(localStorage.getItem('user')));
-      let this_user = JSON.parse(localStorage.getItem('user'));
-      console.log(this_user);
-      let action = '';
-      action = checkLoginState(this_user);
-      yield put(action);
-      action = loginModalCloseAction();
-      yield put(action);
-    } else {
-      alert('帳號密碼錯誤');
+  yield console.log(newItem.edit_data);
+  const member_id = newItem.edit_data.id;
+  const data = newItem.edit_data;
+  console.log(member_id);
+  console.log(data);
+
+  const response = yield fetch(
+    'http://localhost:5555/memberdata/' + member_id,
+    {
+      method: 'PUT',
+      body: JSON.stringify(data),
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }),
     }
-  } catch (e) {
-    console.log(e);
-  }
+  );
+  const jsonObject = yield response.json();
+  console.log(jsonObject);
+  localStorage.setItem('user', JSON.stringify(jsonObject));
+  console.log(JSON.parse(localStorage.getItem('user')));
+  let this_user = JSON.parse(localStorage.getItem('user'));
+  console.log(this_user);
+  yield alert('資料修改成功');
+  const action = checkLoginState(this_user);
+  yield put(action);
 }
 //窩窩專案
 
