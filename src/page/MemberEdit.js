@@ -56,73 +56,114 @@ class BloodStudies extends React.Component {
     store.dispatch(action);
   };
 
+  handleTitleClick = e => {
+    console.log(e.target.id);
+    let allhide = document.querySelectorAll('.thehide');
+    let alltitle = document.querySelectorAll('.the-title');
+    for (let i = 0; i < allhide.length; i++) {
+      allhide[i].classList.remove('show');
+    }
+    for (let i = 0; i < alltitle.length; i++) {
+      alltitle[i].classList.remove('active');
+    }
+
+    document.querySelector(`.${e.target.id}`).classList.add('show');
+    document.querySelector(`#${e.target.id}`).classList.add('active');
+  };
+
   render() {
     console.log(this.state);
     return (
       <>
         <GoBack />
         <MyNavbar />
-        <div className="MemberEdit">
+        <Container className="MemberEdit">
           <section>
             <img src="/images/2000x.webp" alt="" className="w-100" />
           </section>
           <Container className="CaseStudies pb-5">
             <h2 className="text-center">會員中心</h2>
-            <h3 className="text-center">編輯我的個人檔案</h3>
-            <ul>
-              <li>
-                姓名:
-                <input
-                  type="text"
-                  value={this.state.my_name}
-                  name="my_name"
-                  onChange={this.handleFormInputChange}
-                  className="form-control"
-                />
+            <ul className="d-flex   my-5 choose-title">
+              <li
+                class="w-100 text-center the-title active"
+                id="profile"
+                onClick={this.handleTitleClick}
+              >
+                編輯個人檔案
               </li>
-
-              <li>
-                E-MAIL:
-                <input
-                  type="text"
-                  value={this.state.my_mail}
-                  name="my_mail"
-                  onChange={this.handleFormInputChange}
-                  className="form-control"
-                />
-              </li>
-
-              <li>
-                手機號碼:
-                <input
-                  type="text"
-                  value={this.state.my_mobile}
-                  name="my_mobile"
-                  onChange={this.handleFormInputChange}
-                  className="form-control"
-                />
-              </li>
-
-              <li>
-                生日:
-                <input
-                  type="date"
-                  value={this.state.my_birthday}
-                  name="my_birthday"
-                  onChange={this.handleFormInputChange}
-                  className="form-control"
-                />
+              <li
+                class="w-100  text-center the-title "
+                id="password"
+                onClick={this.handleTitleClick}
+              >
+                修改密碼
               </li>
             </ul>
 
-            <Button
-              className="d-block mx-auto"
-              onClick={this.handleMemberModify}
-            >
-              修改資料
-            </Button>
+            <div className="profile thehide show">
+              <ul class="">
+                <li>
+                  姓名:
+                  <input
+                    type="text"
+                    value={this.state.my_name}
+                    name="my_name"
+                    onChange={this.handleFormInputChange}
+                    className="form-control"
+                  />
+                </li>
+
+                <li>
+                  E-MAIL:
+                  <input
+                    type="text"
+                    value={this.state.my_mail}
+                    name="my_mail"
+                    onChange={this.handleFormInputChange}
+                    className="form-control"
+                  />
+                </li>
+
+                <li>
+                  手機號碼:
+                  <input
+                    type="text"
+                    value={this.state.my_mobile}
+                    name="my_mobile"
+                    onChange={this.handleFormInputChange}
+                    className="form-control"
+                  />
+                </li>
+
+                <li>
+                  生日:
+                  <input
+                    type="date"
+                    value={this.state.my_birthday}
+                    name="my_birthday"
+                    onChange={this.handleFormInputChange}
+                    className="form-control"
+                  />
+                </li>
+              </ul>
+
+              <Button
+                className="d-block mx-auto"
+                onClick={this.handleMemberModify}
+              >
+                修改資料
+              </Button>
+            </div>
+            <div className="password thehide">
+              <ul>
+                <li>
+                  原本密碼:
+                  <input type="text" />
+                </li>
+              </ul>
+            </div>
           </Container>
-        </div>
+        </Container>
 
         <Language />
       </>
