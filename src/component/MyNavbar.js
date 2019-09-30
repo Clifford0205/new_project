@@ -61,24 +61,14 @@ class MyNavbar extends React.Component {
       e.stopPropagation();
       $('.my-menu').toggleClass('show');
     });
-
-    let this_user = JSON.parse(localStorage.getItem('user'));
-    const action = checkLoginState(this_user);
-    console.log(action);
-    store.dispatch(action);
+    // console.log(localStorage.getItem('user'));
+    if (localStorage.getItem('user')) {
+      let this_user = JSON.parse(localStorage.getItem('user'));
+      const action = checkLoginState(this_user);
+      console.log(action);
+      store.dispatch(action);
+    }
   }
-
-  componentDidUpdate() {
-    // $('.my-dropdown').click(function(e) {
-    //   e.stopPropagation();
-    //   console.log('yyy');
-    //   // $('.my-menu').toggleClass('show');
-    // });
-  }
-
-  // hanldleOpenRegister = () => {
-  //   alert('000');
-  // };
 
   // 開啟註冊視窗
   hanldleOpenRegister = () => {

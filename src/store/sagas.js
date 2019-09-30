@@ -8,6 +8,7 @@ import {
   GET_LUNG_CASE,
   MEMBER_REGISTER,
   MEMBER_LOGIN,
+  EDIT_MEMBER,
 } from './actionTypes.js';
 import {
   initListAction,
@@ -151,6 +152,43 @@ function* MemberLogin(newItem) {
     console.log(e);
   }
 }
+
+function* editMemberaction(newItem) {
+  try {
+    const mail = newItem.login_data.login_email;
+    const pswd = newItem.login_data.login_password;
+    const response = yield fetch(
+      'http://localhost:5555/memberdata?m_mail=' + mail + '&m_password=' + pswd,
+      {
+        method: 'GET',
+        headers: new Headers({
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        }),
+      }
+    );
+    // if (!response.ok) throw new Error(response.statusText);
+    const jsonObject = yield response.json();
+    yield console.log(jsonObject);
+    if (jsonObject.length !== 0) {
+      alert('登入成功');
+      console.log(jsonObject[0]);
+      localStorage.setItem('user', JSON.stringify(jsonObject[0]));
+      console.log(JSON.parse(localStorage.getItem('user')));
+      let this_user = JSON.parse(localStorage.getItem('user'));
+      console.log(this_user);
+      let action = '';
+      action = checkLoginState(this_user);
+      yield put(action);
+      action = loginModalCloseAction();
+      yield put(action);
+    } else {
+      alert('帳號密碼錯誤');
+    }
+  } catch (e) {
+    console.log(e);
+  }
+}
 //窩窩專案
 
 function* addItemAction(newItem) {
@@ -240,6 +278,7 @@ function* mySaga() {
   yield takeEvery(GET_LUNG_CASE, getLungCaseInstate);
   yield takeEvery(MEMBER_REGISTER, addMemberAction);
   yield takeEvery(MEMBER_LOGIN, MemberLogin);
+  yield takeEvery(EDIT_MEMBER, editMemberaction);
 
   //窩窩專案
 }

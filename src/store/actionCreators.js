@@ -28,9 +28,15 @@ import {
   CLEAN_STORAGE,
   MEMBER_LOGIN,
   LOGIN_STATE,
+  EDIT_MEMBER,
 } from './actionTypes.js';
 
 //窩窩專案的
+
+export const editMemberAction = edit_data => ({
+  type: EDIT_MEMBER,
+  edit_data,
+});
 
 export const checkLoginState = userdata => ({
   type: LOGIN_STATE,

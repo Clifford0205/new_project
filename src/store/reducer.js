@@ -89,7 +89,13 @@ export default (state = defaultState, action) => {
 
   if (action.type === CLEAN_STORAGE) {
     const newState = JSON.parse(JSON.stringify(state));
-    console.log('aaa');
+    newState.my_name = '';
+    newState.my_mail = '';
+    newState.my_pswd = '';
+    newState.my_mobile = '';
+    newState.my_birthday = '';
+    newState.my_id = '';
+    return newState;
   }
 
   if (action.type === LOGOUT_MODAL_SHOW) {

@@ -29,3 +29,4 @@ export const LOGOUT_MODAL_CLOSE = 'logout_modal_close';
 export const CLEAN_STORAGE = 'clean_storage';
 export const MEMBER_LOGIN = 'member_login';
 export const LOGIN_STATE = 'login_state';
+export const EDIT_MEMBER = 'edit_member';

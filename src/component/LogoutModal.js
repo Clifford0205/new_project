@@ -26,6 +26,7 @@ import {
   InputChangeAction,
   memberRegisterAction,
   cleanlocalstorage,
+  logoutModalCloseAction,
 } from '../store/actionCreators.js';
 
 class LogoutModal extends React.Component {
@@ -43,6 +44,12 @@ class LogoutModal extends React.Component {
 
   handleCleanStorage = () => {
     localStorage.removeItem('user');
+    let action = '';
+    action = cleanlocalstorage();
+    store.dispatch(action);
+    action = logoutModalCloseAction();
+    store.dispatch(action);
+    this.props.history.push('/');
   };
 
   //生命週期:一開始載入資料
