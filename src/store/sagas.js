@@ -5,10 +5,11 @@ import {
   EDIT_STUDENT_ITEM,
   DELETE_TODO_ITEM,
   HANDLE_FORM_SEND,
-  GET_LUNG_CASE,
+  GET_PRODUCT,
   MEMBER_REGISTER,
   MEMBER_LOGIN,
   EDIT_MEMBER,
+  EDIT_PASSWORD,
 } from './actionTypes.js';
 import {
   initListAction,
@@ -89,6 +90,7 @@ function* getLungCaseInstate() {
   }
 }
 
+//會員註冊
 function* addMemberAction(newItem) {
   console.log(newItem.m_data);
   try {
@@ -183,6 +185,33 @@ function* editMemberaction(newItem) {
   const action = checkLoginState(this_user);
   yield put(action);
 }
+
+//修改密碼
+function* editPasswordAction(newItem) {
+  yield console.log(newItem.edit_pswd);
+  const member_id = newItem.edit_pswd.id;
+  const data = newItem.edit_pswd;
+  const response = yield fetch(
+    'http://localhost:5555/memberdata/' + member_id,
+    {
+      method: 'PUT',
+      body: JSON.stringify(data),
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }),
+    }
+  );
+  const jsonObject = yield response.json();
+  console.log(jsonObject);
+  localStorage.setItem('user', JSON.stringify(jsonObject));
+  console.log(JSON.parse(localStorage.getItem('user')));
+  let this_user = JSON.parse(localStorage.getItem('user'));
+  console.log(this_user);
+  yield alert('密碼修改成功');
+  const action = checkLoginState(this_user);
+  yield put(action);
+}
 //窩窩專案
 
 function* addItemAction(newItem) {
@@ -269,10 +298,11 @@ function* mySaga() {
   //窩窩專案
   yield takeEvery(GET_INIT_LIST, getInitList);
   yield takeEvery(HANDLE_FORM_SEND, saveclientmessage);
-  yield takeEvery(GET_LUNG_CASE, getLungCaseInstate);
+  yield takeEvery(GET_PRODUCT, getLungCaseInstate);
   yield takeEvery(MEMBER_REGISTER, addMemberAction);
   yield takeEvery(MEMBER_LOGIN, MemberLogin);
   yield takeEvery(EDIT_MEMBER, editMemberaction);
+  yield takeEvery(EDIT_PASSWORD, editPasswordAction);
 
   //窩窩專案
 }

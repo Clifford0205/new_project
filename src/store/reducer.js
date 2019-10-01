@@ -69,6 +69,9 @@ const defaultState = {
   my_birthday: '',
   my_cart: [],
   my_id: '',
+  old_password: '',
+  new_password: '',
+  new_password2: '',
 
   //窩窩專案
 };

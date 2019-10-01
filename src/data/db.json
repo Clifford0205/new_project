@@ -71,10 +71,16 @@
   ],
   "lungcase": [
     {
-      "img": "https://i.imgur.com/JDufAOD.jpg",
+      "img": "https://shoplineimg.com/5cc80df915c071000101084d/5d3ac57aa7a8c9003bb23604/600x.webp?source_format=png",
+      "img2": "https://shoplineimg.com/5cc80df915c071000101084d/5d3ac6022771fa0029380080/600x.webp?source_format=jpg",
+      "img3": "https://shoplineimg.com/5cc80df915c071000101084d/5d3ac602da4904002611d1a0/600x.webp?source_format=jpg",
+      "img4": "https://shoplineimg.com/5cc80df915c071000101084d/5d3ac602da4904002611d1a0/600x.webp?source_format=jpg",
+      "img5": "https://shoplineimg.com/5cc80df915c071000101084d/5d3ac603051f9b002966f3cc/600x.webp?source_format=jpg",
+      "img6": "https://shoplineimg.com/5cc80df915c071000101084d/5d3ac603a7f14200237c2259/600x.webp?source_format=jpg",
+      "img7": "https://shoplineimg.com/5cc80df915c071000101084d/5d3ac6058e722b0020590c3e/600x.webp?source_format=jpg",
       "chinese": {
-        "title": "菸害對肺部造成的影響",
-        "text": "抽菸者，40歲，男性，長菸齡抽菸，造成多種化學物質堆積在肺部，長時間累積，造成肺葉損害，咳嗽，多談，呼吸急促，活動力變差，致癌機率亦明顯增高"
+        "title": "精采",
+        "text": "NT$6,990"
       },
       "english": {
         "title": "The impact of smoke damage on the lungs",
@@ -764,11 +770,7 @@
       "m_name": "yyysdjjtyuy56",
       "m_mobile": "yyyy53",
       "m_birthday": "2019-09-04",
-      "shopping_cart": [
-        1,
-        35,
-        54
-      ],
+      "shopping_cart": [1, 35, 54],
       "id": 5
     }
   ]

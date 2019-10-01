@@ -15,7 +15,7 @@ import {
   HANDLE_INPUT_CHANGE,
   HANDLE_FORM_SEND,
   CLEAN_ALL_INPUT,
-  GET_LUNG_CASE,
+  GET_PRODUCT,
   LUNG_IN_LIST,
   PAGE_CHANGE,
   MEMBER_REGISTER,
@@ -29,9 +29,15 @@ import {
   MEMBER_LOGIN,
   LOGIN_STATE,
   EDIT_MEMBER,
+  EDIT_PASSWORD,
 } from './actionTypes.js';
 
 //窩窩專案的
+
+export const editPasswordAction = edit_pswd => ({
+  type: EDIT_PASSWORD,
+  edit_pswd,
+});
 
 export const editMemberAction = edit_data => ({
   type: EDIT_MEMBER,
@@ -101,8 +107,8 @@ export const cleanInputAction = () => ({
   type: CLEAN_ALL_INPUT,
 });
 
-export const getLungCaseAction = () => ({
-  type: GET_LUNG_CASE,
+export const getProducteAction = () => ({
+  type: GET_PRODUCT,
 });
 
 export const LungInListAction = data => ({

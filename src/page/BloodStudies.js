@@ -9,7 +9,7 @@ import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import store from '../store/index.js';
 import './BloodStudies.scss';
 import ReactSVG from 'react-svg';
-import { setCaesfilter, getLungCaseAction } from '../store/actionCreators.js';
+import { setCaesfilter, getProducteAction } from '../store/actionCreators.js';
 import $ from 'jquery';
 import { Link, Redirect, withRouter } from 'react-router-dom';
 import { TweenMax, Power2, TimelineLite } from 'gsap/TweenMax';
@@ -34,7 +34,7 @@ class BloodStudies extends React.Component {
 
   //生命週期:一開始載入資料
   componentDidMount() {
-    const action = getLungCaseAction();
+    const action = getProducteAction();
     store.dispatch(action);
     console.log(this.state);
   }

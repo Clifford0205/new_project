@@ -11,6 +11,7 @@ import 'animate.css/animate.min.css';
 import {
   InputChangeAction,
   editMemberAction,
+  editPasswordAction,
 } from '../store/actionCreators.js';
 
 class BloodStudies extends React.Component {
@@ -71,6 +72,38 @@ class BloodStudies extends React.Component {
     document.querySelector(`#${e.target.id}`).classList.add('active');
   };
 
+  handleModifyPassword = () => {
+    if (this.state.old_password !== this.state.my_pswd) {
+      alert('目前碼輸入錯誤');
+      return;
+    }
+
+    if (this.state.new_password !== this.state.new_password2) {
+      alert('兩次密碼輸入不一致');
+      return;
+    }
+
+    if (
+      this.state.new_password.trim() === '' ||
+      this.state.new_password2.trim() === ''
+    ) {
+      alert('密碼不可為空值');
+      return;
+    }
+
+    const edit_pswd = {
+      m_mail: this.state.my_mail,
+      m_password: this.state.new_password,
+      m_name: this.state.my_name,
+      m_mobile: this.state.my_mobile,
+      m_birthday: this.state.my_birthday,
+      shopping_cart: this.state.my_cart,
+      id: this.state.my_id,
+    };
+    const action = editPasswordAction(edit_pswd);
+    store.dispatch(action);
+  };
+
   render() {
     console.log(this.state);
     return (
@@ -83,7 +116,7 @@ class BloodStudies extends React.Component {
           </section>
           <Container className="CaseStudies pb-5">
             <h2 className="text-center">會員中心</h2>
-            <ul className="d-flex   my-5 choose-title">
+            <ul className="d-flex   my-3 choose-title">
               <li
                 class="w-100 text-center the-title active"
                 id="profile"
@@ -148,7 +181,7 @@ class BloodStudies extends React.Component {
               </ul>
 
               <Button
-                className="d-block mx-auto"
+                className="d-block mx-auto  "
                 onClick={this.handleMemberModify}
               >
                 修改資料
@@ -157,10 +190,45 @@ class BloodStudies extends React.Component {
             <div className="password thehide">
               <ul>
                 <li>
-                  原本密碼:
-                  <input type="text" />
+                  目前密碼:
+                  <input
+                    type="text"
+                    value={this.state.old_password}
+                    name="old_password"
+                    onChange={this.handleFormInputChange}
+                    className="form-control"
+                  />
+                </li>
+
+                <li>
+                  新密碼:
+                  <input
+                    type="text"
+                    value={this.state.new_password}
+                    name="new_password"
+                    onChange={this.handleFormInputChange}
+                    className="form-control"
+                  />
+                </li>
+
+                <li>
+                  確認密碼:
+                  <input
+                    type="text"
+                    value={this.state.new_password2}
+                    name="new_password2"
+                    onChange={this.handleFormInputChange}
+                    className="form-control"
+                  />
                 </li>
               </ul>
+
+              <Button
+                className="d-block mx-auto  "
+                onClick={this.handleModifyPassword}
+              >
+                修改密碼
+              </Button>
             </div>
           </Container>
         </Container>
