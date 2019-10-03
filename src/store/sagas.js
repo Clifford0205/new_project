@@ -72,7 +72,7 @@ function* saveclientmessage(newItem) {
 //拿到肺部資料
 function* getLungCaseInstate() {
   try {
-    const response = yield fetch('http://localhost:5555/lungcase', {
+    const response = yield fetch('http://localhost:5555/products ', {
       method: 'GET',
       headers: new Headers({
         Accept: 'application/json',

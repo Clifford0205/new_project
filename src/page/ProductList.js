@@ -7,7 +7,7 @@ import ReactDOM from 'react-dom';
 import ReactFullpage from '@fullpage/react-fullpage';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import store from '../store/index.js';
-import './BloodStudies.scss';
+import './ProductList.scss';
 import ReactSVG from 'react-svg';
 import { setCaesfilter, getProducteAction } from '../store/actionCreators.js';
 import $ from 'jquery';
@@ -19,7 +19,7 @@ import anime from 'animejs';
 import ReactPaginate from 'react-paginate';
 import PropTypes from 'prop-types';
 
-class BloodStudies extends React.Component {
+class ProductList extends React.Component {
   constructor(props) {
     super(props);
     this.state = store.getState();
@@ -173,7 +173,7 @@ class BloodStudies extends React.Component {
       <>
         <GoBack />
 
-        <Container className="CaseStudies pb-5">
+        <Container className="ProductList pb-5">
           <Row>
             <Col>
               <h3 className="text-center pt-5">Case Studies</h3>
@@ -263,4 +263,4 @@ class BloodStudies extends React.Component {
   }
 }
 
-export default withRouter(BloodStudies);
+export default withRouter(ProductList);

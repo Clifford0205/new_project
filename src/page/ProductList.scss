@@ -1,4 +1,4 @@
-.CaseStudies {
+.ProductList {
     .classification {
         #all {
             background-image: url(/images/btm_all.svg);
@@ -95,12 +95,23 @@
         a {
             color: #000000;
 
+            &:hover {
+                text-decoration: none;
+            }
+
             .linkimg {
-                height: 250px;
+                // height: 250px;
+            }
+
+            .linktitle {
+                text-align: center;
+
+
             }
 
             .linktext {
                 height: 1.5rem;
+                text-align: center;
                 overflow: hidden;
             }
         }

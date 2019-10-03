@@ -11,7 +11,7 @@ import LandingPage from './page/LandingPage';
 import IntroductionPage from './page/IntroductionPage';
 import CaseStudies from './page/CaseStudies';
 import CaseDetail from './page/CaseDetail';
-import BloodStudies from './page/BloodStudies';
+import ProductList from './page/ProductList';
 import './Myapp.scss';
 import MemberEdit from './page/MemberEdit';
 
@@ -30,7 +30,7 @@ function App() {
               author={'adele'}
               perPage={10}
             />
-            <Route path="/bloodcase" component={BloodStudies} />
+            <Route path="/bloodcase" component={ProductList} />
             <Route path="/casedetail/:id" component={CaseDetail} />
             <Route path="/member/edit/:id" component={MemberEdit} />
           </Switch>
