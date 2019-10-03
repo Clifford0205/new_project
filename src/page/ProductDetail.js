@@ -6,7 +6,7 @@ import ReactDOM from 'react-dom';
 import ReactFullpage from '@fullpage/react-fullpage';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import store from '../store/index.js';
-import './CaseDetail.scss';
+import './ProductDetail.scss';
 import ReactSVG from 'react-svg';
 import { getProducteAction } from '../store/actionCreators.js';
 import $ from 'jquery';
@@ -16,7 +16,7 @@ import 'animate.css/animate.min.css';
 import ScrollAnimation from 'react-animate-on-scroll';
 import anime from 'animejs';
 
-class CaseDetail extends React.Component {
+class ProductDetail extends React.Component {
   constructor(props) {
     super(props);
     this.state = store.getState();
@@ -37,15 +37,15 @@ class CaseDetail extends React.Component {
 
   render() {
     console.log(this.state.productList);
-    const lungData = this.state.productList.find(
+    const theProductData = this.state.productList.find(
       item => item.id === +this.props.match.params.id
     );
-    console.log(lungData);
-    console.log(lungData !== undefined);
+    console.log(theProductData);
+    console.log(theProductData !== undefined);
 
-    if (lungData === undefined) return null;
+    if (theProductData === undefined) return null;
     return (
-      <div className="CaseDetail">
+      <div className="ProductDetail">
         <GoBack />
 
         <Container className="top-area">
@@ -53,20 +53,29 @@ class CaseDetail extends React.Component {
             <Col>
               <h3 className="text-center casetitle">
                 {this.state.chinese
-                  ? lungData.chinese.title
-                  : lungData.english.title}
+                  ? theProductData.chinese.title
+                  : theProductData.english.title}
               </h3>
             </Col>
           </Row>
           <Row>
-            <Col md="8" sm="6">
-              <img src={lungData.img} alt="" width="100%" />
+            <Col>
+              {theProductData.imglist.map(item => (
+                <ul key={item.id}>
+                  <li>
+                    <img src={item.img} alt="" />
+                  </li>
+                </ul>
+              ))}
             </Col>
-            <Col md="4" sm="6">
+            <Col md={4} sm={6}>
+              <img src={theProductData.img} alt="" width="100%" />
+            </Col>
+            <Col md={4} sm={6}>
               <p>
                 {this.state.chinese
-                  ? lungData.chinese.text
-                  : lungData.english.text}
+                  ? theProductData.chinese.text
+                  : theProductData.english.text}
               </p>
             </Col>
           </Row>
@@ -84,7 +93,7 @@ class CaseDetail extends React.Component {
             </Col>
 
             <Col md="4" sm="6" className="align-self-center">
-              <span class="bg-border mx-auto d-block">
+              <span className="bg-border mx-auto d-block">
                 <Button variant=" d-block" className="sendbtn">
                   {this.state.chinese ? '了解更多' : 'More'}
                 </Button>
@@ -99,4 +108,4 @@ class CaseDetail extends React.Component {
   }
 }
 
-export default withRouter(CaseDetail);
+export default withRouter(ProductDetail);

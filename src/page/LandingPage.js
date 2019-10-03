@@ -358,7 +358,7 @@ class LandingPage extends React.Component {
                                 Respiratory purification
                               </p>
 
-                              <span class="bg-border mx-auto">
+                              <span className="bg-border mx-auto">
                                 <Link to="/case">
                                   <Button
                                     variant=" d-block"

@@ -15,7 +15,7 @@ import {
   initListAction,
   closeRegisterModal,
   cleanInputAction,
-  LungInListAction,
+  ProductInListActopn,
   memberModalCloseAction,
   checkLoginState,
   loginModalCloseAction,
@@ -82,7 +82,7 @@ function* getProductsInstate() {
     // if (!response.ok) throw new Error(response.statusText);
     const jsonObject = yield response.json();
     jsonObject.reverse();
-    const action = LungInListAction(jsonObject);
+    const action = ProductInListActopn(jsonObject);
     console.log(action);
     yield put(action);
   } catch (e) {

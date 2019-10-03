@@ -87,7 +87,7 @@ export class Bottomform extends React.Component {
           </Col>
         </Row>
         <Row>
-          <span class="bg-border mx-auto">
+          <span className="bg-border mx-auto">
             <Button
               variant=" d-block"
               className="sendbtn"

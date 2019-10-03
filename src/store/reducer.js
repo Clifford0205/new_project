@@ -10,7 +10,7 @@ import {
   CASE_FILTER_CHANGE,
   HANDLE_INPUT_CHANGE,
   CLEAN_ALL_INPUT,
-  LUNG_IN_LIST,
+  PRODUCT_IN_LIST,
   PAGE_CHANGE,
   REGISTER_MODAL_SHOW,
   REGISTER_MODAL_CLOSE,
@@ -178,7 +178,7 @@ export default (state = defaultState, action) => {
     return newState;
   }
 
-  if (action.type === LUNG_IN_LIST) {
+  if (action.type === PRODUCT_IN_LIST) {
     const newState = JSON.parse(JSON.stringify(state));
     newState.productList = action.data;
     return newState;

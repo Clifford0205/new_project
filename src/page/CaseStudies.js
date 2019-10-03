@@ -358,7 +358,7 @@ class CaseStudies extends React.Component {
             <Row>
               {data.map(item => (
                 <Col sm="4" key={item.id}>
-                  <Link to={'/casedetail/' + item.id}>
+                  <Link to={'/ProductDetail/' + item.id}>
                     <img
                       src={item.img}
                       alt=""

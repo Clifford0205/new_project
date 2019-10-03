@@ -10,7 +10,7 @@ import {
 import LandingPage from './page/LandingPage';
 import IntroductionPage from './page/IntroductionPage';
 import CaseStudies from './page/CaseStudies';
-import CaseDetail from './page/CaseDetail';
+import ProductDetail from './page/ProductDetail';
 import ProductList from './page/ProductList';
 import './Myapp.scss';
 import MemberEdit from './page/MemberEdit';
@@ -31,7 +31,7 @@ function App() {
               perPage={10}
             />
             <Route path="/productlist" component={ProductList} />
-            <Route path="/casedetail/:id" component={CaseDetail} />
+            <Route path="/ProductDetail/:id" component={ProductDetail} />
             <Route path="/member/edit/:id" component={MemberEdit} />
           </Switch>
         </>

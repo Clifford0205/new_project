@@ -16,7 +16,7 @@ import {
   HANDLE_FORM_SEND,
   CLEAN_ALL_INPUT,
   GET_PRODUCT,
-  LUNG_IN_LIST,
+  PRODUCT_IN_LIST,
   PAGE_CHANGE,
   MEMBER_REGISTER,
   REGISTER_MODAL_SHOW,
@@ -111,8 +111,8 @@ export const getProducteAction = () => ({
   type: GET_PRODUCT,
 });
 
-export const LungInListAction = data => ({
-  type: LUNG_IN_LIST,
+export const ProductInListActopn = data => ({
+  type: PRODUCT_IN_LIST,
   data,
 });
 

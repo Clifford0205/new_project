@@ -168,7 +168,8 @@ class ProductList extends React.Component {
 
     const currentPosts = data.slice(indexOfFirstPost, indexOfLastPost);
 
-    // if (this.state.productList.length === 0) return null;
+    if (this.state.productList.length === 0) return null;
+    console.log(currentPosts[0].chinese);
 
     return (
       <>
@@ -184,7 +185,7 @@ class ProductList extends React.Component {
           <Row>
             <Col>
               <h3 className="text-center pt-5">
-                {this.state.chinese ? '精品香水' : 'Elegant perfume'}
+                {this.state.chinese ? '精品香水' : 'Elegant Perfume'}
               </h3>
             </Col>
           </Row>
@@ -239,9 +240,9 @@ class ProductList extends React.Component {
             <Row>
               {currentPosts.map(item => (
                 <Col sm="4" key={item.id}>
-                  <Link to={'/casedetail/' + item.id}>
+                  <Link to={'/ProductDetail/' + item.id}>
                     <img
-                      src={item.img}
+                      src={item.imglist[0].img}
                       alt=""
                       width="100%"
                       className="linkimg"
