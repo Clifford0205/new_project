@@ -30,7 +30,7 @@ function App() {
               author={'adele'}
               perPage={10}
             />
-            <Route path="/bloodcase" component={ProductList} />
+            <Route path="/productlist" component={ProductList} />
             <Route path="/casedetail/:id" component={CaseDetail} />
             <Route path="/member/edit/:id" component={MemberEdit} />
           </Switch>

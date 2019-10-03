@@ -3,6 +3,7 @@ import React from 'react';
 import GoBack from '../component/GoBack';
 import Language from '../component/Language';
 import Pagination from '../component/Pagination';
+import MyNavbar from '../component/MyNavbar';
 import ReactDOM from 'react-dom';
 import ReactFullpage from '@fullpage/react-fullpage';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
@@ -151,11 +152,11 @@ class ProductList extends React.Component {
 
   render() {
     console.log(this.state);
-    let data = this.state.lungcaselist;
+    let data = this.state.productList;
     console.log(data);
 
     if (this.state.casefilter && this.state.casefilter.trim() !== '') {
-      data = this.state.lungcaselist.filter(item =>
+      data = this.state.productList.filter(item =>
         item.tag.includes(this.state.casefilter)
       );
     }
@@ -167,16 +168,24 @@ class ProductList extends React.Component {
 
     const currentPosts = data.slice(indexOfFirstPost, indexOfLastPost);
 
-    // if (this.state.lungcaselist.length === 0) return null;
+    // if (this.state.productList.length === 0) return null;
 
     return (
       <>
         <GoBack />
 
+        <MyNavbar />
+
+        <section>
+          <img src="/images/egg.webp" alt="" className="w-100" />
+        </section>
+
         <Container className="ProductList pb-5">
           <Row>
             <Col>
-              <h3 className="text-center pt-5">Case Studies</h3>
+              <h3 className="text-center pt-5">
+                {this.state.chinese ? '精品香水' : 'Elegant perfume'}
+              </h3>
             </Col>
           </Row>
           <Row className="classification pt-3 ">

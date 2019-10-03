@@ -156,7 +156,7 @@ class BloodStudies extends React.Component {
 
   render() {
     console.log(this.state);
-    let data = this.state.lungcaselist;
+    let data = this.state.productList;
     console.log(data);
 
     // if (this.state.casefilter && this.state.casefilter.trim() !== '') {
@@ -224,7 +224,7 @@ class BloodStudies extends React.Component {
 
           <Container className="lotsCase">
             <Row>
-              {this.state.lungcaselist.map(item => (
+              {this.state.productList.map(item => (
                 <Col sm="4" key={item.id}>
                   <Link to={'/casedetail/' + item.id}>
                     <img

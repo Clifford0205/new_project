@@ -36,8 +36,8 @@ class CaseDetail extends React.Component {
   }
 
   render() {
-    console.log(this.state.lungcaselist);
-    const lungData = this.state.lungcaselist.find(
+    console.log(this.state.productList);
+    const lungData = this.state.productList.find(
       item => item.id === +this.props.match.params.id
     );
     console.log(lungData);

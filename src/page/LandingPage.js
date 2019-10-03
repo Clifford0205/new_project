@@ -334,7 +334,7 @@ class LandingPage extends React.Component {
                               <p className="text-center">Blood purification</p>
 
                               <span className="bg-border mx-auto">
-                                <Link to="/bloodcase">
+                                <Link to="/productlist">
                                   <Button
                                     variant=" d-block"
                                     className="sendbtn"

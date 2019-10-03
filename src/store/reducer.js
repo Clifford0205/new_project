@@ -45,7 +45,7 @@ const defaultState = {
   phonenumber: '',
   mail: '',
   message: '',
-  lungcaselist: [],
+  productList: [],
   loading: false,
   currentPage: 1,
   postPerPage: 9,
@@ -180,7 +180,7 @@ export default (state = defaultState, action) => {
 
   if (action.type === LUNG_IN_LIST) {
     const newState = JSON.parse(JSON.stringify(state));
-    newState.lungcaselist = action.data;
+    newState.productList = action.data;
     return newState;
   }
 

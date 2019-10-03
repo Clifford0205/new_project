@@ -69,8 +69,8 @@ function* saveclientmessage(newItem) {
   }
 }
 
-//拿到肺部資料
-function* getLungCaseInstate() {
+//拿到商品資料
+function* getProductsInstate() {
   try {
     const response = yield fetch('http://localhost:5555/products ', {
       method: 'GET',
@@ -298,7 +298,7 @@ function* mySaga() {
   //窩窩專案
   yield takeEvery(GET_INIT_LIST, getInitList);
   yield takeEvery(HANDLE_FORM_SEND, saveclientmessage);
-  yield takeEvery(GET_PRODUCT, getLungCaseInstate);
+  yield takeEvery(GET_PRODUCT, getProductsInstate);
   yield takeEvery(MEMBER_REGISTER, addMemberAction);
   yield takeEvery(MEMBER_LOGIN, MemberLogin);
   yield takeEvery(EDIT_MEMBER, editMemberaction);
