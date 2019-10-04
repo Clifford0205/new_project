@@ -35,6 +35,17 @@ class ProductDetail extends React.Component {
     store.dispatch(action);
   }
 
+  handleChangeimg = e => {
+    console.log(e.currentTarget);
+    console.log(e.target.getAttribute('src'));
+    // e.currentTarget.classList.add('active');
+    var node = e.currentTarget.parentNode;
+    console.log(node.childNodes.length);
+    for (var i = 0; i < node.childNodes.length; i++) {
+      console.log('55');
+    }
+  };
+
   render() {
     console.log(this.state.productList);
     const theProductData = this.state.productList.find(
@@ -59,14 +70,16 @@ class ProductDetail extends React.Component {
             </Col>
           </Row>
           <Row>
-            <Col>
-              {theProductData.imglist.map(item => (
-                <ul key={item.id}>
-                  <li>
-                    <img src={item.img} alt="" />
-                  </li>
+            <Col md={4}>
+              <div className="gallary">
+                <ul className="ga-ul">
+                  {theProductData.imglist.map(item => (
+                    <li key={item.id} onClick={this.handleChangeimg}>
+                      <img src={item.img} alt="" />
+                    </li>
+                  ))}
                 </ul>
-              ))}
+              </div>
             </Col>
             <Col md={4} sm={6}>
               <img src={theProductData.img} alt="" width="100%" />

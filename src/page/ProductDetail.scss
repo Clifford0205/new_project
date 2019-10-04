@@ -7,6 +7,18 @@
         }
     }
 
+    .gallary {
+        ul {
+            li {
+                list-style: none;
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
     .bottom-area {
         background: -moz-linear-gradient(-45deg, #0aacdd 1%, #27d9e0 36%, #1a79cb 100%);
         /* FF3.6-15 */
