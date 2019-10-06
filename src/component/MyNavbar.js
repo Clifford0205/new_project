@@ -62,6 +62,7 @@ class MyNavbar extends React.Component {
       $('.my-menu').toggleClass('show');
     });
     // console.log(localStorage.getItem('user'));
+    console.log(localStorage.getItem('user'));
     if (localStorage.getItem('user')) {
       let this_user = JSON.parse(localStorage.getItem('user'));
       const action = checkLoginState(this_user);

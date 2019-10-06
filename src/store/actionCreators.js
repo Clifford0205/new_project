@@ -30,9 +30,31 @@ import {
   LOGIN_STATE,
   EDIT_MEMBER,
   EDIT_PASSWORD,
+  CHANGE_IMG,
+  PLUS_NUM,
+  MINUS_NUM,
+  BIG_MESSAGE,
 } from './actionTypes.js';
 
 //窩窩專案的
+
+export const bigMessageAction = big_message => ({
+  type: BIG_MESSAGE,
+  big_message,
+});
+
+export const plusNumAction = () => ({
+  type: PLUS_NUM,
+});
+
+export const minusNumAction = () => ({
+  type: MINUS_NUM,
+});
+
+export const changeImgAction = now_img => ({
+  type: CHANGE_IMG,
+  now_img,
+});
 
 export const editPasswordAction = edit_pswd => ({
   type: EDIT_PASSWORD,

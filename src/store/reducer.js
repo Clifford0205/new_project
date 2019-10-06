@@ -20,6 +20,9 @@ import {
   LOGOUT_MODAL_CLOSE,
   CLEAN_STORAGE,
   LOGIN_STATE,
+  CHANGE_IMG,
+  PLUS_NUM,
+  MINUS_NUM,
 } from './actionTypes.js';
 
 const defaultState = {
@@ -72,6 +75,9 @@ const defaultState = {
   old_password: '',
   new_password: '',
   new_password2: '',
+  now_img: '',
+  little_total: 0,
+  Big_message: '',
 
   //窩窩專案
 };
@@ -79,6 +85,26 @@ const defaultState = {
 //reducer 可以接受state, 但絕不能修改state
 export default (state = defaultState, action) => {
   //窩窩專案
+
+  if (action.type === PLUS_NUM) {
+    const newState = JSON.parse(JSON.stringify(state));
+    newState.little_total =
+      state.little_total === 10 ? 10 : state.little_total + 1;
+    return newState;
+  }
+
+  if (action.type === MINUS_NUM) {
+    const newState = JSON.parse(JSON.stringify(state));
+    newState.little_total =
+      state.little_total === 0 ? 0 : state.little_total - 1;
+    return newState;
+  }
+
+  if (action.type === CHANGE_IMG) {
+    const newState = JSON.parse(JSON.stringify(state));
+    newState.now_img = action.now_img;
+    return newState;
+  }
 
   if (action.type === LOGIN_STATE) {
     const newState = JSON.parse(JSON.stringify(state));

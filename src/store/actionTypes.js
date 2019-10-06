@@ -31,3 +31,7 @@ export const MEMBER_LOGIN = 'member_login';
 export const LOGIN_STATE = 'login_state';
 export const EDIT_MEMBER = 'edit_member';
 export const EDIT_PASSWORD = 'edit_password';
+export const CHANGE_IMG = 'change_img';
+export const PLUS_NUM = 'plus_num';
+export const MINUS_NUM = 'minus_num';
+export const BIG_MESSAGE = 'big_message';

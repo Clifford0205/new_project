@@ -10,6 +10,7 @@ import {
   MEMBER_LOGIN,
   EDIT_MEMBER,
   EDIT_PASSWORD,
+  BIG_MESSAGE,
 } from './actionTypes.js';
 import {
   initListAction,
@@ -212,6 +213,25 @@ function* editPasswordAction(newItem) {
   const action = checkLoginState(this_user);
   yield put(action);
 }
+
+//大留言
+function* bigMessageAction(newItem) {
+  yield console.log(newItem.big_message.message);
+  const data = newItem.big_message.message;
+  console.log(data);
+  const ptid = newItem.big_message.product_id;
+  const response = yield fetch('http://localhost:5555/products/' + ptid, {
+    method: 'PATCH',
+    body: JSON.stringify(data),
+    headers: new Headers({
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    }),
+  });
+  const jsonObject = yield response.json();
+  console.log(jsonObject);
+  yield getProductsInstate();
+}
 //窩窩專案
 
 function* addItemAction(newItem) {
@@ -303,6 +323,7 @@ function* mySaga() {
   yield takeEvery(MEMBER_LOGIN, MemberLogin);
   yield takeEvery(EDIT_MEMBER, editMemberaction);
   yield takeEvery(EDIT_PASSWORD, editPasswordAction);
+  yield takeEvery(BIG_MESSAGE, bigMessageAction);
 
   //窩窩專案
 }
