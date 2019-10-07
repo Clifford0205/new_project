@@ -34,9 +34,16 @@ import {
   PLUS_NUM,
   MINUS_NUM,
   BIG_MESSAGE,
+  LITTLE_MESSAGE,
+  ADD_CART,
 } from './actionTypes.js';
 
 //窩窩專案的
+
+export const littleMsgAction = little_message => ({
+  type: LITTLE_MESSAGE,
+  little_message,
+});
 
 export const bigMessageAction = big_message => ({
   type: BIG_MESSAGE,

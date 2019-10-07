@@ -11,6 +11,7 @@ import {
   EDIT_MEMBER,
   EDIT_PASSWORD,
   BIG_MESSAGE,
+  LITTLE_MESSAGE,
 } from './actionTypes.js';
 import {
   initListAction,
@@ -232,6 +233,24 @@ function* bigMessageAction(newItem) {
   console.log(jsonObject);
   yield getProductsInstate();
 }
+
+//小留言
+function* littleMsg(newItem) {
+  const data = newItem.little_message.message;
+  yield console.log(data);
+  const ptid = newItem.little_message.product_id;
+  const response = yield fetch('http://localhost:5555/products/' + ptid, {
+    method: 'PATCH',
+    body: JSON.stringify(data),
+    headers: new Headers({
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    }),
+  });
+  const jsonObject = yield response.json();
+  console.log(jsonObject);
+  yield getProductsInstate();
+}
 //窩窩專案
 
 function* addItemAction(newItem) {
@@ -324,6 +343,7 @@ function* mySaga() {
   yield takeEvery(EDIT_MEMBER, editMemberaction);
   yield takeEvery(EDIT_PASSWORD, editPasswordAction);
   yield takeEvery(BIG_MESSAGE, bigMessageAction);
+  yield takeEvery(LITTLE_MESSAGE, littleMsg);
 
   //窩窩專案
 }

@@ -16,6 +16,7 @@ import {
   minusNumAction,
   InputChangeAction,
   bigMessageAction,
+  littleMsgAction,
 } from '../store/actionCreators.js';
 import $ from 'jquery';
 import { Link, Redirect, withRouter } from 'react-router-dom';
@@ -144,7 +145,12 @@ class ProductDetail extends React.Component {
             {
               text: member + ':' + this.state.Big_message,
               id: lastid + 1,
-              little_message: [],
+              little_message: [
+                {
+                  text: '',
+                  id: 1,
+                },
+              ],
             },
           ],
         },
@@ -170,7 +176,7 @@ class ProductDetail extends React.Component {
     console.log(e.target.parentNode);
     let thisLi = e.target.parentNode;
     let Bmsg = thisLi.querySelector('p').innerHTML;
-    console.log(Bmsg);
+    console.log(Bmsg); //大留言的文字
 
     var whichone = result.indexOf(Bmsg);
     console.log(whichone);
@@ -184,23 +190,83 @@ class ProductDetail extends React.Component {
     const member = this.state.my_name ? this.state.my_name : '匿名';
 
     //小留言的id
-    let lastid = o_littleMsg.slice(-1)[0].id;
-    console.log(lastid);
+    let little_lastid = o_littleMsg.slice(-1)[0].id;
+    console.log(little_lastid);
 
+    //哪一個產品
+    const product_id = this.props.match.params.id;
+
+    //替換掉哪一則大留言
     newmsg.splice(whichone, 1, {
       text: Bmsg,
-      id: whichone + 8,
-      little_message: [...o_littleMsg, { text: member + ':' + littliemsg }],
+      id: whichone + 1, //大留言的id
+      little_message: [
+        ...o_littleMsg,
+        { text: member + ':' + littliemsg, id: little_lastid + 1 },
+      ],
     });
     console.log(newmsg);
+
     //傳遞給API的資料
-    // const little_message = {
-    //   message: {
-    //     message: newmsg,
-    //   },
-    // };
+    const little_message = {
+      message: {
+        message: newmsg,
+      },
+      product_id: product_id,
+    };
+
+    const action = littleMsgAction(little_message);
+    store.dispatch(action);
+
+    thisLi.querySelector('textarea').value = '';
 
     // console.log(little_message.message.message);
+  };
+
+  handleCart = () => {
+    if (!this.state.my_name) {
+      alert('請先登入會員');
+      return;
+    }
+
+    if (this.state.little_total === 0) {
+      alert('請選擇數量');
+      return;
+    }
+
+    const theProductData = this.state.productList.find(
+      item => item.id === +this.props.match.params.id
+    );
+
+    //該品項價錢
+    let price = theProductData.price;
+    //該品項id
+    let product_id = +this.props.match.params.id;
+    //該品項數量
+    let amount = this.state.little_total;
+
+    let member_id = this.state.my_id;
+
+    let cart_id = '';
+    console.log(this.state.my_cart.length);
+    if (this.state.my_cart.length !== 0) {
+      cart_id = this.state.my_cart.slice(-1)[0].id + 1;
+    } else {
+      cart_id = 1;
+    }
+
+    console.log(cart_id);
+
+    const data = {
+      shopping_cart: {
+        shopping_cart: [
+          ...this.state.my_cart,
+          { product_id: product_id, price: price, amount: amount, id: cart_id },
+        ],
+      },
+      member_id: member_id,
+    };
+    console.log(data);
   };
 
   render() {
@@ -219,6 +285,9 @@ class ProductDetail extends React.Component {
         <GoBack />
         <MyNavbar />
         <div className="ProductDetail">
+          <section className="bg-img">
+            <img src="/images/egg.webp" alt="" className="w-100" />
+          </section>
           <Container className="top-area">
             <Row>
               <Col lg={8}>
@@ -253,9 +322,8 @@ class ProductDetail extends React.Component {
                     : theProductData.english.title}
                 </h4>
                 <p>
-                  {this.state.chinese
-                    ? theProductData.chinese.text
-                    : theProductData.english.text}
+                  NT$
+                  {theProductData.price}
                 </p>
                 <p className="small">尺寸</p>
                 <p>淡香精75 ML</p>
@@ -278,6 +346,14 @@ class ProductDetail extends React.Component {
                     +
                   </Button>
                 </div>
+                <Button
+                  className="d-block mx-auto"
+                  onClick={this.handleCart}
+                  variant="info"
+                  className="w-100"
+                >
+                  加入購物車
+                </Button>
               </Col>
             </Row>
 
@@ -361,7 +437,13 @@ class ProductDetail extends React.Component {
 
                         <ul className="little-ul">
                           {item.little_message.map(item2 => (
-                            <li className="little-li" key={item2.id}>
+                            <li
+                              className="little-li"
+                              key={item2.id}
+                              style={{
+                                display: `${item2.id === 1 ? 'none' : 'block'}`,
+                              }}
+                            >
                               <p>{item2.text}</p>
                             </li>
                           ))}

@@ -35,3 +35,5 @@ export const CHANGE_IMG = 'change_img';
 export const PLUS_NUM = 'plus_num';
 export const MINUS_NUM = 'minus_num';
 export const BIG_MESSAGE = 'big_message';
+export const LITTLE_MESSAGE = 'little_message';
+export const ADD_CART = 'add_cart';
