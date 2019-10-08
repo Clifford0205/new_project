@@ -12,6 +12,7 @@ import {
   EDIT_PASSWORD,
   BIG_MESSAGE,
   LITTLE_MESSAGE,
+  ADD_CART,
 } from './actionTypes.js';
 import {
   initListAction,
@@ -251,6 +252,32 @@ function* littleMsg(newItem) {
   console.log(jsonObject);
   yield getProductsInstate();
 }
+
+//購物車
+
+function* addcartAction(newItem) {
+  yield console.log(newItem.cart_data);
+  const data = newItem.cart_data;
+  const mbid = newItem.cart_data.id;
+  console.log(data);
+  const response = yield fetch('http://localhost:5555/memberdata/' + mbid, {
+    method: 'PUT',
+    body: JSON.stringify(data),
+    headers: new Headers({
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    }),
+  });
+  const jsonObject = yield response.json();
+  console.log(jsonObject);
+  localStorage.setItem('user', JSON.stringify(jsonObject));
+  console.log(JSON.parse(localStorage.getItem('user')));
+  let this_user = JSON.parse(localStorage.getItem('user'));
+  console.log(this_user);
+  yield alert('成功加入購物車');
+  const action = checkLoginState(this_user);
+  yield put(action);
+}
 //窩窩專案
 
 function* addItemAction(newItem) {
@@ -344,6 +371,7 @@ function* mySaga() {
   yield takeEvery(EDIT_PASSWORD, editPasswordAction);
   yield takeEvery(BIG_MESSAGE, bigMessageAction);
   yield takeEvery(LITTLE_MESSAGE, littleMsg);
+  yield takeEvery(ADD_CART, addcartAction);
 
   //窩窩專案
 }

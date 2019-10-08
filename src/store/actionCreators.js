@@ -40,6 +40,11 @@ import {
 
 //窩窩專案的
 
+export const addCartAction = cart_data => ({
+  type: ADD_CART,
+  cart_data,
+});
+
 export const littleMsgAction = little_message => ({
   type: LITTLE_MESSAGE,
   little_message,

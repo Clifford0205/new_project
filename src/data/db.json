@@ -474,7 +474,23 @@
       "m_name": "yyysdjjtyuy56",
       "m_mobile": "yyyy53",
       "m_birthday": "2019-09-04",
-      "shopping_cart": [],
+      "shopping_cart": [
+        {
+          "product_id": 2001,
+          "amount": 3,
+          "id": 1
+        },
+        {
+          "product_id": 2001,
+          "amount": 6,
+          "id": 2
+        },
+        {
+          "product_id": 2001,
+          "amount": 7,
+          "id": 3
+        }
+      ],
       "id": 5
     }
   ]

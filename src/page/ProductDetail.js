@@ -17,6 +17,7 @@ import {
   InputChangeAction,
   bigMessageAction,
   littleMsgAction,
+  addCartAction,
 } from '../store/actionCreators.js';
 import $ from 'jquery';
 import { Link, Redirect, withRouter } from 'react-router-dom';
@@ -257,16 +258,20 @@ class ProductDetail extends React.Component {
 
     console.log(cart_id);
 
-    const data = {
-      shopping_cart: {
-        shopping_cart: [
-          ...this.state.my_cart,
-          { product_id: product_id, price: price, amount: amount, id: cart_id },
-        ],
-      },
-      member_id: member_id,
+    const cart_data = {
+      m_mail: this.state.my_mail,
+      m_password: this.state.my_pswd,
+      m_name: this.state.my_name,
+      m_mobile: this.state.my_mobile,
+      m_birthday: this.state.my_birthday,
+      shopping_cart: [
+        ...this.state.my_cart,
+        { product_id: product_id, amount: amount, id: cart_id },
+      ],
+      id: this.state.my_id,
     };
-    console.log(data);
+    const action = addCartAction(cart_data);
+    store.dispatch(action);
   };
 
   render() {
