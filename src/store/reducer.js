@@ -78,7 +78,7 @@ const defaultState = {
   now_img: '',
   little_total: 0,
   Big_message: '',
-
+  bigTotal: 0,
   //窩窩專案
 };
 
@@ -117,6 +117,14 @@ export default (state = defaultState, action) => {
     newState.my_birthday = action.userdata.m_birthday;
     newState.my_cart = action.userdata.shopping_cart;
     newState.my_id = action.userdata.id;
+    if (action.userdata.shopping_cart.length !== 0) {
+      let l_total = action.userdata.shopping_cart.map(
+        item => item.amount * item.price
+      );
+      let b_total = l_total.reduce((prev, element) => prev + element);
+      newState.bigTotal = b_total;
+    }
+
     return newState;
   }
 

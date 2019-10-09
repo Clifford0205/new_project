@@ -14,6 +14,7 @@ import ProductDetail from './page/ProductDetail';
 import ProductList from './page/ProductList';
 import './Myapp.scss';
 import MemberEdit from './page/MemberEdit';
+import ShoppingCart from './page/ShoppingCart';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
             <Route path="/productlist" component={ProductList} />
             <Route path="/ProductDetail/:id" component={ProductDetail} />
             <Route path="/member/edit/:id" component={MemberEdit} />
+            <Route path="/member/cart/:id" component={ShoppingCart} />
           </Switch>
         </>
       </Router>

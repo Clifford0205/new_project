@@ -37,3 +37,4 @@ export const MINUS_NUM = 'minus_num';
 export const BIG_MESSAGE = 'big_message';
 export const LITTLE_MESSAGE = 'little_message';
 export const ADD_CART = 'add_cart';
+export const DELETE_CART = 'delete_cart';

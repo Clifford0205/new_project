@@ -154,7 +154,9 @@ class MyNavbar extends React.Component {
                             會員中心
                           </Link>
                         </li>
-                        <li>購物車</li>
+                        <Link to={`/member/cart/${this.state.my_id}`}>
+                          <li>購物車</li>
+                        </Link>
                         <li onClick={this.hanldleOpenLogout}>登出</li>
                       </ul>
                     </div>

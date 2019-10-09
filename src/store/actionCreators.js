@@ -36,9 +36,15 @@ import {
   BIG_MESSAGE,
   LITTLE_MESSAGE,
   ADD_CART,
+  DELETE_CART,
 } from './actionTypes.js';
 
 //窩窩專案的
+
+export const deleteCartAction = delItem => ({
+  type: DELETE_CART,
+  delItem,
+});
 
 export const addCartAction = cart_data => ({
   type: ADD_CART,

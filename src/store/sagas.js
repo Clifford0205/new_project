@@ -13,6 +13,7 @@ import {
   BIG_MESSAGE,
   LITTLE_MESSAGE,
   ADD_CART,
+  DELETE_CART,
 } from './actionTypes.js';
 import {
   initListAction,
@@ -278,6 +279,31 @@ function* addcartAction(newItem) {
   const action = checkLoginState(this_user);
   yield put(action);
 }
+
+//刪除購物車品項
+
+function* deleteCartAction(newItem) {
+  yield console.log(newItem.delItem.shopping_cart);
+  const data = newItem.delItem.shopping_cart;
+  const id = newItem.delItem.id;
+  const response = yield fetch('http://localhost:5555/memberdata/' + id, {
+    method: 'PATCH',
+    body: JSON.stringify(data),
+    headers: new Headers({
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+    }),
+  });
+  const jsonObject = yield response.json();
+  console.log(jsonObject);
+  localStorage.setItem('user', JSON.stringify(jsonObject));
+  console.log(JSON.parse(localStorage.getItem('user')));
+  let this_user = JSON.parse(localStorage.getItem('user'));
+  console.log(this_user);
+  yield alert('刪除成功');
+  const action = checkLoginState(this_user);
+  yield put(action);
+}
 //窩窩專案
 
 function* addItemAction(newItem) {
@@ -372,6 +398,7 @@ function* mySaga() {
   yield takeEvery(BIG_MESSAGE, bigMessageAction);
   yield takeEvery(LITTLE_MESSAGE, littleMsg);
   yield takeEvery(ADD_CART, addcartAction);
+  yield takeEvery(DELETE_CART, deleteCartAction);
 
   //窩窩專案
 }
