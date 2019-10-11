@@ -37,10 +37,27 @@ import {
   LITTLE_MESSAGE,
   ADD_CART,
   DELETE_CART,
+  CLEAN_RECIPIENT,
+  ZONE_LOAD,
+  ZONE_CHANGE,
 } from './actionTypes.js';
 
 //窩窩專案的
 
+export const zoneChangeAction = townops => ({
+  type: ZONE_CHANGE,
+  townops,
+});
+
+export const loadZoneAction = (cityops, townops) => ({
+  type: ZONE_LOAD,
+  cityops,
+  townops,
+});
+
+export const cleanRecipientAction = () => ({
+  type: CLEAN_RECIPIENT,
+});
 export const deleteCartAction = delItem => ({
   type: DELETE_CART,
   delItem,

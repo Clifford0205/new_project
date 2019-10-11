@@ -23,6 +23,9 @@ import {
   CHANGE_IMG,
   PLUS_NUM,
   MINUS_NUM,
+  CLEAN_RECIPIENT,
+  ZONE_LOAD,
+  ZONE_CHANGE,
 } from './actionTypes.js';
 
 const defaultState = {
@@ -79,12 +82,41 @@ const defaultState = {
   little_total: 0,
   Big_message: '',
   bigTotal: 0,
+  recipient_name: '',
+  recipient_mail: '',
+  recipient_mobile: '',
+  cityops: [],
+  townops: [],
   //窩窩專案
 };
 
 //reducer 可以接受state, 但絕不能修改state
 export default (state = defaultState, action) => {
   //窩窩專案
+
+  //換城市時更換地區
+  if (action.type === ZONE_CHANGE) {
+    const newState = JSON.parse(JSON.stringify(state));
+    newState.townops = action.townops;
+    return newState;
+  }
+
+  //載入預設地區
+  if (action.type === ZONE_LOAD) {
+    const newState = JSON.parse(JSON.stringify(state));
+    console.log(action.cityops);
+    newState.cityops = action.cityops;
+    newState.townops = action.townops;
+    return newState;
+  }
+
+  if (action.type === CLEAN_RECIPIENT) {
+    const newState = JSON.parse(JSON.stringify(state));
+    newState.recipient_name = '';
+    newState.recipient_mail = '';
+    newState.recipient_mobile = '';
+    return newState;
+  }
 
   if (action.type === PLUS_NUM) {
     const newState = JSON.parse(JSON.stringify(state));

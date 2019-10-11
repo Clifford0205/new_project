@@ -4,7 +4,7 @@ import Language from '../component/Language';
 import MyNavbar from '../component/MyNavbar';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import store from '../store/index.js';
-import './ShoppingCart.scss';
+import './CheckOut.scss';
 import $ from 'jquery';
 import { Link, Redirect, withRouter } from 'react-router-dom';
 import 'animate.css/animate.min.css';
@@ -12,7 +12,11 @@ import {
   InputChangeAction,
   getProducteAction,
   deleteCartAction,
+  cleanRecipientAction,
+  loadZoneAction,
+  zoneChangeAction,
 } from '../store/actionCreators.js';
+import Zone_data from '../component/Zone_data';
 
 class ShoppingCart extends React.Component {
   constructor(props) {
@@ -37,7 +41,40 @@ class ShoppingCart extends React.Component {
     let action = '';
     action = getProducteAction();
     store.dispatch(action);
+
+    let cityops = [];
+    let townops = [];
+    // for (let i = 0; i < Zone_data.length; i++) {
+    //   cityops.push(
+    //     `<option value=${Zone_data[i].城市}>${Zone_data[i].城市}</option>`
+    //   );
+    // }
+    // for (let j = 0; j < Zone_data[0].地區.length; j++) {
+    //   townops.push(
+    //     <option value={Zone_data[0].地區[j]}>{Zone_data[0].地區[j]}</option>
+    //   );
+    // }
+    for (let i = 0; i < Zone_data.length; i++) {
+      cityops.push(Zone_data[i].城市);
+    }
+
+    for (let j = 0; j < Zone_data[0].地區.length; j++) {
+      townops.push(Zone_data[0].地區[j]);
+    }
+
+    action = loadZoneAction(cityops, townops);
+    store.dispatch(action);
   }
+
+  changeArea = e => {
+    let index = Zone_data.findIndex(item => item.城市 === e.target.value);
+    let townops = [];
+    for (let j = 0; j < Zone_data[index].地區.length; j++) {
+      townops.push(Zone_data[index].地區[j]);
+    }
+    const action = zoneChangeAction(townops);
+    store.dispatch(action);
+  };
 
   handleFormInputChange = e => {
     const action = InputChangeAction(e.target.value, e.target.name);
@@ -57,6 +94,27 @@ class ShoppingCart extends React.Component {
 
     document.querySelector(`.${e.target.id}`).classList.add('show');
     document.querySelector(`#${e.target.id}`).classList.add('active');
+  };
+
+  handleTitleClick = e => {
+    console.log(e.target.id);
+    let allhide = document.querySelectorAll('.thehide');
+    let alltitle = document.querySelectorAll('.the-title');
+    for (let i = 0; i < allhide.length; i++) {
+      allhide[i].value = '';
+      allhide[i].classList.remove('show');
+    }
+    for (let i = 0; i < alltitle.length; i++) {
+      alltitle[i].classList.remove('active');
+    }
+
+    document.querySelector(`.${e.target.id}`).classList.add('show');
+    document.querySelector(`#${e.target.id}`).classList.add('active');
+  };
+
+  handleClean = () => {
+    const action = cleanRecipientAction();
+    store.dispatch(action);
   };
 
   handleCancel = e => {
@@ -81,34 +139,19 @@ class ShoppingCart extends React.Component {
   };
 
   render() {
+    console.log(this.state);
     return (
       <>
         <GoBack />
         <MyNavbar />
-        <Container className="ShoppingCart">
+        <Container className="CheckOut">
           <section>
             <img src="/images/2000x.webp" alt="" className="w-100" />
           </section>
-          <Container className="CaseStudies pb-5">
-            <h2 className="text-center">購物車和訂單紀錄</h2>
-            <ul className="d-flex   my-3 choose-title">
-              <li
-                className="w-100 text-center the-title active"
-                id="cart"
-                onClick={this.handleTitleClick}
-              >
-                我的購物車
-              </li>
-              <li
-                className="w-100  text-center the-title "
-                id="buy-record"
-                onClick={this.handleTitleClick}
-              >
-                購買紀錄
-              </li>
-            </ul>
+          <div className="pb-5">
+            <h2 className="text-center">結帳頁面</h2>
 
-            <div className="cart thehide show">
+            <div className="cart">
               <ul>
                 {this.state.my_cart.map(item => (
                   <li key={item.id} className="row">
@@ -139,6 +182,109 @@ class ShoppingCart extends React.Component {
               <div>
                 <p className="text-right">總計:{this.state.bigTotal}</p>
               </div>
+              <div className="order-info">
+                <div className="order-title">訂購人資料</div>
+                <ul className="">
+                  <li>
+                    姓名:
+                    <input type="text" value={this.state.my_name} readOnly />
+                  </li>
+                  <li>
+                    E-mail:
+                    <input type="text" value={this.state.my_mail} readOnly />
+                  </li>
+                  <li>
+                    手機號碼:
+                    <input type="text" value={this.state.my_mobile} readOnly />
+                  </li>
+                </ul>
+              </div>
+
+              <div className="Recipient-info">
+                <div className="Recipient-title">收件人資料</div>
+                <ul className="d-flex   my-3 choose-title">
+                  <li
+                    className="w-100 text-center the-title active"
+                    id="same"
+                    // onClick={event => {
+                    //   this.handleTitleClick;
+                    //   func2();
+                    // }}
+                    onClick={event => {
+                      this.handleTitleClick(event);
+                      this.handleClean(event);
+                    }}
+                  >
+                    同訂購人
+                  </li>
+                  <li
+                    class="w-100  text-center the-title "
+                    id="new"
+                    onClick={this.handleTitleClick}
+                  >
+                    新增資料
+                  </li>
+                </ul>
+                <ul className="thehide same show">
+                  <li>
+                    姓名: <input type="text" value={this.state.my_name} />
+                  </li>
+                  <li>
+                    E-mail: <input type="text" value={this.state.my_mail} />
+                  </li>
+                  <li>
+                    手機號碼: <input type="text" value={this.state.my_mobile} />
+                  </li>
+                </ul>
+
+                <ul className="thehide new">
+                  <li>
+                    姓名:
+                    <input
+                      type="text"
+                      value={this.state.recipient_name}
+                      onChange={this.handleFormInputChange}
+                      name="recipient_name"
+                    />
+                  </li>
+                  <li>
+                    E-mail:
+                    <input
+                      type="text"
+                      value={this.state.recipient_mail}
+                      onChange={this.handleFormInputChange}
+                      name="recipient_mail"
+                    />
+                  </li>
+                  <li>
+                    手機號碼:
+                    <input
+                      type="text"
+                      value={this.state.recipient_mobile}
+                      onChange={this.handleFormInputChange}
+                      name="recipient_mobile"
+                    />
+                  </li>
+                </ul>
+
+                <div>
+                  <select onChange={this.changeArea}>
+                    {this.state.cityops.map((item, index) => (
+                      <option key={index} value={item}>
+                        {item}
+                      </option>
+                    ))}
+                  </select>
+                  <select>
+                    {this.state.townops.map((item, index) => (
+                      <option key={index} value={item}>
+                        {item}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
               <div>
                 <Button className="ml-auto d-block ">前往結帳</Button>
               </div>
@@ -153,7 +299,7 @@ class ShoppingCart extends React.Component {
                 修改密碼
               </Button>
             </div>
-          </Container>
+          </div>
         </Container>
 
         <Language />

@@ -476,13 +476,6 @@
       "m_birthday": "2019-09-04",
       "shopping_cart": [
         {
-          "product_id": 2001,
-          "amount": 4,
-          "id": 1,
-          "price": 6990,
-          "img": "https://shoplineimg.com/5cc80df915c071000101084d/5d3ac57aa7a8c9003bb23604/600x.webp?source_format=png"
-        },
-        {
           "product_id": 2004,
           "amount": 5,
           "id": 2,

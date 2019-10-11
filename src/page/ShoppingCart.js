@@ -89,7 +89,7 @@ class ShoppingCart extends React.Component {
           <section>
             <img src="/images/2000x.webp" alt="" className="w-100" />
           </section>
-          <Container className="CaseStudies pb-5">
+          <Container className="pb-5">
             <h2 className="text-center">購物車和訂單紀錄</h2>
             <ul className="d-flex   my-3 choose-title">
               <li
@@ -140,7 +140,9 @@ class ShoppingCart extends React.Component {
                 <p className="text-right">總計:{this.state.bigTotal}</p>
               </div>
               <div>
-                <Button className="ml-auto d-block ">前往結帳</Button>
+                <Link to={`/member/checkout/${this.state.my_id}`}>
+                  <Button className="ml-auto d-block ">前往結帳</Button>
+                </Link>
               </div>
             </div>
             <div className="buy-record thehide">

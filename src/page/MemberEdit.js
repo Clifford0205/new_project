@@ -114,7 +114,7 @@ class BloodStudies extends React.Component {
           <section>
             <img src="/images/2000x.webp" alt="" className="w-100" />
           </section>
-          <Container className="CaseStudies pb-5">
+          <Container className="pb-5">
             <h2 className="text-center">會員中心</h2>
             <ul className="d-flex   my-3 choose-title">
               <li

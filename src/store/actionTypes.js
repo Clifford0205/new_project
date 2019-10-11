@@ -38,3 +38,6 @@ export const BIG_MESSAGE = 'big_message';
 export const LITTLE_MESSAGE = 'little_message';
 export const ADD_CART = 'add_cart';
 export const DELETE_CART = 'delete_cart';
+export const CLEAN_RECIPIENT = 'clean_recipient';
+export const ZONE_LOAD = 'zone_load';
+export const ZONE_CHANGE = 'zone_change';
