@@ -41,3 +41,5 @@ export const DELETE_CART = 'delete_cart';
 export const CLEAN_RECIPIENT = 'clean_recipient';
 export const ZONE_LOAD = 'zone_load';
 export const ZONE_CHANGE = 'zone_change';
+export const ZONE_STATE = 'zone_state';
+export const CREDIT_CARD = 'credit_card';

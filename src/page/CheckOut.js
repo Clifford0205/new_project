@@ -15,6 +15,8 @@ import {
   cleanRecipientAction,
   loadZoneAction,
   zoneChangeAction,
+  zoneSaveAction,
+  cardNumberAction,
 } from '../store/actionCreators.js';
 import Zone_data from '../component/Zone_data';
 
@@ -44,16 +46,7 @@ class ShoppingCart extends React.Component {
 
     let cityops = [];
     let townops = [];
-    // for (let i = 0; i < Zone_data.length; i++) {
-    //   cityops.push(
-    //     `<option value=${Zone_data[i].城市}>${Zone_data[i].城市}</option>`
-    //   );
-    // }
-    // for (let j = 0; j < Zone_data[0].地區.length; j++) {
-    //   townops.push(
-    //     <option value={Zone_data[0].地區[j]}>{Zone_data[0].地區[j]}</option>
-    //   );
-    // }
+
     for (let i = 0; i < Zone_data.length; i++) {
       cityops.push(Zone_data[i].城市);
     }
@@ -64,6 +57,10 @@ class ShoppingCart extends React.Component {
 
     action = loadZoneAction(cityops, townops);
     store.dispatch(action);
+  }
+
+  componentDidUpdate() {
+    console.log(this.state);
   }
 
   changeArea = e => {
@@ -78,6 +75,11 @@ class ShoppingCart extends React.Component {
 
   handleFormInputChange = e => {
     const action = InputChangeAction(e.target.value, e.target.name);
+    store.dispatch(action);
+  };
+
+  handleAreaState = e => {
+    const action = zoneSaveAction(e.target.value, e.target.name);
     store.dispatch(action);
   };
 
@@ -135,6 +137,28 @@ class ShoppingCart extends React.Component {
       id: member_id,
     };
     const action = deleteCartAction(delItem);
+    store.dispatch(action);
+  };
+
+  handleNext = (event, next) => {
+    if (event.target.value.length == event.target.maxLength) {
+      document.querySelector(`.${next}`).focus();
+    }
+  };
+
+  handleCardNo = e => {
+    let cardnum = '';
+    let allcardno = document.querySelectorAll('.cardno');
+
+    for (let i = 0; i < allcardno.length; i++) {
+      if (i < 3) {
+        cardnum += allcardno[i].value + '-';
+      } else {
+        cardnum += allcardno[i].value;
+      }
+    }
+
+    const action = cardNumberAction(cardnum);
     store.dispatch(action);
   };
 
@@ -206,10 +230,6 @@ class ShoppingCart extends React.Component {
                   <li
                     className="w-100 text-center the-title active"
                     id="same"
-                    // onClick={event => {
-                    //   this.handleTitleClick;
-                    //   func2();
-                    // }}
                     onClick={event => {
                       this.handleTitleClick(event);
                       this.handleClean(event);
@@ -218,7 +238,7 @@ class ShoppingCart extends React.Component {
                     同訂購人
                   </li>
                   <li
-                    class="w-100  text-center the-title "
+                    className="w-100  text-center the-title "
                     id="new"
                     onClick={this.handleTitleClick}
                   >
@@ -267,22 +287,89 @@ class ShoppingCart extends React.Component {
                   </li>
                 </ul>
 
-                <div>
-                  <select onChange={this.changeArea}>
-                    {this.state.cityops.map((item, index) => (
-                      <option key={index} value={item}>
-                        {item}
-                      </option>
-                    ))}
-                  </select>
-                  <select>
-                    {this.state.townops.map((item, index) => (
-                      <option key={index} value={item}>
-                        {item}
-                      </option>
-                    ))}
-                  </select>
+                <div className="row">
+                  <Col>
+                    <select
+                      onChange={e => {
+                        this.changeArea(e);
+                        this.handleAreaState(e);
+                      }}
+                      name="delivery_city"
+                    >
+                      {this.state.cityops.map((item, index) => (
+                        <option key={index} value={item}>
+                          {item}
+                        </option>
+                      ))}
+                    </select>
+                  </Col>
+                  <Col>
+                    <select
+                      onChange={e => {
+                        this.handleAreaState(e);
+                      }}
+                      name="delivery_town"
+                    >
+                      {this.state.townops.map((item, index) => (
+                        <option key={index} value={item}>
+                          {item}
+                        </option>
+                      ))}
+                    </select>
+                  </Col>
+
+                  <Col>
+                    路段地址:
+                    <input
+                      type="text"
+                      value={this.state.recipient_road}
+                      onChange={this.handleFormInputChange}
+                      name="recipient_road"
+                    />
+                  </Col>
                 </div>
+              </div>
+
+              <div className="">
+                信用卡卡號:
+                <input
+                  type="text"
+                  name="T1"
+                  maxLength="4"
+                  size="4"
+                  onKeyUp={(event, T2) => this.handleNext(event, 'T2')}
+                  className="T1 cardno"
+                  onChange={e => this.handleCardNo(e)}
+                />
+                -
+                <input
+                  type="text"
+                  name="T2"
+                  maxLength="4"
+                  size="4"
+                  onKeyUp={(event, T2) => this.handleNext(event, 'T3')}
+                  className="T2 cardno"
+                  onChange={e => this.handleCardNo(e)}
+                />
+                -
+                <input
+                  type="text"
+                  name="T3"
+                  maxLength="4"
+                  size="4"
+                  onKeyUp={(event, T2) => this.handleNext(event, 'T4')}
+                  className="T3 cardno"
+                  onChange={e => this.handleCardNo(e)}
+                />
+                -
+                <input
+                  type="text"
+                  name="T4"
+                  maxLength="4"
+                  size="4"
+                  className="T4 cardno"
+                  onChange={e => this.handleCardNo(e)}
+                />
               </div>
 
               <div>

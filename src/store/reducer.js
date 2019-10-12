@@ -26,6 +26,8 @@ import {
   CLEAN_RECIPIENT,
   ZONE_LOAD,
   ZONE_CHANGE,
+  ZONE_STATE,
+  CREDIT_CARD,
 } from './actionTypes.js';
 
 const defaultState = {
@@ -87,12 +89,33 @@ const defaultState = {
   recipient_mobile: '',
   cityops: [],
   townops: [],
+  delivery_city: '',
+  delivery_town: '',
+  recipient_road: '',
+  card_number: '',
   //窩窩專案
 };
 
 //reducer 可以接受state, 但絕不能修改state
 export default (state = defaultState, action) => {
   //窩窩專案
+
+  if (action.type === CREDIT_CARD) {
+    const newState = JSON.parse(JSON.stringify(state));
+    newState.card_number = action.cardnum;
+    return newState;
+  }
+
+  //存取地區進入state
+  if (action.type === ZONE_STATE) {
+    const newState = JSON.parse(JSON.stringify(state));
+    for (var s in newState) {
+      if (s === action.name) {
+        newState[s] = action.value;
+      }
+    }
+    return newState;
+  }
 
   //換城市時更換地區
   if (action.type === ZONE_CHANGE) {

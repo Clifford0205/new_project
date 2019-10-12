@@ -40,10 +40,22 @@ import {
   CLEAN_RECIPIENT,
   ZONE_LOAD,
   ZONE_CHANGE,
+  ZONE_STATE,
+  CREDIT_CARD,
 } from './actionTypes.js';
 
 //窩窩專案的
 
+export const cardNumberAction = cardnum => ({
+  type: CREDIT_CARD,
+  cardnum,
+});
+
+export const zoneSaveAction = (value, name) => ({
+  type: ZONE_STATE,
+  value,
+  name,
+});
 export const zoneChangeAction = townops => ({
   type: ZONE_CHANGE,
   townops,
