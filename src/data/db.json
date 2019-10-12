@@ -439,6 +439,7 @@
       "m_mobile": "0955888888",
       "m_birthday": "1990/03/05",
       "shopping_cart": [],
+      "buy_record": [],
       "id": 1
     },
     {
@@ -448,6 +449,7 @@
       "m_mobile": "tttt",
       "m_birthday": "2019-09-03",
       "shopping_cart": [],
+      "buy_record": [],
       "id": 2
     },
     {
@@ -457,6 +459,7 @@
       "m_mobile": "fgrty",
       "m_birthday": "2019-09-03",
       "shopping_cart": [],
+      "buy_record": [],
       "id": 3
     },
     {
@@ -466,6 +469,7 @@
       "m_mobile": "eryery",
       "m_birthday": "",
       "shopping_cart": [],
+      "buy_record": [],
       "id": 4
     },
     {
@@ -474,6 +478,7 @@
       "m_name": "yyysdjjtyuy56",
       "m_mobile": "yyyy53",
       "m_birthday": "2019-09-04",
+      "buy_record": [],
       "shopping_cart": [
         {
           "product_id": 2004,
@@ -488,6 +493,14 @@
           "id": 3,
           "price": 6990,
           "img": "https://shoplineimg.com/5cc80df915c071000101084d/5d3ac4f44833290035a47696/600x.webp?source_format=png"
+        },
+        {
+          "product_id": 2005,
+          "prodtitle_name": "愜意",
+          "amount": 3,
+          "id": 4,
+          "price": 6990,
+          "img": "https://shoplineimg.com/5cc80df915c071000101084d/5d3a6486884bf81c501f2c44/600x.webp?source_format=png"
         }
       ],
       "id": 5

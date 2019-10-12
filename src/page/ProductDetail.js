@@ -241,9 +241,13 @@ class ProductDetail extends React.Component {
 
     //該品項價錢
     let price = theProductData.price;
-    //該品項id
+
+    //該品項名稱
+    let product_name = theProductData.chinese.title;
+
     console.log(theProductData.imglist[0].img);
     let img = theProductData.imglist[0].img;
+    //該品項id
     let product_id = +this.props.match.params.id;
     //該品項數量
     let amount = this.state.little_total;
@@ -266,10 +270,12 @@ class ProductDetail extends React.Component {
       m_name: this.state.my_name,
       m_mobile: this.state.my_mobile,
       m_birthday: this.state.my_birthday,
+      buy_record: this.state.my_buy_record,
       shopping_cart: [
         ...this.state.my_cart,
         {
           product_id: product_id,
+          prodtitle_name: product_name,
           amount: amount,
           id: cart_id,
           price: price,

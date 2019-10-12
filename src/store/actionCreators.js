@@ -42,9 +42,16 @@ import {
   ZONE_CHANGE,
   ZONE_STATE,
   CREDIT_CARD,
+  PAY_WAY,
 } from './actionTypes.js';
 
 //窩窩專案的
+
+export const payWayAction = (value, name) => ({
+  type: PAY_WAY,
+  value,
+  name,
+});
 
 export const cardNumberAction = cardnum => ({
   type: CREDIT_CARD,

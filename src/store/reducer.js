@@ -28,6 +28,7 @@ import {
   ZONE_CHANGE,
   ZONE_STATE,
   CREDIT_CARD,
+  PAY_WAY,
 } from './actionTypes.js';
 
 const defaultState = {
@@ -76,6 +77,7 @@ const defaultState = {
   my_mobile: '',
   my_birthday: '',
   my_cart: [],
+  my_buy_record: [],
   my_id: '',
   old_password: '',
   new_password: '',
@@ -93,12 +95,33 @@ const defaultState = {
   delivery_town: '',
   recipient_road: '',
   card_number: '',
+  valid_month: '',
+  valid_year: '',
+  back_num: '',
+  pay_way: '',
   //窩窩專案
 };
 
 //reducer 可以接受state, 但絕不能修改state
 export default (state = defaultState, action) => {
   //窩窩專案
+
+  if (action.type === PAY_WAY) {
+    const newState = JSON.parse(JSON.stringify(state));
+    for (var s in newState) {
+      if (s === action.name) {
+        newState[s] = action.value;
+        if (action.value !== 'credit_card') {
+          newState.card_number = '';
+          newState.valid_month = '';
+          newState.valid_year = '';
+          newState.back_num = '';
+        }
+      }
+    }
+
+    return newState;
+  }
 
   if (action.type === CREDIT_CARD) {
     const newState = JSON.parse(JSON.stringify(state));
@@ -172,6 +195,7 @@ export default (state = defaultState, action) => {
     newState.my_birthday = action.userdata.m_birthday;
     newState.my_cart = action.userdata.shopping_cart;
     newState.my_id = action.userdata.id;
+    newState.my_buy_record = action.userdata.buy_record;
     if (action.userdata.shopping_cart.length !== 0) {
       let l_total = action.userdata.shopping_cart.map(
         item => item.amount * item.price

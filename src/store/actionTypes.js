@@ -43,3 +43,4 @@ export const ZONE_LOAD = 'zone_load';
 export const ZONE_CHANGE = 'zone_change';
 export const ZONE_STATE = 'zone_state';
 export const CREDIT_CARD = 'credit_card';
+export const PAY_WAY = 'pay_way';

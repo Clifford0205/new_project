@@ -17,6 +17,7 @@ import {
   zoneChangeAction,
   zoneSaveAction,
   cardNumberAction,
+  payWayAction,
 } from '../store/actionCreators.js';
 import Zone_data from '../component/Zone_data';
 
@@ -162,6 +163,51 @@ class ShoppingCart extends React.Component {
     store.dispatch(action);
   };
 
+  handleValidMonth = e => {
+    const action = InputChangeAction(e.target.value, e.target.name);
+    store.dispatch(action);
+  };
+
+  handleValidYear = e => {
+    const action = InputChangeAction(e.target.value, e.target.name);
+    store.dispatch(action);
+  };
+
+  handlePayWay = e => {
+    const action = payWayAction(e.target.value, e.target.name);
+    store.dispatch(action);
+    let allcardno = document.querySelectorAll('.cardno');
+
+    for (let i = 0; i < allcardno.length; i++) {
+      allcardno[i].value = '';
+    }
+  };
+
+  handleBuy = () => {
+    var Today = new Date();
+    let now =
+      Today.getFullYear() +
+      '/' +
+      (Today.getMonth() + 1) +
+      '/' +
+      Today.getDate() +
+      ' ' +
+      Today.getHours();
+
+    let minutes = '0' + Today.getMinutes();
+    let m = minutes.slice(minutes.length - 2, minutes.length);
+
+    let time = now + ':' + m;
+    const buy_record = {
+      buy_record: {
+        buy_record: {
+          time: time,
+        },
+      },
+      id: this.state.my_id,
+    };
+  };
+
   render() {
     console.log(this.state);
     return (
@@ -174,7 +220,6 @@ class ShoppingCart extends React.Component {
           </section>
           <div className="pb-5">
             <h2 className="text-center">結帳頁面</h2>
-
             <div className="cart">
               <ul>
                 {this.state.my_cart.map(item => (
@@ -223,7 +268,6 @@ class ShoppingCart extends React.Component {
                   </li>
                 </ul>
               </div>
-
               <div className="Recipient-info">
                 <div className="Recipient-title">收件人資料</div>
                 <ul className="d-flex   my-3 choose-title">
@@ -296,11 +340,21 @@ class ShoppingCart extends React.Component {
                       }}
                       name="delivery_city"
                     >
-                      {this.state.cityops.map((item, index) => (
-                        <option key={index} value={item}>
-                          {item}
-                        </option>
-                      ))}
+                      {this.state.cityops.map((item, index) => {
+                        if (index === 0) {
+                          return (
+                            <option key={index} value={item} disabled selected>
+                              {item}
+                            </option>
+                          );
+                        } else {
+                          return (
+                            <option key={index} value={item}>
+                              {item}
+                            </option>
+                          );
+                        }
+                      })}
                     </select>
                   </Col>
                   <Col>
@@ -310,11 +364,21 @@ class ShoppingCart extends React.Component {
                       }}
                       name="delivery_town"
                     >
-                      {this.state.townops.map((item, index) => (
-                        <option key={index} value={item}>
-                          {item}
-                        </option>
-                      ))}
+                      {this.state.townops.map((item, index) => {
+                        if (index === 0) {
+                          return (
+                            <option key={index} value={item} disabled selected>
+                              {item}
+                            </option>
+                          );
+                        } else {
+                          return (
+                            <option key={index} value={item}>
+                              {item}
+                            </option>
+                          );
+                        }
+                      })}
                     </select>
                   </Col>
 
@@ -325,66 +389,138 @@ class ShoppingCart extends React.Component {
                       value={this.state.recipient_road}
                       onChange={this.handleFormInputChange}
                       name="recipient_road"
+                      className=""
                     />
                   </Col>
                 </div>
               </div>
-
               <div className="">
-                信用卡卡號:
-                <input
-                  type="text"
-                  name="T1"
-                  maxLength="4"
-                  size="4"
-                  onKeyUp={(event, T2) => this.handleNext(event, 'T2')}
-                  className="T1 cardno"
-                  onChange={e => this.handleCardNo(e)}
-                />
-                -
-                <input
-                  type="text"
-                  name="T2"
-                  maxLength="4"
-                  size="4"
-                  onKeyUp={(event, T2) => this.handleNext(event, 'T3')}
-                  className="T2 cardno"
-                  onChange={e => this.handleCardNo(e)}
-                />
-                -
-                <input
-                  type="text"
-                  name="T3"
-                  maxLength="4"
-                  size="4"
-                  onKeyUp={(event, T2) => this.handleNext(event, 'T4')}
-                  className="T3 cardno"
-                  onChange={e => this.handleCardNo(e)}
-                />
-                -
-                <input
-                  type="text"
-                  name="T4"
-                  maxLength="4"
-                  size="4"
-                  className="T4 cardno"
-                  onChange={e => this.handleCardNo(e)}
-                />
+                請選擇付款方式
+                <select
+                  name="pay_way"
+                  id=""
+                  onChange={e => this.handlePayWay(e)}
+                >
+                  <option value="" disabled selected>
+                    請選擇
+                  </option>
+                  <option value="cash">貨到付款</option>
+                  <option value="credit_card">信用卡</option>
+                </select>
               </div>
+              <Row
+                className="mt-3"
+                style={{
+                  display: `${
+                    this.state.pay_way === 'credit_card' ? 'flex' : 'none'
+                  }`,
+                }}
+              >
+                <Col>
+                  信用卡卡號:
+                  <input
+                    type="text"
+                    name="T1"
+                    maxLength="4"
+                    size="4"
+                    onKeyUp={(event, T2) => this.handleNext(event, 'T2')}
+                    className="T1 cardno"
+                    onChange={e => this.handleCardNo(e)}
+                  />
+                  -
+                  <input
+                    type="text"
+                    name="T2"
+                    maxLength="4"
+                    size="4"
+                    onKeyUp={(event, T2) => this.handleNext(event, 'T3')}
+                    className="T2 cardno"
+                    onChange={e => this.handleCardNo(e)}
+                  />
+                  -
+                  <input
+                    type="text"
+                    name="T3"
+                    maxLength="4"
+                    size="4"
+                    onKeyUp={(event, T2) => this.handleNext(event, 'T4')}
+                    className="T3 cardno"
+                    onChange={e => this.handleCardNo(e)}
+                  />
+                  -
+                  <input
+                    type="text"
+                    name="T4"
+                    maxLength="4"
+                    size="4"
+                    className="T4 cardno"
+                    onChange={e => this.handleCardNo(e)}
+                  />
+                </Col>
+                <Col>
+                  有效日期:
+                  <select
+                    name="valid_month"
+                    id=""
+                    onChange={e => this.handleValidMonth(e)}
+                    value={this.state.valid_month}
+                  >
+                    <option disabled selected value="">
+                      請選擇
+                    </option>
+                    <option>01</option>
+                    <option>02</option>
+                    <option>03</option>
+                    <option>04</option>
+                    <option>05</option>
+                    <option>06</option>
+                    <option>07</option>
+                    <option>08</option>
+                    <option>09</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                  </select>
+                  月
+                  <select
+                    name="valid_year"
+                    id=""
+                    onChange={e => this.handleValidYear(e)}
+                    value={this.state.valid_year}
+                  >
+                    <option disabled selected value="">
+                      請選擇
+                    </option>
+                    <option>2019</option>
+                    <option>2020</option>
+                    <option>2021</option>
+                    <option>2022</option>
+                    <option>2023</option>
+                  </select>
+                  年
+                </Col>
+                <Col>
+                  背面末三碼:
+                  <input
+                    type="text"
+                    maxLength="3"
+                    size="3"
+                    name="back_num"
+                    onChange={e => this.handleFormInputChange(e)}
+                    value={this.state.back_num}
+                  />
+                </Col>
+              </Row>
 
               <div>
-                <Button className="ml-auto d-block ">前往結帳</Button>
+                <h3 className="text-right">總計:{this.state.bigTotal}</h3>
+                <Button
+                  className="ml-auto d-block "
+                  onClick={e => this.handleBuy(e)}
+                >
+                  確認購買
+                </Button>
               </div>
-            </div>
-            <div className="buy-record thehide">
-              <ul></ul>
-
-              <Button
-                className="d-block mx-auto  "
-                onClick={this.handleModifyPassword}
-              >
-                修改密碼
-              </Button>
             </div>
           </div>
         </Container>
