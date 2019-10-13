@@ -19,6 +19,7 @@ import {
   cardNumberAction,
   payWayAction,
   addInorderAction,
+  newRecipientAction,
 } from '../store/actionCreators.js';
 import Zone_data from '../component/Zone_data';
 
@@ -118,6 +119,11 @@ class ShoppingCart extends React.Component {
 
   handleClean = () => {
     const action = cleanRecipientAction();
+    store.dispatch(action);
+  };
+
+  handleNewRecipient = () => {
+    const action = newRecipientAction();
     store.dispatch(action);
   };
 
@@ -223,7 +229,71 @@ class ShoppingCart extends React.Component {
 
     let orderer = this.state.my_name;
 
-    console.log(this.state.my_buy_record);
+    let orderer_mail = this.state.my_mail;
+
+    let recipient_name = this.state.new_recipient
+      ? this.state.recipient_name
+      : this.state.my_name;
+
+    let recipient_mobile = this.state.new_recipient
+      ? this.state.recipient_mobile
+      : this.state.my_mobile;
+
+    if (this.state.new_recipient && this.state.recipient_name === '') {
+      alert('請輸入收件人姓名');
+      return;
+    }
+
+    if (this.state.new_recipient && this.state.recipient_mobile === '') {
+      alert('請輸入收件人手機號碼');
+      return;
+    }
+    console.log();
+
+    let delivery_city = this.state.delivery_city;
+
+    let delivery_town = this.state.delivery_town;
+
+    let recipient_road = this.state.recipient_road;
+
+    if (
+      delivery_city.trim() === '' ||
+      delivery_town.trim() === '' ||
+      recipient_road.trim() === ''
+    ) {
+      alert('請輸入完整地址');
+      return;
+    }
+
+    let pay_way = this.state.pay_way;
+
+    let card_number = this.state.card_number;
+    let valid_month = this.state.valid_month;
+    let valid_year = this.state.valid_year;
+    let back_num = this.state.back_num;
+
+    if (this.state.pay_way === 'credit_card') {
+      if (card_number.length < 19) {
+        alert('卡號輸入有誤');
+        return;
+      }
+
+      if (!valid_month) {
+        alert('請輸入正確日期');
+        return;
+      }
+
+      if (!valid_year) {
+        alert('請輸入正確日期');
+        return;
+      }
+
+      if (back_num.length < 3) {
+        alert('背面末三碼填寫錯誤');
+        return;
+      }
+    }
+    console.log(delivery_city);
 
     const data = {
       buy_record: {
@@ -234,8 +304,16 @@ class ShoppingCart extends React.Component {
             id: record_id,
             product: product,
             total: total,
+            orderer: orderer,
+            orderer_mail: orderer_mail,
+            recipient_name: recipient_name,
+            recipient_mobile: recipient_mobile,
+            delivery_city: delivery_city,
+            delivery_town: delivery_town,
+            recipient_road: recipient_road,
           },
         ],
+        shopping_cart: [],
       },
       id: this.state.my_id,
     };
@@ -254,7 +332,20 @@ class ShoppingCart extends React.Component {
           <section>
             <img src="/images/2000x.webp" alt="" className="w-100" />
           </section>
-          <div className="pb-5">
+          <div
+            className="no-product mt-3"
+            style={{
+              display: `${this.state.my_cart.length === 0 ? 'block' : 'none'}`,
+            }}
+          >
+            <h5 className="text-center">目前購物車內無商品</h5>
+          </div>
+          <div
+            className="pb-5"
+            style={{
+              display: `${this.state.my_cart.length === 0 ? 'none' : 'block'}`,
+            }}
+          >
             <h2 className="text-center">結帳頁面</h2>
             <div className="cart">
               <ul>
@@ -320,7 +411,10 @@ class ShoppingCart extends React.Component {
                   <li
                     className="w-100  text-center the-title "
                     id="new"
-                    onClick={this.handleTitleClick}
+                    onClick={event => {
+                      this.handleTitleClick(event);
+                      this.handleNewRecipient(event);
+                    }}
                   >
                     新增資料
                   </li>

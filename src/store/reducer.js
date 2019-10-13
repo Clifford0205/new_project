@@ -29,6 +29,7 @@ import {
   ZONE_STATE,
   CREDIT_CARD,
   PAY_WAY,
+  NEW_RECIPIENT,
 } from './actionTypes.js';
 
 const defaultState = {
@@ -86,6 +87,7 @@ const defaultState = {
   little_total: 0,
   Big_message: '',
   bigTotal: 0,
+  new_recipient: false,
   recipient_name: '',
   recipient_mail: '',
   recipient_mobile: '',
@@ -105,6 +107,12 @@ const defaultState = {
 //reducer 可以接受state, 但絕不能修改state
 export default (state = defaultState, action) => {
   //窩窩專案
+
+  if (action.type === NEW_RECIPIENT) {
+    const newState = JSON.parse(JSON.stringify(state));
+    newState.new_recipient = true;
+    return newState;
+  }
 
   if (action.type === PAY_WAY) {
     const newState = JSON.parse(JSON.stringify(state));
@@ -161,6 +169,7 @@ export default (state = defaultState, action) => {
     newState.recipient_name = '';
     newState.recipient_mail = '';
     newState.recipient_mobile = '';
+    newState.new_recipient = false;
     return newState;
   }
 

@@ -44,10 +44,14 @@ import {
   CREDIT_CARD,
   PAY_WAY,
   ADD_ORDER,
+  NEW_RECIPIENT,
 } from './actionTypes.js';
 
 //窩窩專案的
 
+export const newRecipientAction = () => ({
+  type: NEW_RECIPIENT,
+});
 export const addInorderAction = data => ({
   type: ADD_ORDER,
   data,
