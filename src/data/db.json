@@ -481,24 +481,26 @@
       "buy_record": [],
       "shopping_cart": [
         {
-          "product_id": 2004,
-          "amount": 5,
-          "id": 2,
+          "product_id": 2005,
+          "product_name": "愜意",
+          "amount": 3,
+          "id": 4,
           "price": 6990,
-          "img": "https://shoplineimg.com/5cc80df915c071000101084d/5d3a6b01983eee0038d92b2e/600x.webp?source_format=png"
-        },
-        {
-          "product_id": 2002,
-          "amount": 7,
-          "id": 3,
-          "price": 6990,
-          "img": "https://shoplineimg.com/5cc80df915c071000101084d/5d3ac4f44833290035a47696/600x.webp?source_format=png"
+          "img": "https://shoplineimg.com/5cc80df915c071000101084d/5d3a6486884bf81c501f2c44/600x.webp?source_format=png"
         },
         {
           "product_id": 2005,
-          "prodtitle_name": "愜意",
-          "amount": 3,
-          "id": 4,
+          "product_name": "愜意",
+          "amount": 2,
+          "id": 5,
+          "price": 6990,
+          "img": "https://shoplineimg.com/5cc80df915c071000101084d/5d3a6486884bf81c501f2c44/600x.webp?source_format=png"
+        },
+        {
+          "product_id": 2005,
+          "product_name": "愜意",
+          "amount": 1,
+          "id": 6,
           "price": 6990,
           "img": "https://shoplineimg.com/5cc80df915c071000101084d/5d3a6486884bf81c501f2c44/600x.webp?source_format=png"
         }

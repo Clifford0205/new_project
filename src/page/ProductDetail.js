@@ -262,7 +262,7 @@ class ProductDetail extends React.Component {
       cart_id = 1;
     }
 
-    console.log(cart_id);
+    console.log(this.state.my_cart.slice(-1));
 
     const cart_data = {
       m_mail: this.state.my_mail,
@@ -275,7 +275,7 @@ class ProductDetail extends React.Component {
         ...this.state.my_cart,
         {
           product_id: product_id,
-          prodtitle_name: product_name,
+          product_name: product_name,
           amount: amount,
           id: cart_id,
           price: price,

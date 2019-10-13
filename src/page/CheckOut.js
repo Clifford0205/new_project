@@ -18,6 +18,7 @@ import {
   zoneSaveAction,
   cardNumberAction,
   payWayAction,
+  addInorderAction,
 } from '../store/actionCreators.js';
 import Zone_data from '../component/Zone_data';
 
@@ -184,6 +185,7 @@ class ShoppingCart extends React.Component {
   };
 
   handleBuy = () => {
+    //訂單成立時間
     var Today = new Date();
     let now =
       Today.getFullYear() +
@@ -198,14 +200,48 @@ class ShoppingCart extends React.Component {
     let m = minutes.slice(minutes.length - 2, minutes.length);
 
     let time = now + ':' + m;
-    const buy_record = {
+
+    //放入購買紀錄的id
+    let record_id = '';
+    if (this.state.my_buy_record.length !== 0) {
+      record_id = this.state.my_buy_record.slice(-1)[0].id + 1;
+    } else {
+      record_id = 1;
+    }
+
+    //簡單的商品資料
+    let product = this.state.my_cart.map(item => ({
+      name: item.product_name,
+      amount: item.amount,
+      price: item.price,
+      product_id: item.product_id,
+    }));
+
+    let total = this.state.bigTotal;
+
+    console.log(product);
+
+    let orderer = this.state.my_name;
+
+    console.log(this.state.my_buy_record);
+
+    const data = {
       buy_record: {
-        buy_record: {
-          time: time,
-        },
+        buy_record: [
+          ...this.state.my_buy_record,
+          {
+            time: time,
+            id: record_id,
+            product: product,
+            total: total,
+          },
+        ],
       },
       id: this.state.my_id,
     };
+
+    const action = addInorderAction(data);
+    store.dispatch(action);
   };
 
   render() {
@@ -291,13 +327,16 @@ class ShoppingCart extends React.Component {
                 </ul>
                 <ul className="thehide same show">
                   <li>
-                    姓名: <input type="text" value={this.state.my_name} />
+                    姓名:
+                    <input type="text" value={this.state.my_name} readOnly />
                   </li>
                   <li>
-                    E-mail: <input type="text" value={this.state.my_mail} />
+                    E-mail:
+                    <input type="text" value={this.state.my_mail} readOnly />
                   </li>
                   <li>
-                    手機號碼: <input type="text" value={this.state.my_mobile} />
+                    手機號碼:
+                    <input type="text" value={this.state.my_mobile} readOnly />
                   </li>
                 </ul>
 

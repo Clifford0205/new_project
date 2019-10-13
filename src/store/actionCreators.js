@@ -43,9 +43,15 @@ import {
   ZONE_STATE,
   CREDIT_CARD,
   PAY_WAY,
+  ADD_ORDER,
 } from './actionTypes.js';
 
 //窩窩專案的
+
+export const addInorderAction = data => ({
+  type: ADD_ORDER,
+  data,
+});
 
 export const payWayAction = (value, name) => ({
   type: PAY_WAY,

@@ -44,3 +44,4 @@ export const ZONE_CHANGE = 'zone_change';
 export const ZONE_STATE = 'zone_state';
 export const CREDIT_CARD = 'credit_card';
 export const PAY_WAY = 'pay_way';
+export const ADD_ORDER = 'add_order';
