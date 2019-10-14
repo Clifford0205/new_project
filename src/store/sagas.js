@@ -327,6 +327,7 @@ function* addInOrderAction(newItem) {
   console.log(JSON.parse(localStorage.getItem('user')));
   let this_user = JSON.parse(localStorage.getItem('user'));
   console.log(this_user);
+  yield alert('購買成功');
   const action = checkLoginState(this_user);
   yield put(action);
 }

@@ -4,7 +4,7 @@ import Language from '../component/Language';
 import MyNavbar from '../component/MyNavbar';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import store from '../store/index.js';
-import './ShoppingCart.scss';
+import './BuyRecord.scss';
 import $ from 'jquery';
 import { Link, Redirect, withRouter } from 'react-router-dom';
 import 'animate.css/animate.min.css';
@@ -14,7 +14,7 @@ import {
   deleteCartAction,
 } from '../store/actionCreators.js';
 
-class ShoppingCart extends React.Component {
+class BuyRecord extends React.Component {
   constructor(props) {
     super(props);
     this.state = store.getState();
@@ -84,85 +84,76 @@ class ShoppingCart extends React.Component {
   };
 
   render() {
+    console.log(this.state.my_buy_record);
     return (
       <>
         <GoBack />
         <MyNavbar />
-        <Container className="ShoppingCart">
+        <Container className="BuyRecord">
           <section>
             <img src="/images/2000x.webp" alt="" className="w-100" />
           </section>
           <Container className="pb-5">
-            <h2 className="text-center">購物車和訂單紀錄</h2>
-            <ul className="d-flex   my-3 choose-title">
-              <li
-                className="w-100 text-center the-title active"
-                id="cart"
-                onClick={this.handleTitleClick}
-              >
-                我的購物車
-              </li>
+            <h2 className="text-center">購買紀錄</h2>
+            <ul>
+              {this.state.my_buy_record.map(item => (
+                <li key={item.id} className="single-order">
+                  <Row>
+                    <Col className="">
+                      {item.product.map(item => (
+                        <div className="d-flex">
+                          <Link
+                            to={'/ProductDetail/' + item.product_id}
+                            className=" name text-nowrap"
+                          >
+                            品項:{item.name}
+                          </Link>
+                          <div className="ml-3 amount text-nowrap">
+                            數量:{item.amount}
+                          </div>
+                          <div className="ml-3 price text-nowrap">
+                            單價:{item.price}
+                          </div>
+                        </div>
+                      ))}
+                    </Col>
+
+                    <Col className="">
+                      <div className="recipient_name">
+                        收件人姓名:{item.recipient_name}
+                      </div>
+
+                      <div className="recipient_name">
+                        收件人手機:{item.recipient_mobile}
+                      </div>
+
+                      <div className="recipient_address">
+                        <p>
+                          收件人地址:
+                          {item.delivery_city + '  ' + item.delivery_town}
+                          <br />
+                          {item.recipient_road}
+                        </p>
+                      </div>
+                    </Col>
+
+                    <Col>
+                      <div className="">
+                        <p>訂單總金額:{item.total}</p>
+                      </div>
+                    </Col>
+                  </Row>
+                  <div className="d-flex justify-content-between">
+                    <div className="">
+                      <p>付款方式:{item.pay_way2}</p>
+                    </div>
+                    <div className="">
+                      <p>訂單成立時間:{item.time}</p>
+                    </div>
+                  </div>
+                </li>
+              ))}
             </ul>
-
-            <div className="cart thehide show">
-              <div
-                className="no-product mt-3"
-                style={{
-                  display: `${
-                    this.state.my_cart.length === 0 ? 'block' : 'none'
-                  }`,
-                }}
-              >
-                <h5 className="text-center">目前購物車內無商品</h5>
-              </div>
-              <ul>
-                {this.state.my_cart.map(item => (
-                  <li key={item.id} className="row" data-id={item.id}>
-                    <Link
-                      to={'/ProductDetail/' + item.product_id}
-                      className="col"
-                    >
-                      <img src={item.img} alt="" />
-                    </Link>
-                    <p className="col">購買數量:{item.amount}</p>
-                    <p className="col">單價:{item.price}</p>
-                    <p className="col ">
-                      小計:
-                      <span className="subtotal">
-                        {item.amount * item.price}
-                      </span>
-                    </p>
-
-                    <Button
-                      className="text-center cancel"
-                      onClick={this.handleCancel}
-                    >
-                      X
-                    </Button>
-                  </li>
-                ))}
-              </ul>
-              <div>
-                <p className="text-right">總計:{this.state.bigTotal}</p>
-              </div>
-              <div>
-                <Link to={`/member/checkout/${this.state.my_id}`}>
-                  <Button
-                    className="ml-auto "
-                    style={{
-                      display: `${
-                        this.state.my_cart.length === 0 ? 'none' : 'block'
-                      }`,
-                    }}
-                  >
-                    前往結帳
-                  </Button>
-                </Link>
-              </div>
-            </div>
-            <div className="buy-record thehide">
-              <ul></ul>
-            </div>
           </Container>
         </Container>
 
@@ -172,4 +163,4 @@ class ShoppingCart extends React.Component {
   }
 }
 
-export default withRouter(ShoppingCart);
+export default withRouter(BuyRecord);

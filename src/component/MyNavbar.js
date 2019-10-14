@@ -33,6 +33,8 @@ import {
   checkLoginState,
 } from '../store/actionCreators.js';
 
+import { FaAngleDown } from 'react-icons/fa';
+
 class MyNavbar extends React.Component {
   constructor(props) {
     super(props);
@@ -115,62 +117,72 @@ class MyNavbar extends React.Component {
     return (
       <>
         <div className="MyNav">
-          <Container>
-            <div className="my-navbar">
-              <div className="hanburger">
-                <span className="hanburger-icon">
-                  <div className="bar bar1 transition"></div>
-                  <div className="bar bar2 transition"></div>
-                  <div className="bar bar3 transition"></div>
-                </span>
-              </div>
-              <div className="my-nav-all transition">
-                <ul className="my-navbar-nav">
-                  <li
-                    onClick={this.hanldleOpenRegister}
-                    className={this.state.my_id !== '' ? 'd-none' : 'd-block'}
-                  >
-                    註冊
-                  </li>
-                  <li
-                    onClick={this.hanldleOpenLogin}
-                    className={this.state.my_id !== '' ? 'd-none' : 'd-block'}
-                  >
-                    登入
-                  </li>
+          <div className="forpos">
+            <Link to={'/'} className="logo">
+              <img src="/images/LOGO.webp" alt="" className="w-100" />
+            </Link>
+            <Container>
+              <div className="my-navbar">
+                <div className="hanburger">
+                  <span className="hanburger-icon">
+                    <div className="bar bar1 transition"></div>
+                    <div className="bar bar2 transition"></div>
+                    <div className="bar bar3 transition"></div>
+                  </span>
+                </div>
+                <div className="my-nav-all transition">
+                  <ul className="my-navbar-nav">
+                    <li
+                      onClick={this.hanldleOpenRegister}
+                      className={this.state.my_id !== '' ? 'd-none' : 'd-block'}
+                    >
+                      註冊
+                    </li>
+                    <li
+                      onClick={this.hanldleOpenLogin}
+                      className={this.state.my_id !== '' ? 'd-none' : 'd-block'}
+                    >
+                      登入
+                    </li>
 
-                  <li
-                    className={
-                      this.state.my_id !== '' ? 'the-drop d-block' : 'd-none'
-                    }
-                  >
-                    <div className="my-dropdown">
-                      {this.state.o_name} 會員您好
-                    </div>
-                    <div className="my-menu">
-                      <ul>
-                        <li>
-                          <Link to={`/member/edit/${this.state.my_id}`}>
-                            會員中心
+                    <li
+                      className={
+                        this.state.my_id !== '' ? 'the-drop d-block' : 'd-none'
+                      }
+                    >
+                      <div className="my-dropdown">
+                        {this.state.o_name}
+                        會員您好 <FaAngleDown />
+                      </div>
+                      <div className="my-menu">
+                        <ul>
+                          <li>
+                            <Link to={`/member/edit/${this.state.my_id}`}>
+                              會員中心
+                            </Link>
+                          </li>
+                          <Link to={`/member/cart/${this.state.my_id}`}>
+                            <li>購物車</li>
                           </Link>
-                        </li>
-                        <Link to={`/member/cart/${this.state.my_id}`}>
-                          <li>購物車</li>
-                        </Link>
-                        <li onClick={this.hanldleOpenLogout}>登出</li>
-                      </ul>
-                    </div>
-                  </li>
 
-                  <li>
-                    <Link to={`/productlist`}>商品專區</Link>
-                  </li>
-                  <li>關於我們</li>
-                  <li>關於我們</li>
-                </ul>
+                          <Link to={`/member/buy_record/${this.state.my_id}`}>
+                            <li>購買紀錄</li>
+                          </Link>
+                          <li onClick={this.hanldleOpenLogout}>登出</li>
+                        </ul>
+                      </div>
+                    </li>
+
+                    <li>
+                      <Link to={`/productlist`}>商品專區</Link>
+                    </li>
+                    <li>關於我們</li>
+                    <li>關於我們</li>
+                  </ul>
+                </div>
               </div>
-            </div>
-          </Container>
+            </Container>
+          </div>
           <RegisterModal
             show={this.state.showModalRegister}
             close={this.hanldleCloseRegister}

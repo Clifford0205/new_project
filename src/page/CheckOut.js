@@ -128,18 +128,20 @@ class ShoppingCart extends React.Component {
   };
 
   handleCancel = e => {
-    //得到點擊欄位的id
-    let clickID =
-      [].indexOf.call(
-        e.target.parentNode.parentNode.children,
-        e.target.parentNode
-      ) + 1;
+    // let clickID =
+    //   [].indexOf.call(
+    //     e.target.parentNode.parentNode.children,
+    //     e.target.parentNode
+    //   ) + 1;
 
     //會員ID
     let member_id = this.state.my_id;
 
-    //點擊以外的留下，傳給API
-    let shopping_cart = this.state.my_cart.filter(item => item.id !== clickID);
+    //得到點擊欄位的id
+    let clickID = e.target.parentNode.dataset.id;
+
+    //點擊以外的留下，傳給API,+號為了轉成數字
+    let shopping_cart = this.state.my_cart.filter(item => item.id !== +clickID);
     let delItem = {
       shopping_cart: { shopping_cart: shopping_cart },
       id: member_id,
@@ -239,6 +241,10 @@ class ShoppingCart extends React.Component {
       ? this.state.recipient_mobile
       : this.state.my_mobile;
 
+    let recipient_mail = this.state.new_recipient
+      ? this.state.recipient_mail
+      : this.state.my_mail;
+
     if (this.state.new_recipient && this.state.recipient_name === '') {
       alert('請輸入收件人姓名');
       return;
@@ -266,13 +272,19 @@ class ShoppingCart extends React.Component {
     }
 
     let pay_way = this.state.pay_way;
+    let pay_way2 = '';
 
     let card_number = this.state.card_number;
     let valid_month = this.state.valid_month;
     let valid_year = this.state.valid_year;
     let back_num = this.state.back_num;
 
-    if (this.state.pay_way === 'credit_card') {
+    if (pay_way === '') {
+      alert('請選擇付款方式');
+      return;
+    }
+
+    if (pay_way === 'credit_card') {
       if (card_number.length < 19) {
         alert('卡號輸入有誤');
         return;
@@ -292,6 +304,11 @@ class ShoppingCart extends React.Component {
         alert('背面末三碼填寫錯誤');
         return;
       }
+      pay_way2 = '信用卡';
+    }
+
+    if (pay_way === 'cash') {
+      pay_way2 = '貨到付款';
     }
     console.log(delivery_city);
 
@@ -308,9 +325,11 @@ class ShoppingCart extends React.Component {
             orderer_mail: orderer_mail,
             recipient_name: recipient_name,
             recipient_mobile: recipient_mobile,
+            recipient_mail: recipient_mail,
             delivery_city: delivery_city,
             delivery_town: delivery_town,
             recipient_road: recipient_road,
+            pay_way2: pay_way2,
           },
         ],
         shopping_cart: [],
@@ -350,7 +369,7 @@ class ShoppingCart extends React.Component {
             <div className="cart">
               <ul>
                 {this.state.my_cart.map(item => (
-                  <li key={item.id} className="row">
+                  <li key={item.id} className="row" data-id={item.id}>
                     <Link
                       to={'/ProductDetail/' + item.product_id}
                       className="col"

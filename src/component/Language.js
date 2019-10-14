@@ -31,7 +31,7 @@ class Language extends React.Component {
 
   handleChangeLanguage = () => {
     console.log('我被點即了');
-    $('.lanChange').toggleClass('active');
+    // $('.lanChange').toggleClass('active');
     const action = languageChangeAction();
     store.dispatch(action);
   };
@@ -44,8 +44,23 @@ class Language extends React.Component {
             className="switch  text-center ml-auto"
             onClick={this.handleChangeLanguage}
           >
-            <span className="active p-1 lanChange">EN</span>/
-            <span className="p-1 lanChange">繁</span>
+            {/* <span className="p-1 lanChange">EN</span> */}
+            <span
+              className={`${
+                this.state.chinese ? ' p-1 lanChange' : 'active p-1 lanChange'
+              }`}
+            >
+              EN
+            </span>
+            /
+            <span
+              className={`${
+                this.state.chinese ? 'active p-1 lanChange' : ' p-1 lanChange'
+              }`}
+            >
+              繁
+            </span>
+            <div className={`${this.state.chinese}`}></div>
           </div>
         </div>
       </>

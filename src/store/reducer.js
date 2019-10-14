@@ -211,6 +211,8 @@ export default (state = defaultState, action) => {
       );
       let b_total = l_total.reduce((prev, element) => prev + element);
       newState.bigTotal = b_total;
+    } else {
+      newState.bigTotal = 0;
     }
 
     return newState;

@@ -169,11 +169,10 @@ class ProductList extends React.Component {
     const currentPosts = data.slice(indexOfFirstPost, indexOfLastPost);
 
     if (this.state.productList.length === 0) return null;
-    console.log(currentPosts[0].chinese);
 
     return (
       <>
-        <GoBack />
+        {/* <GoBack /> */}
 
         <MyNavbar />
 
