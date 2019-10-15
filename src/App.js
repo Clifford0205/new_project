@@ -17,6 +17,7 @@ import MemberEdit from './page/MemberEdit';
 import ShoppingCart from './page/ShoppingCart';
 import CheckOut from './page/CheckOut';
 import BuyRecord from './page/BuyRecord';
+import Test from './page/Test';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
             <Route path="/member/cart/:id" component={ShoppingCart} />
             <Route path="/member/checkout/:id" component={CheckOut} />
             <Route path="/member/buy_record/:id" component={BuyRecord} />
+            <Route path="/test" component={Test} />
           </Switch>
         </>
       </Router>

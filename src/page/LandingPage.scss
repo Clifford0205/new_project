@@ -20,6 +20,16 @@
     background: url(/images/img_bg3.png);
     transition: 3s;
 
+    .one-page {
+        height: 100vh;
+    }
+
+    .slider-img {
+        height: 100vh;
+        width: 100vw;
+        object-fit: cover;
+    }
+
 
     .transition {
         transition: 0.4s;
