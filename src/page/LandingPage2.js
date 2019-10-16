@@ -7,7 +7,7 @@ import ReactFullpage from '@fullpage/react-fullpage';
 import { Container, Row, Col, Form, Button, Carousel } from 'react-bootstrap';
 import store from '../store/index.js';
 import './LandingPage.scss';
-import { getInitList } from '../store/actionCreators.js';
+import { getInitList, getProducteAction } from '../store/actionCreators.js';
 import $ from 'jquery';
 import { Link, Redirect, withRouter } from 'react-router-dom';
 import { TweenMax, Power2, TimelineLite } from 'gsap/TweenMax';
@@ -33,9 +33,92 @@ class LandingPage extends React.Component {
 
   //生命週期:一開始載入資料
   componentDidMount() {
-    const action = getInitList();
+    const action = getProducteAction();
     store.dispatch(action);
-    window.addEventListener('scroll', this.handleScroll);
+
+    TweenMax.to('.bigLogo', 0.5, {
+      scaleX: 2,
+      scaleY: 2,
+      opacity: 1,
+    });
+
+    TweenMax.to('.bigLogo', 4, {
+      rotation: 360,
+      repeat: -1,
+    });
+
+    $('.text-part1, .text-part2').each(function() {
+      $(this).html(
+        $(this)
+          .text()
+          .replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>")
+      );
+    });
+
+    anime
+      .timeline({ loop: true })
+      .add({
+        targets: '.text-part1 .letter',
+        scale: [4, 1],
+        opacity: [0, 1],
+        translateZ: 0,
+        easing: 'easeOutExpo',
+        duration: 950,
+        delay: function(el, i) {
+          return 70 * i;
+        },
+      })
+      .add({
+        targets: '.text-part1',
+        opacity: 0,
+        duration: 1000,
+        easing: 'easeOutExpo',
+        delay: 1000,
+      });
+
+    anime
+      .timeline({ loop: true })
+      .add({
+        targets: '.text-part2 .letter',
+        scale: [4, 1],
+        opacity: [0, 1],
+        translateZ: 0,
+        easing: 'easeOutExpo',
+        duration: 950,
+        delay: function(el, i) {
+          return 30 * i;
+        },
+      })
+      .add({
+        targets: '.text-part2',
+        opacity: 0,
+        duration: 1000,
+        easing: 'easeOutExpo',
+        delay: 1000,
+      });
+
+    $(window).scroll(function() {
+      var scrollPos = $(window).scrollTop();
+      var windowHeight = $(window).height();
+    });
+
+    $('.blood').click(function() {
+      $(this).toggleClass('iamclicked');
+      $('body').toggleClass('clickednow');
+      $(this)
+        .siblings()
+        .toggleClass('hidenow');
+      $('.clickshow').toggleClass('showit');
+    });
+
+    $('.lung').click(function() {
+      $('.clickshow').toggleClass('showit');
+      $(this).toggleClass('iamclicked');
+      $('body').toggleClass('clickednow');
+      $(this)
+        .siblings()
+        .toggleClass('hidenow');
+    });
   }
 
   onLeave(origin, destination, direction) {
@@ -48,80 +131,200 @@ class LandingPage extends React.Component {
     console.log(body[0].className);
   }
 
-  handleScroll = () => {
-    console.log('安安');
-  };
-
   render() {
-    console.log(this.state);
+    console.log(this.state.productList);
+    if (this.state.productList.length === 0) return null;
     return (
       <>
         <MyNavbar />
-        <div className="LandingPage">
-          <div className="one-page">
-            <Carousel>
-              <Carousel.Item>
-                <img
-                  className="d-block slider-img"
-                  src="https://shoplineimg.com/5cc80df915c071000101084d/5d146daccb574871584ba324/2000x.webp?source_format=jpg"
-                  alt="First slide"
-                />
-                <Carousel.Caption>
-                  <h3>First slide label</h3>
-                  <p>
-                    Nulla vitae elit libero, a pharetra augue mollis interdum.
-                  </p>
-                </Carousel.Caption>
-              </Carousel.Item>
-              <Carousel.Item>
-                <img
-                  className="d-block slider-img"
-                  src="https://shoplineimg.com/5cc80df915c071000101084d/5d146df1b0b0cf001a9f0ce2/2000x.webp?source_format=jpg"
-                  alt="Third slide"
-                />
 
-                <Carousel.Caption>
-                  <h3>Second slide label</h3>
-                  <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  </p>
-                </Carousel.Caption>
-              </Carousel.Item>
-              <Carousel.Item>
-                <img
-                  className="d-block slider-img"
-                  src="https://shoplineimg.com/5cc80df915c071000101084d/5d146dc480fd5b002915a6f2/2000x.webp?source_format=jpg"
-                  alt="Third slide"
-                />
+        <div id="fullpage-wrapper" className="LandingPage">
+          <div className="section section1">
+            <Container fluid={true} className="theVision">
+              <Row>
+                <Col className="first-col">
+                  <div className="imgarea d-flex">
+                    <Carousel>
+                      <Carousel.Item>
+                        <img
+                          className="d-block slider-img"
+                          src="https://shoplineimg.com/5cc80df915c071000101084d/5d146daccb574871584ba324/2000x.webp?source_format=jpg"
+                          alt="First slide"
+                        />
+                        <Carousel.Caption>
+                          <h3>藉由香氣尋找與記憶</h3>
+                          <p></p>
+                        </Carousel.Caption>
+                      </Carousel.Item>
+                      <Carousel.Item>
+                        <img
+                          className="d-block slider-img"
+                          src="https://shoplineimg.com/5cc80df915c071000101084d/5d146df1b0b0cf001a9f0ce2/2000x.webp?source_format=jpg"
+                          alt="Third slide"
+                        />
 
-                <Carousel.Caption>
-                  <h3>Third slide label</h3>
-                  <p>
-                    Praesent commodo cursus magna, vel scelerisque nisl
-                    consectetur.
-                  </p>
-                </Carousel.Caption>
-              </Carousel.Item>
+                        <Carousel.Caption>
+                          <h3>幸福就像香水，灑給別人也一定會感染自己</h3>
+                          <p></p>
+                        </Carousel.Caption>
+                      </Carousel.Item>
+                      <Carousel.Item>
+                        <img
+                          className="d-block slider-img"
+                          src="https://shoplineimg.com/5cc80df915c071000101084d/5d146dc480fd5b002915a6f2/2000x.webp?source_format=jpg"
+                          alt="Third slide"
+                        />
 
-              <Carousel.Item>
-                <img
-                  className="d-block slider-img"
-                  src="https://shoplineimg.com/5cc80df915c071000101084d/5d146ddac2f1e6002c7b9f93/2000x.webp?source_format=jpg"
-                  alt="Third slide"
-                />
+                        <Carousel.Caption>
+                          <h3>每次用香水，都像是赴一場約會</h3>
+                          <p></p>
+                        </Carousel.Caption>
+                      </Carousel.Item>
 
-                <Carousel.Caption>
-                  <h3>Third slide label</h3>
-                  <p>
-                    Praesent commodo cursus magna, vel scelerisque nisl
-                    consectetur.
-                  </p>
-                </Carousel.Caption>
-              </Carousel.Item>
-            </Carousel>
+                      <Carousel.Item>
+                        <img
+                          className="d-block slider-img"
+                          src="https://shoplineimg.com/5cc80df915c071000101084d/5d146ddac2f1e6002c7b9f93/2000x.webp?source_format=jpg"
+                          alt="Third slide"
+                        />
+
+                        <Carousel.Caption>
+                          <h3>有人說，幸​​福那就是靈魂的香水</h3>
+                          <p></p>
+                        </Carousel.Caption>
+                      </Carousel.Item>
+                    </Carousel>
+                  </div>
+                </Col>
+              </Row>
+            </Container>
           </div>
 
-          <div className="one-page"></div>
+          <div className="section secondPage">
+            <Container fluid={true} className="oud">
+              <Row className="arrowTop">
+                <Col>
+                  <div>
+                    <img
+                      src="/images/icon_Slippery_up.svg"
+                      className="text-center d-block mx-auto"
+                      alt=""
+                    />
+                  </div>
+                </Col>
+              </Row>
+              <Row className="content">
+                <Col className="align-self-center">
+                  <div className="page2-textArea d-flex">
+                    <div className="mx-auto  align-self-center">
+                      <h2 className="text-center page2-title">
+                        {this.state.chinese ? '烏德之香' : 'THE HOUSE OF OUD'}
+                      </h2>
+                      {/* <iframe
+                              src="https://www.youtube.com/embed/D3rwyoN1_Vs?autoplay=1"
+                              frameborder="0"
+                              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                              allowfullscreen
+                            ></iframe> */}
+
+                      {/* <video loop autoPlay>
+                              <source src="/video/oud.mp4" type="video/mp4" />
+                            </video> */}
+                    </div>
+                  </div>
+                </Col>
+              </Row>
+            </Container>
+          </div>
+
+          <div className="section thirdPage">
+            <Container fluid={true} className="aboutus">
+              <Row className="content">
+                <Col className="align-self-center">
+                  <div className="page3-textArea d-flex">
+                    <div className="mx-auto  align-self-center">
+                      <h2 className="text-center page2-title">
+                        {this.state.chinese ? '關於我們' : 'ABOUT US'}
+                      </h2>
+                      <Row>
+                        <Col
+                          md={6}
+                          className="align-items-center justify-content-center d-flex"
+                        >
+                          <p className="">
+                            嗅覺是唯一先反應後思考的感官 <br />
+                            在嗅聞某樣事物時 <br />
+                            鼻子裡的氣味分子接收器 <br />
+                            會闢出一條通暢無阻的道路 <br />
+                            直達大腦皮質系統 <br />
+                            而那正是控制情緒 <br />
+                            記憶與幸福感的區域 <br />
+                          </p>
+                        </Col>
+                        <Col md={6}>
+                          <h5>
+                            <img
+                              src="/images/p3.webp"
+                              alt=""
+                              className="w-100"
+                            />
+                          </h5>
+                        </Col>
+                      </Row>
+                    </div>
+                  </div>
+                </Col>
+              </Row>
+            </Container>
+          </div>
+
+          <div className="section fourthPage">
+            <Container fluid={true} className="product">
+              <Row className="content">
+                <Col className="align-self-center ">
+                  <h2 className="text-center page4-title transition text-center">
+                    {this.state.chinese ? '烏德之香' : 'THE HOUSE OF OUD'}
+                  </h2>
+                  <Row>
+                    <Col>{this.state.productList[0].tag}</Col>
+                    <Col></Col>
+                    <Col></Col>
+                    <Col></Col>
+                  </Row>
+                </Col>
+              </Row>
+            </Container>
+          </div>
+
+          <div className="section fifthPage">
+            <Container fluid={true} className="contact-page">
+              <Row className="arrowTop">
+                <Col>
+                  <div>
+                    <img
+                      src="/images/icon_Slippery_up.svg"
+                      className="text-center d-block mx-auto"
+                      alt=""
+                    />
+                  </div>
+                </Col>
+              </Row>
+              <Row className="content">
+                <Col className="align-self-center">
+                  <h2 className="text-center page5-title">
+                    <span className="p-2">
+                      <img src="/images/icon_mail.svg" alt="" />
+                      Contact
+                    </span>
+                  </h2>
+                  <div id="map" className="mx-auto mt-4 position-relative">
+                    <MyGooglemap />
+                  </div>
+                  <Bottomform />
+                </Col>
+              </Row>
+            </Container>
+          </div>
         </div>
         <Language />
       </>

@@ -7,6 +7,10 @@
         border: 1px solid #bbbbbb;
         padding: 5px;
         width: 100%;
+
+        &:focus {
+            outline: none;
+        }
     }
 
     .bg-border {

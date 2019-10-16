@@ -7,7 +7,7 @@ import ReactFullpage from '@fullpage/react-fullpage';
 import { Container, Row, Col, Form, Button, Carousel } from 'react-bootstrap';
 import store from '../store/index.js';
 import './LandingPage.scss';
-import { getInitList } from '../store/actionCreators.js';
+import { getInitList, getProducteAction } from '../store/actionCreators.js';
 import $ from 'jquery';
 import { Link, Redirect, withRouter } from 'react-router-dom';
 import { TweenMax, Power2, TimelineLite } from 'gsap/TweenMax';
@@ -33,7 +33,7 @@ class LandingPage extends React.Component {
 
   //生命週期:一開始載入資料
   componentDidMount() {
-    const action = getInitList();
+    const action = getProducteAction();
     store.dispatch(action);
 
     TweenMax.to('.bigLogo', 0.5, {
@@ -132,7 +132,9 @@ class LandingPage extends React.Component {
   }
 
   render() {
-    console.log(this.state);
+    console.log(this.state.productList);
+
+    if (this.state.productList.length === 0) return null;
     return (
       <>
         <MyNavbar />
@@ -149,41 +151,68 @@ class LandingPage extends React.Component {
           onLeave={this.onLeave.bind(this)}
           afterLoad={this.afterLoad.bind(this)}
           render={({ state, fullpageApi }) => {
-            let data = this.state.list;
+            // let data = this.state.productList;
 
             // console.log(data);
+            // if (data.length === 0) return null;
+
             return (
               <div id="fullpage-wrapper" className="LandingPage">
                 <div className="section section1">
                   <Container fluid={true} className="theVision">
                     <Row>
-                      <Col className="">
+                      <Col className="first-col">
                         <div className="imgarea d-flex">
-                          <div className="mx-auto  align-self-center">
-                            <img
-                              src={'/images/Big.svg'}
-                              width="100px"
-                              className="mx-auto d-block align-self-center bigLogo"
-                            />
-                            <h2 className="text-center text-part1">
-                              The health
-                            </h2>
-                            <h2 className="text-center text-part2">
-                              impacts of air polltion
-                            </h2>
-                          </div>
-                        </div>
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col className="arrowDown">
-                        <div className="text-center">SCROLL</div>
-                        <div>
-                          <img
-                            src="/images/icon_Slippery_down.svg"
-                            className="text-center d-block mx-auto"
-                            alt=""
-                          />
+                          <Carousel>
+                            <Carousel.Item>
+                              <img
+                                className="d-block slider-img"
+                                src="https://shoplineimg.com/5cc80df915c071000101084d/5d146daccb574871584ba324/2000x.webp?source_format=jpg"
+                                alt="First slide"
+                              />
+                              <Carousel.Caption>
+                                <h3>藉由香氣尋找與記憶</h3>
+                                <p></p>
+                              </Carousel.Caption>
+                            </Carousel.Item>
+                            <Carousel.Item>
+                              <img
+                                className="d-block slider-img"
+                                src="https://shoplineimg.com/5cc80df915c071000101084d/5d146df1b0b0cf001a9f0ce2/2000x.webp?source_format=jpg"
+                                alt="Third slide"
+                              />
+
+                              <Carousel.Caption>
+                                <h3>幸福就像香水，灑給別人也一定會感染自己</h3>
+                                <p></p>
+                              </Carousel.Caption>
+                            </Carousel.Item>
+                            <Carousel.Item>
+                              <img
+                                className="d-block slider-img"
+                                src="https://shoplineimg.com/5cc80df915c071000101084d/5d146dc480fd5b002915a6f2/2000x.webp?source_format=jpg"
+                                alt="Third slide"
+                              />
+
+                              <Carousel.Caption>
+                                <h3>每次用香水，都像是赴一場約會</h3>
+                                <p></p>
+                              </Carousel.Caption>
+                            </Carousel.Item>
+
+                            <Carousel.Item>
+                              <img
+                                className="d-block slider-img"
+                                src="https://shoplineimg.com/5cc80df915c071000101084d/5d146ddac2f1e6002c7b9f93/2000x.webp?source_format=jpg"
+                                alt="Third slide"
+                              />
+
+                              <Carousel.Caption>
+                                <h3>有人說，幸​​福那就是靈魂的香水</h3>
+                                <p></p>
+                              </Carousel.Caption>
+                            </Carousel.Item>
+                          </Carousel>
                         </div>
                       </Col>
                     </Row>
@@ -191,55 +220,35 @@ class LandingPage extends React.Component {
                 </div>
 
                 <div className="section secondPage">
-                  <Container fluid={true} className=" aboutus">
-                    <Row className="arrowTop">
-                      <Col>
-                        <div>
-                          <img
-                            src="/images/icon_Slippery_up.svg"
-                            className="text-center d-block mx-auto"
-                            alt=""
-                          />
-                        </div>
-                      </Col>
-                    </Row>
+                  <Container fluid={true} className="videopage">
                     <Row className="content">
                       <Col className="align-self-center">
                         <div className="page2-textArea d-flex">
-                          <div className="mx-auto  align-self-center">
-                            <h2 className="text-center page2-title">
-                              <span className="p-sm-3">
-                                <img src="/images/icon_story.svg" alt="" />
-                                Respiratory purification
-                              </span>
-                            </h2>
-                            {data.map(item => (
-                              <p className="aboutArticle mx-auto">
+                          <div className="mx-auto  align-self-center forpose">
+                            <div className="title">
+                              <h3>
                                 {this.state.chinese
-                                  ? item.aboutus.chinese
-                                  : item.aboutus.english}
-                                {/* {console.log(item.aboutus)} */}
-                              </p>
-                            ))}
-                            {/* <p className="aboutArticle mx-auto">
-                              {this.state.chinese
-                                ? data[0].aboutus.chinese
-                                : data[0].aboutus.english}
-                              {console.log(data[0].aboutus)}
-                            </p> */}
+                                  ? '香味是ㄧ種沉默的語言，是一段獨一無二的旅程'
+                                  : 'Scent is a silent language, a unique journey'}
+                              </h3>
+                            </div>
+                            <video
+                              id="myVideo"
+                              loop
+                              muted
+                              autoPlay
+                              data-autoplay=""
+                            >
+                              <source
+                                src="/video/flowers.mp4"
+                                type="video/mp4"
+                              />
+                              <source
+                                src="/video/flowers.webm"
+                                type="video/webm"
+                              />
+                            </video>
                           </div>
-                        </div>
-                      </Col>
-                    </Row>
-                    <Row className="arrowDown">
-                      <Col>
-                        <div className="text-center">SCROLL</div>
-                        <div>
-                          <img
-                            src="/images/icon_Slippery_down.svg"
-                            className="text-center d-block mx-auto"
-                            alt=""
-                          />
                         </div>
                       </Col>
                     </Row>
@@ -247,151 +256,142 @@ class LandingPage extends React.Component {
                 </div>
 
                 <div className="section thirdPage">
-                  <Container fluid={true} className="item2">
-                    <Row className="arrowTop">
-                      <Col>
-                        <div>
-                          <img
-                            src="/images/icon_Slippery_up.svg"
-                            className="text-center d-block mx-auto"
-                            alt=""
-                          />
-                        </div>
-                      </Col>
-                    </Row>
+                  <Container fluid={true} className="aboutus">
                     <Row className="content">
                       <Col className="align-self-center">
                         <div className="page3-textArea d-flex">
                           <div className="mx-auto  align-self-center">
                             <h2 className="text-center page2-title">
-                              <span className="p-sm-3">
-                                <img src="/images/icon_story.svg" alt="" />
-                                Respiratory purification
-                              </span>
+                              {this.state.chinese ? '關於我們' : 'ABOUT US'}
                             </h2>
-                            {data.map(item => (
-                              <p className="aboutArticle mx-auto">
-                                {this.state.chinese
-                                  ? item.item2.chinese
-                                  : item.item2.english}
-                              </p>
-                            ))}
+                            <Row>
+                              <Col
+                                md={6}
+                                className="align-items-center justify-content-center d-flex"
+                              >
+                                <p className="">
+                                  嗅覺是唯一先反應後思考的感官 <br />
+                                  在嗅聞某樣事物時 <br />
+                                  鼻子裡的氣味分子接收器 <br />
+                                  會闢出一條通暢無阻的道路 <br />
+                                  直達大腦皮質系統 <br />
+                                  而那正是控制情緒 <br />
+                                  記憶與幸福感的區域 <br />
+                                </p>
+                              </Col>
+                              <Col md={6}>
+                                <h5>
+                                  <img
+                                    src="/images/p3.webp"
+                                    alt=""
+                                    className="w-100"
+                                  />
+                                </h5>
+                              </Col>
+                            </Row>
                           </div>
-                        </div>
-                      </Col>
-                    </Row>
-                    <Row className="arrowDown">
-                      <Col>
-                        <div className="text-center">SCROLL</div>
-                        <div>
-                          <img
-                            src="/images/icon_Slippery_down.svg"
-                            className="text-center d-block mx-auto"
-                            alt=""
-                          />
                         </div>
                       </Col>
                     </Row>
                   </Container>
                 </div>
 
-                {/* 第四頁器官 */}
                 <div className="section fourthPage">
-                  <Container fluid={true} className=" organs-page">
-                    <Row className="arrowTop">
-                      <Col>
-                        <div>
-                          <img
-                            src="/images/icon_Slippery_up.svg"
-                            className="text-center d-block mx-auto"
-                            alt=""
-                          />
-                        </div>
-                      </Col>
-                    </Row>
+                  <Container fluid={true} className="product">
                     <Row className="content">
-                      <Col className="align-self-center">
-                        <h2 className="text-center page4-title transition">
-                          <span className="p-sm-3 title-text">
-                            <img
-                              src="/images/icon_select.svg"
-                              alt=""
-                              className="transition"
-                            />
-                            Select service
-                          </span>
+                      <Col className="align-self-center ">
+                        <h2 className="text-center page4-title transition text-center">
+                          {this.state.chinese ? '烏德之香' : 'THE HOUSE OF OUD'}
                         </h2>
-
-                        <div className="organs d-flex  justify-content-center">
-                          {/* 血管的圖片 */}
-                          <div className="blood  transition">
-                            <img
-                              src="/images/血管.svg"
-                              alt=""
-                              className="transition"
-                            />
-
-                            <div className="clickshow transition">
-                              <p className="text-center">Blood purification</p>
-
-                              <span className="bg-border mx-auto">
-                                <Link to="/productlist">
-                                  <Button
-                                    variant=" d-block"
-                                    className="sendbtn"
-                                  >
-                                    Click
-                                  </Button>
-                                </Link>
-                              </span>
-                            </div>
-                          </div>
-                          {/* 肺的圖片 */}
-                          <div className="lung  transition">
-                            <img
-                              src="/images/肺.svg"
-                              alt=""
-                              className="transition"
-                            />
-
-                            <div className="clickshow transition">
+                        <Row className="product-area">
+                          <Col className="d-flex justify-content-center">
+                            <Link
+                              to={
+                                '/ProductDetail/' + this.state.productList[0].id
+                              }
+                            >
+                              <img
+                                src={this.state.productList[0].imglist[0].img}
+                                alt=""
+                              />
                               <p className="text-center">
-                                Respiratory purification
+                                {this.state.chinese
+                                  ? this.state.productList[0].chinese.title
+                                  : this.state.productList[0].english.title}
                               </p>
+                              <p className="text-center">
+                                {this.state.chinese ? '價格' : 'PRICE'}:
+                                {this.state.productList[0].price}
+                              </p>
+                            </Link>
+                          </Col>
+                          <Col className="d-flex justify-content-center">
+                            <Link
+                              to={
+                                '/ProductDetail/' + this.state.productList[1].id
+                              }
+                            >
+                              <img
+                                src={this.state.productList[1].imglist[0].img}
+                                alt=""
+                              />
 
-                              <span className="bg-border mx-auto">
-                                <Link to="/case">
-                                  <Button
-                                    variant=" d-block"
-                                    className="sendbtn"
-                                  >
-                                    Click
-                                  </Button>
-                                </Link>
-                              </span>
-                            </div>
-                          </div>
-                          {/* <Link
-                            to="/case"
-                            url={'http://localhost:3000/case'}
-                            author={'adele'}
-                            perPage={10}
-                          >
-                          </Link> */}
-                        </div>
-                      </Col>
-                    </Row>
+                              <p className="text-center">
+                                {this.state.chinese
+                                  ? this.state.productList[1].chinese.title
+                                  : this.state.productList[1].english.title}
+                              </p>
+                              <p className="text-center">
+                                {this.state.chinese ? '價格' : 'PRICE'}:
+                                {this.state.productList[1].price}
+                              </p>
+                            </Link>
+                          </Col>
+                          <Col className="d-flex justify-content-center">
+                            <Link
+                              to={
+                                '/ProductDetail/' + this.state.productList[2].id
+                              }
+                            >
+                              <img
+                                src={this.state.productList[2].imglist[0].img}
+                                alt=""
+                              />
 
-                    <Row className="arrowDown">
-                      <Col>
-                        <div className="text-center">SCROLL</div>
-                        <div>
-                          <img
-                            src="/images/icon_Slippery_down.svg"
-                            className="text-center d-block mx-auto"
-                            alt=""
-                          />
-                        </div>
+                              <p className="text-center">
+                                {this.state.chinese
+                                  ? this.state.productList[2].chinese.title
+                                  : this.state.productList[2].english.title}
+                              </p>
+                              <p className="text-center">
+                                {this.state.chinese ? '價格' : 'PRICE'}:
+                                {this.state.productList[2].price}
+                              </p>
+                            </Link>
+                          </Col>
+                          <Col className="d-flex justify-content-center">
+                            <Link
+                              to={
+                                '/ProductDetail/' + this.state.productList[3].id
+                              }
+                            >
+                              <img
+                                src={this.state.productList[3].imglist[0].img}
+                                alt=""
+                              />
+
+                              <p className="text-center">
+                                {this.state.chinese
+                                  ? this.state.productList[3].chinese.title
+                                  : this.state.productList[3].english.title}
+                              </p>
+                              <p className="text-center">
+                                {this.state.chinese ? '價格' : 'PRICE'}:
+                                {this.state.productList[3].price}
+                              </p>
+                            </Link>
+                          </Col>
+                        </Row>
                       </Col>
                     </Row>
                   </Container>
@@ -399,24 +399,10 @@ class LandingPage extends React.Component {
 
                 <div className="section fifthPage">
                   <Container fluid={true} className="contact-page">
-                    <Row className="arrowTop">
-                      <Col>
-                        <div>
-                          <img
-                            src="/images/icon_Slippery_up.svg"
-                            className="text-center d-block mx-auto"
-                            alt=""
-                          />
-                        </div>
-                      </Col>
-                    </Row>
                     <Row className="content">
                       <Col className="align-self-center">
                         <h2 className="text-center page5-title">
-                          <span className="p-2">
-                            <img src="/images/icon_mail.svg" alt="" />
-                            Contact
-                          </span>
+                          {this.state.chinese ? '聯絡我們' : 'CONTACT US'}
                         </h2>
                         <div
                           id="map"

@@ -52,8 +52,25 @@
             margin-bottom: 50px;
         }
 
-        .imgarea {
-            height: 85vh;
+        .first-col {
+            padding: 0;
+
+            .imgarea {
+                height: 100vh;
+
+
+
+                .carousel {
+                    .carousel-caption {
+                        bottom: 35px;
+                    }
+
+                    .carousel-indicators {
+                        bottom: 30px;
+                    }
+                }
+
+            }
         }
 
         .arrowDown {
@@ -77,20 +94,46 @@
     }
 
 
-    .aboutus {
+    .videopage {
         color: #000000;
-        height: calc(100vh - 80px);
-        margin-top: -40px;
+        height: 100vh;
+        // margin-top: -40px;
 
         .content {
-            height: 95%;
+            height: 100%;
 
-            h2,
-            p {
-                opacity: 0;
-                transform: translate(0, 20px);
-                transition: 3s;
+            .col {
+                padding: 0;
+
+                .forpose {
+                    position: relative;
+
+                    .title {
+                        position: absolute;
+                        top: 43%;
+                        width: 100%;
+
+                        h3 {
+                            color: #ffffff;
+                            text-align: center;
+                            font-size: 3rem;
+
+
+                        }
+                    }
+
+                    video {
+                        height: 100vh;
+                        width: 100vw;
+                        object-fit: cover;
+                    }
+
+                }
             }
+
+
+
+
         }
 
 
@@ -123,15 +166,16 @@
 
     }
 
-    .item2 {
+    .aboutus {
         color: #000000;
-        height: calc(100vh - 80px);
+        height: 100vh;
         margin-top: -40px;
 
         .content {
-            height: 95%;
+            height: 100%;
 
             h2,
+            img,
             p {
                 opacity: 0;
                 transform: translate(0, 20px);
@@ -168,94 +212,40 @@
     }
 
 
-    .organs-page {
+    .product {
         color: #000000;
-        height: calc(100vh - 80px);
+        height: 100vh;
         margin-top: -40px;
 
         .content {
-            height: 95%;
+            height: 100%;
 
-            .title {
-                background-color: #FFBC60;
-                border-radius: 3.5rem;
+            h2,
+            .col {
+                opacity: 0;
+                transform: translate(0, 20px);
+                transition: 3s;
             }
 
-            .page4-title {
-                font-size: 25pt;
-                max-height: 500px;
-
-                span {
-                    background-color: #FFBC60;
-                    border-radius: 3.5rem;
-                }
-
-                img {
-                    height: 100%;
-                }
-
-                @include md {
-                    font-size: 18pt;
-                }
-            }
-
-
-            .organs {
-
-                .blood,
-                .lung {
-                    margin: 50px 30px;
-                }
-
+            .product-area {
                 img {
                     width: 250px;
-                    transition: 2s;
-                }
-
-
-
-                .lung:hover img {
-                    width: 300px;
-                    transition: 2s;
-                }
-
-                .blood:hover img {
-                    width: 270px;
-                    transition: 2s;
-                }
-
-                .bg-border {
-                    height: 40px;
-                    width: 120px;
-                    border: 1px solid #6d7473;
-                    border-radius: 5rem;
-                    display: block;
 
                 }
 
+                a {
+                    color: #000000;
 
-                .sendbtn {
-                    border: 1px solid #000000;
-                    border-radius: 5rem;
-                    width: 120px;
-                    background-color: #ffffff;
-                    margin-left: -5px;
-                    margin-top: -3px;
+                    &:hover {
+                        text-decoration: none;
+                    }
                 }
-
-
-                .clickshow {
-                    max-height: 0;
-                    overflow: hidden;
-                }
-
-                .showit {
-                    max-height: 500px;
-                    transition: 0.4s;
-                }
-
-
             }
+
+
+
+
+
         }
 
         .hidenow {
@@ -269,11 +259,11 @@
 
     .contact-page {
         color: #000000;
-        height: calc(100vh - 80px);
+        height: 100vh;
         margin-top: -40px;
 
         .content {
-            height: 95%;
+            height: 100%;
 
             .title {
                 background-color: #FFBC60;
@@ -321,10 +311,34 @@
     .LandingPage {
         transition: 3s;
 
+        .videopage {
+            .content {
+
+                h2,
+                p {
+                    opacity: 1;
+                    transform: translate(0, -10px);
+                    transition: 5s;
+                }
+
+                // iframe {
+                //     height: 100vh;
+                //     width: 100vw;
+                // }
+            }
+        }
+    }
+}
+
+.fp-viewing-thirdPage {
+    .LandingPage {
+        transition: 3s;
+
         .aboutus {
             .content {
 
                 h2,
+                img,
                 p {
                     opacity: 1;
                     transform: translate(0, -10px);
@@ -335,15 +349,16 @@
     }
 }
 
-.fp-viewing-thirdPage {
+.fp-viewing-fourthPage {
     .LandingPage {
         transition: 3s;
 
-        .item2 {
+        .product {
             .content {
 
                 h2,
-                p {
+                .col,
+                    {
                     opacity: 1;
                     transform: translate(0, -10px);
                     transition: 5s;

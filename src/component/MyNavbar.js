@@ -176,8 +176,12 @@ class MyNavbar extends React.Component {
                     <li>
                       <Link to={`/productlist`}>商品專區</Link>
                     </li>
-                    <li>關於我們</li>
-                    <li>關於我們</li>
+                    <li>
+                      <Link to={`/#fifthPage`}>聯絡我們</Link>
+                    </li>
+                    <li>
+                      <Link to={`/#thirdPage`}>關於我們</Link>
+                    </li>
                   </ul>
                 </div>
               </div>

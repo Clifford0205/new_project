@@ -29,7 +29,11 @@ export class MyGooglemap extends React.Component {
       // </Map>
       <>
         <div className="googleMap">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d464299.7747828436!2d121.67869146914063!3d24.61189519215752!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34683da890097941%3A0xb6124c62973184ae!2z5p2x55y85bGx5ZyL5a625qOu5p6X6YGK5qiC5Y2A!5e0!3m2!1szh-TW!2stw!4v1546501736976"></iframe>
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.558512438269!2d121.51592121537902!3d25.04905244384115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a96d748b7e1b%3A0xa9fafd4eec67160d!2z5Lqs56uZ5pmC5bCa5buj5aC0IFEgU3F1YXJl!5e0!3m2!1szh-TW!2stw!4v1571154693597!5m2!1szh-TW!2stw"
+            frameborder="0"
+            allowfullscreen=""
+          ></iframe>
         </div>
       </>
     );

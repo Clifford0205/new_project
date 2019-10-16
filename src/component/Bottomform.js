@@ -26,6 +26,15 @@ export class Bottomform extends React.Component {
   };
 
   handleFormSend = () => {
+    if (
+      this.state.clientname.trim() === '' ||
+      this.state.phonenumber.trim() === '' ||
+      this.state.mail.trim() === '' ||
+      this.state.message.trim() === ''
+    ) {
+      alert('請輸入完整的資料喔');
+      return;
+    }
     const item = {
       clientname: this.state.clientname,
       phonenumber: this.state.phonenumber,
@@ -45,10 +54,9 @@ export class Bottomform extends React.Component {
         <Row className=" ">
           <Col md={6}>
             <p>
-              The use of volatile anesthetics in cardiac surgery is not recent.
-              Since the introduction of halothane in clinical practice, several
-              cardiac surgery centers started to use these anesthetics
-              constantly.
+              {this.state.chinese
+                ? '要是有任何問題，請不用吝嗇，馬上寫下您寶貴的建議給我們，我們將馬上有專人聯繫您'
+                : "If you have any questions, please don't hesitate to write down your valuable suggestions and we will contact you immediately."}
             </p>
           </Col>
           <Col md={6}>
