@@ -24,6 +24,7 @@ import {
   memberModalCloseAction,
   checkLoginState,
   loginModalCloseAction,
+  totalZeroAction,
 } from './actionCreators';
 
 //窩窩專案
@@ -277,7 +278,11 @@ function* addcartAction(newItem) {
   let this_user = JSON.parse(localStorage.getItem('user'));
   console.log(this_user);
   yield alert('成功加入購物車');
-  const action = checkLoginState(this_user);
+
+  let action = '';
+  action = checkLoginState(this_user);
+  yield put(action);
+  action = totalZeroAction();
   yield put(action);
 }
 

@@ -45,9 +45,14 @@ import {
   PAY_WAY,
   ADD_ORDER,
   NEW_RECIPIENT,
+  LITTLE_TOTAL_TO_ZERO,
 } from './actionTypes.js';
 
 //窩窩專案的
+
+export const totalZeroAction = () => ({
+  type: LITTLE_TOTAL_TO_ZERO,
+});
 
 export const newRecipientAction = () => ({
   type: NEW_RECIPIENT,

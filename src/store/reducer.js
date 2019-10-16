@@ -30,6 +30,7 @@ import {
   CREDIT_CARD,
   PAY_WAY,
   NEW_RECIPIENT,
+  LITTLE_TOTAL_TO_ZERO,
 } from './actionTypes.js';
 
 const defaultState = {
@@ -107,6 +108,12 @@ const defaultState = {
 //reducer 可以接受state, 但絕不能修改state
 export default (state = defaultState, action) => {
   //窩窩專案
+
+  if (action.type === LITTLE_TOTAL_TO_ZERO) {
+    const newState = JSON.parse(JSON.stringify(state));
+    newState.little_total = 0;
+    return newState;
+  }
 
   if (action.type === NEW_RECIPIENT) {
     const newState = JSON.parse(JSON.stringify(state));

@@ -18,6 +18,7 @@ import {
   bigMessageAction,
   littleMsgAction,
   addCartAction,
+  totalZeroAction,
 } from '../store/actionCreators.js';
 import $ from 'jquery';
 import { Link, Redirect, withRouter } from 'react-router-dom';
@@ -45,6 +46,8 @@ class ProductDetail extends React.Component {
     action = getProducteAction();
     store.dispatch(action);
     action = changeImgAction();
+    store.dispatch(action);
+    action = totalZeroAction();
     store.dispatch(action);
   }
 
@@ -110,11 +113,11 @@ class ProductDetail extends React.Component {
     const theProductData = this.state.productList.find(
       item => item.id === +this.props.match.params.id
     );
-    console.log(theProductData.message[0].id);
+
     const product_id = this.props.match.params.id;
     const member = this.state.my_name ? this.state.my_name : '匿名';
 
-    if (theProductData.message[0].id === 5000) {
+    if (theProductData.message.length === 0) {
       const big_message = {
         message: {
           message: [
@@ -134,7 +137,7 @@ class ProductDetail extends React.Component {
       return;
     }
 
-    if (theProductData.message[0].id === 1) {
+    if (theProductData.message.length !== 0) {
       // theProductMsg= theProductData
       console.log(theProductData.message.slice(-1)[0].id);
       let lastid = theProductData.message.slice(-1)[0].id;
@@ -189,9 +192,10 @@ class ProductDetail extends React.Component {
     let newmsg = theProductData.message;
     let o_littleMsg = theProductData.message[whichone].little_message;
     const member = this.state.my_name ? this.state.my_name : '匿名';
-
+    console.log(o_littleMsg);
     //小留言的id
-    let little_lastid = o_littleMsg.slice(-1)[0].id;
+    let little_lastid =
+      o_littleMsg.length === 0 ? 0 : o_littleMsg.slice(-1)[0].id;
     console.log(little_lastid);
 
     //哪一個產品
@@ -301,7 +305,7 @@ class ProductDetail extends React.Component {
     console.log(theProductData);
     return (
       <>
-        <GoBack />
+        {/* <GoBack /> */}
         <MyNavbar />
         <div className="ProductDetail">
           <section className="bg-img">
@@ -320,7 +324,7 @@ class ProductDetail extends React.Component {
                       ))}
                     </ul>
                   </div>
-                  <div className="big-img">
+                  <div className="big-img mx-auto">
                     <p className="text-center">
                       <img
                         src={
@@ -334,7 +338,7 @@ class ProductDetail extends React.Component {
                   </div>
                 </div>
               </Col>
-              <Col lg={4}>
+              <Col lg={4} className="mt-4">
                 <h4 className="text-center">
                   {this.state.chinese
                     ? theProductData.chinese.title
@@ -348,7 +352,7 @@ class ProductDetail extends React.Component {
                 <p>淡香精75 ML</p>
 
                 <p>數量</p>
-                <div className="d-flex">
+                <div className="d-flex mt-3">
                   <Button
                     className="d-block mx-auto"
                     onClick={this.handleMinus}
@@ -369,7 +373,7 @@ class ProductDetail extends React.Component {
                   className="d-block mx-auto"
                   onClick={this.handleCart}
                   variant="info"
-                  className="w-100"
+                  className="w-100 mt-3"
                 >
                   加入購物車
                 </Button>
@@ -450,19 +454,22 @@ class ProductDetail extends React.Component {
               <Col>
                 <div className="message-board">
                   <ul>
+                    <p
+                      style={{
+                        display: `${
+                          theProductData.message.length === 0 ? 'block' : 'none'
+                        }`,
+                      }}
+                    >
+                      目前沒有留言
+                    </p>
                     {theProductData.message.map(item => (
                       <li key={item.id}>
                         <p>{item.text}</p>
 
                         <ul className="little-ul">
                           {item.little_message.map(item2 => (
-                            <li
-                              className="little-li"
-                              key={item2.id}
-                              style={{
-                                display: `${item2.id === 1 ? 'none' : 'block'}`,
-                              }}
-                            >
+                            <li className="little-li" key={item2.id}>
                               <p>{item2.text}</p>
                             </li>
                           ))}
