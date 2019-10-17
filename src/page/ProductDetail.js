@@ -348,10 +348,10 @@ class ProductDetail extends React.Component {
                   NT$
                   {theProductData.price}
                 </p>
-                <p className="small">尺寸</p>
-                <p>淡香精75 ML</p>
+                <p className="small">{this.state.chinese ? '尺寸' : 'SIZE'}</p>
+                <p>{this.state.chinese ? '淡香精75 ML' : 'Essence 75 ML'}</p>
 
-                <p>數量</p>
+                <p>{this.state.chinese ? '數量' : 'Quality'}</p>
                 <div className="d-flex mt-3">
                   <Button
                     className="d-block mx-auto"
@@ -375,7 +375,7 @@ class ProductDetail extends React.Component {
                   variant="info"
                   className="w-100 mt-3"
                 >
-                  加入購物車
+                  {this.state.chinese ? '加入購物車' : 'Add to Cart'}
                 </Button>
               </Col>
             </Row>
@@ -391,14 +391,16 @@ class ProductDetail extends React.Component {
                     id="product-detail"
                     onClick={this.handleTitleClick}
                   >
-                    商品描述
+                    {this.state.chinese ? '商品描述' : 'Describe'}
                   </li>
                   <li
                     class="w-100  text-center the-title "
                     id="pay-way"
                     onClick={this.handleTitleClick}
                   >
-                    送貨及付款方式
+                    {this.state.chinese
+                      ? '送貨及付款方式'
+                      : 'Shipping and Payment'}
                   </li>
                 </ul>
               </Col>
