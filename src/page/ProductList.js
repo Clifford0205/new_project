@@ -10,7 +10,10 @@ import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import store from '../store/index.js';
 import './ProductList.scss';
 import ReactSVG from 'react-svg';
-import { setCaesfilter, getProducteAction } from '../store/actionCreators.js';
+import {
+  setProductfilter,
+  getProducteAction,
+} from '../store/actionCreators.js';
 import $ from 'jquery';
 import { Link, Redirect, withRouter } from 'react-router-dom';
 import { TweenMax, Power2, TimelineLite } from 'gsap/TweenMax';
@@ -40,124 +43,30 @@ class ProductList extends React.Component {
     console.log(this.state);
   }
 
-  toggleImg = async e => {
-    let filterimg = document.querySelectorAll('.filterimg');
-    for (var i = 0; i < filterimg.length; i++) {
-      filterimg[i].classList.remove(
-        'active2',
-        'active3',
-        'active4',
-        'active5',
-        'active6'
-      );
-    }
-    e.target.classList.toggle('active1');
-    // console.log(e.target.classList[1] == undefined);
-    let sendid = e.target.classList[1] == undefined ? '' : '';
-    const action = setCaesfilter(sendid);
-    await store.dispatch(action);
-    await console.log(this.state.casefilter);
-  };
-
-  toggleImg2 = async e => {
+  handleClassify = e => {
     console.log(e.target);
-    let filterimg = document.querySelectorAll('.filterimg');
-    for (var i = 0; i < filterimg.length; i++) {
-      filterimg[i].classList.remove(
-        'active1',
-        'active3',
-        'active4',
-        'active5',
-        'active6'
-      );
+    let allfilter = document.querySelectorAll('.filter');
+    for (let i = 0; i < allfilter.length; i++) {
+      allfilter[i].classList.remove('active');
     }
-    e.target.classList.toggle('active2');
-    let sendid = e.target.classList[1] == undefined ? '' : e.target.id;
-    const action = setCaesfilter(sendid);
-    await store.dispatch(action);
-    await console.log(this.state.casefilter);
-  };
-
-  toggleImg3 = e => {
-    console.log(e.target);
-    let filterimg = document.querySelectorAll('.filterimg');
-    for (var i = 0; i < filterimg.length; i++) {
-      filterimg[i].classList.remove(
-        'active1',
-        'active2',
-        'active4',
-        'active5',
-        'active6'
-      );
-    }
-    e.target.classList.toggle('active3');
-    let sendid = e.target.classList[1] == undefined ? '' : e.target.id;
-    const action = setCaesfilter(sendid);
+    e.target.classList.add('active');
+    console.log(e.target.id);
+    let action = setProductfilter(e.target.id);
     store.dispatch(action);
   };
 
-  toggleImg4 = e => {
-    console.log(e.target);
-    let filterimg = document.querySelectorAll('.filterimg');
-    for (var i = 0; i < filterimg.length; i++) {
-      filterimg[i].classList.remove(
-        'active1',
-        'active2',
-        'active3',
-        'active5',
-        'active6'
-      );
-    }
-    e.target.classList.toggle('active4');
-    let sendid = e.target.classList[1] == undefined ? '' : e.target.id;
-    const action = setCaesfilter(sendid);
-    store.dispatch(action);
-  };
-
-  toggleImg5 = e => {
-    console.log(e.target);
-    let filterimg = document.querySelectorAll('.filterimg');
-    for (var i = 0; i < filterimg.length; i++) {
-      filterimg[i].classList.remove(
-        'active1',
-        'active2',
-        'active3',
-        'active4',
-        'active6'
-      );
-    }
-    e.target.classList.toggle('active5');
-    let sendid = e.target.classList[1] == undefined ? '' : e.target.id;
-    const action = setCaesfilter(sendid);
-    store.dispatch(action);
-  };
-
-  toggleImg6 = e => {
-    console.log(e.target);
-    let filterimg = document.querySelectorAll('.filterimg');
-    for (var i = 0; i < filterimg.length; i++) {
-      filterimg[i].classList.remove(
-        'active1',
-        'active2',
-        'active3',
-        'active4',
-        'active5'
-      );
-    }
-    e.target.classList.toggle('active6');
-    let sendid = e.target.classList[1] == undefined ? '' : e.target.id;
-    const action = setCaesfilter(sendid);
-    store.dispatch(action);
-  };
+  componentDidUpdate() {
+    console.log(this.state);
+  }
 
   render() {
     console.log(this.state);
     let data = this.state.productList;
     console.log(data);
 
-    if (this.state.casefilter && this.state.casefilter.trim() !== '') {
+    if (this.state.productfilter && this.state.productfilter.trim() !== '') {
       data = this.state.productList.filter(item =>
-        item.tag.includes(this.state.casefilter)
+        item.tag.includes(this.state.productfilter)
       );
     }
 
@@ -191,36 +100,64 @@ class ProductList extends React.Component {
           <Row className="classification pt-3 ">
             <Col>
               <div
-                className={
-                  this.state.casefilter ? 'filterimg' : 'active1 filterimg'
-                }
-                id="all"
-                onClick={this.toggleImg}
+                className="active filter all"
+                id=" "
+                onClick={e => this.handleClassify(e)}
               ></div>
             </Col>
             <Col>
-              <div className="filterimg" id="cig" onClick={this.toggleImg2}>
-                <p>木質調</p>
+              <div>
+                <p
+                  className="filter"
+                  id="wood"
+                  onClick={e => this.handleClassify(e)}
+                >
+                  {this.state.chinese ? '木質調' : 'WOOD'}
+                </p>
               </div>
             </Col>
             <Col>
-              <div className="filterimg" id="house" onClick={this.toggleImg3}>
-                <p>花香調</p>
+              <div>
+                <p
+                  className="filter"
+                  id="flower"
+                  onClick={e => this.handleClassify(e)}
+                >
+                  {this.state.chinese ? '花香調' : 'FLOWER'}
+                </p>
               </div>
             </Col>
             <Col>
-              <div className="filterimg" id="wind" onClick={this.toggleImg4}>
-                <p>海洋調</p>
+              <div>
+                <p
+                  className="filter"
+                  id="ocean"
+                  onClick={e => this.handleClassify(e)}
+                >
+                  {this.state.chinese ? '海洋調' : 'OCEAN'}
+                </p>
               </div>
             </Col>
             <Col>
-              <div className="filterimg" id="factory" onClick={this.toggleImg5}>
-                <p>茶香調</p>
+              <div>
+                <p
+                  className="filter"
+                  id="tea"
+                  onClick={e => this.handleClassify(e)}
+                >
+                  {this.state.chinese ? '茶香調' : 'TEA'}
+                </p>
               </div>
             </Col>
             <Col>
-              <div className="filterimg" id="sick" onClick={this.toggleImg6}>
-                <p>果香調</p>
+              <div>
+                <p
+                  className="filter"
+                  id="fruit"
+                  onClick={e => this.handleClassify(e)}
+                >
+                  {this.state.chinese ? '果香調' : 'FRUIT'}
+                </p>
               </div>
             </Col>
           </Row>

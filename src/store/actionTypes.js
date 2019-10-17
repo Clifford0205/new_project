@@ -12,7 +12,7 @@ export const EDIT_STUDENT_ITEM = 'edit_student_item';
 
 //窩窩專案
 export const LANGUAGE_CHANGE = 'language_change';
-export const CASE_FILTER_CHANGE = 'case_filter_change';
+export const PRODUCT_FILTER_CHANGE = 'product_filter_change';
 export const HANDLE_INPUT_CHANGE = 'handle_input_change';
 export const HANDLE_FORM_SEND = 'handle_form_send';
 export const CLEAN_ALL_INPUT = 'clean_all_input';

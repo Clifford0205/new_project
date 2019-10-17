@@ -120,7 +120,7 @@
         "flavor": "Top notes: lemon, grapefruit. Middle notes: ginger, red pepper. Base notes: amber, Japanese cypress, musk."
       },
       "id": 2001,
-      "tag": "木質調",
+      "tag": "wood",
       "message": []
     },
     {
@@ -166,7 +166,7 @@
         "flavor": "Top notes: bergamot, lemon, saffron. Middle notes: green sandalwood, ylang ylang, myrrh. Base Notes: vanilla, benzoin, amber, sandalwood."
       },
       "id": 2002,
-      "tag": "花香調",
+      "tag": "flower",
       "message": []
     },
     {
@@ -212,7 +212,7 @@
         "flavor": "Top notes: grapefruit, citrus, pink pepper. Middle notes:  calamus, absinthe. Base Notes: vetiver, labdanum, ambergris."
       },
       "id": 2003,
-      "tag": "海洋調",
+      "tag": "ocean",
       "message": []
     },
     {
@@ -258,7 +258,7 @@
         "flavor": "Top notes: floral, blueberry. Middle notes: grapes, grape leaves, roses, coffee.Base Notes: amber, vanilla, musk"
       },
       "id": 2004,
-      "tag": "茶香調",
+      "tag": "tea",
       "message": []
     },
     {
@@ -304,7 +304,7 @@
         "flavor": "Top notes: lemon, bergamot, orange, star anise. Middle notes: bitter orange leaves, mimosa, alfalfa, mint. Base Notes: cedar, vetiver."
       },
       "id": 2005,
-      "tag": "果香調",
+      "tag": "fruit",
       "message": []
     },
     {
@@ -350,7 +350,7 @@
         "flavor": "Top notes: lemon, grapefruit. Middle notes: ginger, red pepper. Base notes: amber, Japanese cypress, musk."
       },
       "id": 2006,
-      "tag": "木質調",
+      "tag": "wood",
       "message": []
     },
     {
@@ -396,7 +396,7 @@
         "flavor": "Top notes: bergamot, lemon, saffron. Middle notes: green sandalwood, ylang ylang, myrrh. Base Notes: vanilla, benzoin, amber, sandalwood."
       },
       "id": 2007,
-      "tag": "花香調",
+      "tag": "flower",
       "message": []
     },
     {
@@ -442,7 +442,7 @@
         "flavor": "Top notes: grapefruit, citrus, pink pepper. Middle notes:  calamus, absinthe. Base Notes: vetiver, labdanum, ambergris."
       },
       "id": 2008,
-      "tag": "海洋調",
+      "tag": "ocean",
       "message": []
     },
     {
@@ -488,7 +488,7 @@
         "flavor": "Top notes: floral, blueberry. Middle notes: grapes, grape leaves, roses, coffee.Base Notes: amber, vanilla, musk"
       },
       "id": 2009,
-      "tag": "茶香調",
+      "tag": "tea",
       "message": []
     },
     {
@@ -534,7 +534,7 @@
         "flavor": "Top notes: lemon, bergamot, orange, star anise. Middle notes: bitter orange leaves, mimosa, alfalfa, mint. Base Notes: cedar, vetiver."
       },
       "id": 2010,
-      "tag": "果香調",
+      "tag": "fruit",
       "message": []
     },
     {
@@ -580,7 +580,7 @@
         "flavor": "Top notes: lemon, grapefruit. Middle notes: ginger, red pepper. Base notes: amber, Japanese cypress, musk."
       },
       "id": 2011,
-      "tag": "木質調",
+      "tag": "wood",
       "message": []
     },
     {
@@ -626,7 +626,7 @@
         "flavor": "Top notes: bergamot, lemon, saffron. Middle notes: green sandalwood, ylang ylang, myrrh. Base Notes: vanilla, benzoin, amber, sandalwood."
       },
       "id": 2012,
-      "tag": "花香調",
+      "tag": "flower",
       "message": []
     },
     {
@@ -672,7 +672,7 @@
         "flavor": "Top notes: grapefruit, citrus, pink pepper. Middle notes:  calamus, absinthe. Base Notes: vetiver, labdanum, ambergris."
       },
       "id": 2013,
-      "tag": "海洋調",
+      "tag": "ocean",
       "message": []
     },
     {
@@ -718,7 +718,7 @@
         "flavor": "Top notes: floral, blueberry. Middle notes: grapes, grape leaves, roses, coffee.Base Notes: amber, vanilla, musk"
       },
       "id": 2014,
-      "tag": "茶香調",
+      "tag": "tea",
       "message": []
     },
     {
@@ -764,7 +764,7 @@
         "flavor": "Top notes: lemon, bergamot, orange, star anise. Middle notes: bitter orange leaves, mimosa, alfalfa, mint. Base Notes: cedar, vetiver."
       },
       "id": 2015,
-      "tag": "果香調",
+      "tag": "fruit",
       "message": []
     },
     {
@@ -810,7 +810,7 @@
         "flavor": "Top notes: lemon, grapefruit. Middle notes: ginger, red pepper. Base notes: amber, Japanese cypress, musk."
       },
       "id": 2016,
-      "tag": "木質調",
+      "tag": "wood",
       "message": []
     },
     {
@@ -856,7 +856,7 @@
         "flavor": "Top notes: bergamot, lemon, saffron. Middle notes: green sandalwood, ylang ylang, myrrh. Base Notes: vanilla, benzoin, amber, sandalwood."
       },
       "id": 2017,
-      "tag": "花香調",
+      "tag": "flower",
       "message": []
     },
     {
@@ -902,7 +902,7 @@
         "flavor": "Top notes: grapefruit, citrus, pink pepper. Middle notes:  calamus, absinthe. Base Notes: vetiver, labdanum, ambergris."
       },
       "id": 2018,
-      "tag": "海洋調",
+      "tag": "ocean",
       "message": []
     },
     {
@@ -948,7 +948,7 @@
         "flavor": "Top notes: floral, blueberry. Middle notes: grapes, grape leaves, roses, coffee.Base Notes: amber, vanilla, musk"
       },
       "id": 2019,
-      "tag": "茶香調",
+      "tag": "tea",
       "message": []
     },
     {
@@ -994,7 +994,7 @@
         "flavor": "Top notes: lemon, bergamot, orange, star anise. Middle notes: bitter orange leaves, mimosa, alfalfa, mint. Base Notes: cedar, vetiver."
       },
       "id": 2020,
-      "tag": "果香調",
+      "tag": "fruit",
       "message": []
     },
     {
@@ -1040,7 +1040,7 @@
         "flavor": "Top notes: lemon, grapefruit. Middle notes: ginger, red pepper. Base notes: amber, Japanese cypress, musk."
       },
       "id": 2021,
-      "tag": "木質調",
+      "tag": "wood",
       "message": []
     },
     {
@@ -1086,7 +1086,7 @@
         "flavor": "Top notes: bergamot, lemon, saffron. Middle notes: green sandalwood, ylang ylang, myrrh. Base Notes: vanilla, benzoin, amber, sandalwood."
       },
       "id": 2022,
-      "tag": "花香調",
+      "tag": "flower",
       "message": []
     },
     {
@@ -1132,7 +1132,7 @@
         "flavor": "Top notes: grapefruit, citrus, pink pepper. Middle notes:  calamus, absinthe. Base Notes: vetiver, labdanum, ambergris."
       },
       "id": 2023,
-      "tag": "海洋調",
+      "tag": "ocean",
       "message": []
     },
     {
@@ -1178,7 +1178,7 @@
         "flavor": "Top notes: floral, blueberry. Middle notes: grapes, grape leaves, roses, coffee.Base Notes: amber, vanilla, musk"
       },
       "id": 2024,
-      "tag": "茶香調",
+      "tag": "tea",
       "message": []
     },
     {
@@ -1224,7 +1224,7 @@
         "flavor": "Top notes: lemon, bergamot, orange, star anise. Middle notes: bitter orange leaves, mimosa, alfalfa, mint. Base Notes: cedar, vetiver."
       },
       "id": 2025,
-      "tag": "果香調",
+      "tag": "fruit",
       "message": []
     },
     {
@@ -1270,7 +1270,7 @@
         "flavor": "Top notes: lemon, grapefruit. Middle notes: ginger, red pepper. Base notes: amber, Japanese cypress, musk."
       },
       "id": 2026,
-      "tag": "木質調",
+      "tag": "wood",
       "message": []
     },
     {
@@ -1316,7 +1316,7 @@
         "flavor": "Top notes: bergamot, lemon, saffron. Middle notes: green sandalwood, ylang ylang, myrrh. Base Notes: vanilla, benzoin, amber, sandalwood."
       },
       "id": 2027,
-      "tag": "花香調",
+      "tag": "flower",
       "message": []
     },
     {
@@ -1362,7 +1362,7 @@
         "flavor": "Top notes: grapefruit, citrus, pink pepper. Middle notes:  calamus, absinthe. Base Notes: vetiver, labdanum, ambergris."
       },
       "id": 2028,
-      "tag": "海洋調",
+      "tag": "ocean",
       "message": []
     },
     {
@@ -1408,7 +1408,7 @@
         "flavor": "Top notes: floral, blueberry. Middle notes: grapes, grape leaves, roses, coffee.Base Notes: amber, vanilla, musk"
       },
       "id": 2029,
-      "tag": "茶香調",
+      "tag": "tea",
       "message": []
     },
     {
@@ -1454,7 +1454,7 @@
         "flavor": "Top notes: lemon, bergamot, orange, star anise. Middle notes: bitter orange leaves, mimosa, alfalfa, mint. Base Notes: cedar, vetiver."
       },
       "id": 2030,
-      "tag": "果香調",
+      "tag": "fruit",
       "message": []
     }
   ],

@@ -11,7 +11,7 @@ import {
   GET_INIT_LIST,
   SHOW_EDIT_MODAL,
   LANGUAGE_CHANGE,
-  CASE_FILTER_CHANGE,
+  PRODUCT_FILTER_CHANGE,
   HANDLE_INPUT_CHANGE,
   HANDLE_FORM_SEND,
   CLEAN_ALL_INPUT,
@@ -178,8 +178,8 @@ export const memberRegisterAction = m_data => ({
   m_data,
 });
 
-export const setCaesfilter = id => ({
-  type: CASE_FILTER_CHANGE,
+export const setProductfilter = id => ({
+  type: PRODUCT_FILTER_CHANGE,
   id,
 });
 

@@ -7,7 +7,7 @@ import {
   HANDLE_MODAL_FORM_INPUT_CHANGE,
   SHOW_EDIT_MODAL,
   LANGUAGE_CHANGE,
-  CASE_FILTER_CHANGE,
+  PRODUCT_FILTER_CHANGE,
   HANDLE_INPUT_CHANGE,
   CLEAN_ALL_INPUT,
   PRODUCT_IN_LIST,
@@ -51,7 +51,7 @@ const defaultState = {
   searchText: '',
 
   //窩窩專案
-  casefilter: '',
+  productfilter: '',
   clientname: '',
   phonenumber: '',
   mail: '',
@@ -285,9 +285,9 @@ export default (state = defaultState, action) => {
     return newState;
   }
 
-  if (action.type === CASE_FILTER_CHANGE) {
+  if (action.type === PRODUCT_FILTER_CHANGE) {
     const newState = JSON.parse(JSON.stringify(state));
-    newState.casefilter = action.id;
+    newState.productfilter = action.id;
     newState.currentPage = 1;
     console.log(newState);
     return newState;
