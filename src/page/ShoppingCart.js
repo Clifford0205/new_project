@@ -17,6 +17,7 @@ import {
 class ShoppingCart extends React.Component {
   constructor(props) {
     super(props);
+    this.mounted = false;
     this.state = store.getState();
     store.subscribe(this.handleStoreChange);
     console.log(this.state);
@@ -29,14 +30,19 @@ class ShoppingCart extends React.Component {
 
   //生命週期:一開始載入資料
   componentDidMount() {
-    console.log(this.state);
     let url_id = this.props.match.params.id;
     let state_id = this.state.my_id;
-    console.log(url_id);
-    console.log(state_id);
-    let action = '';
-    action = getProducteAction();
-    store.dispatch(action);
+    this.mounted = true;
+    console.log(this.mounted);
+    if (this.mounted) {
+      let action = '';
+      action = getProducteAction();
+      store.dispatch(action);
+    }
+  }
+
+  componentWillUnmount() {
+    this.mounted = false;
   }
 
   handleFormInputChange = e => {

@@ -1,19 +1,13 @@
 import React from 'react';
 import MyNavbar from '../component/MyNavbar';
 import Language from '../component/Language';
-import MapContainer from '../component/GoogleMap';
-import ReactDOM from 'react-dom';
 import ReactFullpage from '@fullpage/react-fullpage';
-import { Container, Row, Col, Form, Button, Carousel } from 'react-bootstrap';
+import { Container, Row, Col, Carousel } from 'react-bootstrap';
 import store from '../store/index.js';
 import './LandingPage.scss';
-import { getInitList, getProducteAction } from '../store/actionCreators.js';
-import $ from 'jquery';
-import { Link, Redirect, withRouter } from 'react-router-dom';
-import { TweenMax, Power2, TimelineLite } from 'gsap/TweenMax';
+import { getProducteAction } from '../store/actionCreators.js';
+import { Link, withRouter } from 'react-router-dom';
 import 'animate.css/animate.min.css';
-import ScrollAnimation from 'react-animate-on-scroll';
-import anime from 'animejs';
 import {} from 'react-icons/fa';
 import MyGooglemap from '../component/GoogleMap';
 import Bottomform from '../component/Bottomform';
@@ -21,6 +15,7 @@ import Bottomform from '../component/Bottomform';
 class LandingPage extends React.Component {
   constructor(props) {
     super(props);
+    this.mounted = false;
     this.state = store.getState();
     store.subscribe(this.handleStoreChange);
     console.log(this.state);
@@ -28,97 +23,20 @@ class LandingPage extends React.Component {
 
   handleStoreChange = () => {
     this.setState(store.getState());
-    // console.log('store change');
+    console.log('store change');
   };
 
   //生命週期:一開始載入資料
   componentDidMount() {
-    const action = getProducteAction();
-    store.dispatch(action);
+    this.mounted = true;
+    if (this.mounted) {
+      const action = getProducteAction();
+      store.dispatch(action);
+    }
+  }
 
-    TweenMax.to('.bigLogo', 0.5, {
-      scaleX: 2,
-      scaleY: 2,
-      opacity: 1,
-    });
-
-    TweenMax.to('.bigLogo', 4, {
-      rotation: 360,
-      repeat: -1,
-    });
-
-    $('.text-part1, .text-part2').each(function() {
-      $(this).html(
-        $(this)
-          .text()
-          .replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>")
-      );
-    });
-
-    anime
-      .timeline({ loop: true })
-      .add({
-        targets: '.text-part1 .letter',
-        scale: [4, 1],
-        opacity: [0, 1],
-        translateZ: 0,
-        easing: 'easeOutExpo',
-        duration: 950,
-        delay: function(el, i) {
-          return 70 * i;
-        },
-      })
-      .add({
-        targets: '.text-part1',
-        opacity: 0,
-        duration: 1000,
-        easing: 'easeOutExpo',
-        delay: 1000,
-      });
-
-    anime
-      .timeline({ loop: true })
-      .add({
-        targets: '.text-part2 .letter',
-        scale: [4, 1],
-        opacity: [0, 1],
-        translateZ: 0,
-        easing: 'easeOutExpo',
-        duration: 950,
-        delay: function(el, i) {
-          return 30 * i;
-        },
-      })
-      .add({
-        targets: '.text-part2',
-        opacity: 0,
-        duration: 1000,
-        easing: 'easeOutExpo',
-        delay: 1000,
-      });
-
-    $(window).scroll(function() {
-      var scrollPos = $(window).scrollTop();
-      var windowHeight = $(window).height();
-    });
-
-    $('.blood').click(function() {
-      $(this).toggleClass('iamclicked');
-      $('body').toggleClass('clickednow');
-      $(this)
-        .siblings()
-        .toggleClass('hidenow');
-      $('.clickshow').toggleClass('showit');
-    });
-
-    $('.lung').click(function() {
-      $('.clickshow').toggleClass('showit');
-      $(this).toggleClass('iamclicked');
-      $('body').toggleClass('clickednow');
-      $(this)
-        .siblings()
-        .toggleClass('hidenow');
-    });
+  componentWillUnmount() {
+    this.mounted = false;
   }
 
   onLeave(origin, destination, direction) {
@@ -146,6 +64,7 @@ class LandingPage extends React.Component {
             'fourthPage',
             'fifthPage',
           ]}
+          licenseKey={'YOUR_KEY_HERE'}
           sectionsColor={[]}
           scrollOverflow={true}
           onLeave={this.onLeave.bind(this)}

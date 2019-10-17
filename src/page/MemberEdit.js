@@ -49,8 +49,27 @@ class BloodStudies extends React.Component {
       m_mobile: this.state.my_mobile,
       m_birthday: this.state.my_birthday,
       shopping_cart: this.state.my_cart,
+      buy_record: this.state.my_buy_record,
       id: this.state.my_id,
     };
+
+    //手機號碼驗證
+    let mobile_pattern = /^09\d{2}\-?\d{3}\-?\d{3}$/;
+    console.log(document.querySelector('.m_mobile').value);
+    if (!mobile_pattern.test(this.state.my_mobile)) {
+      document.querySelector('.m_mobile').style.borderColor = 'red';
+      document.querySelector('.m_mobileHelp').innerHTML =
+        '請填寫正確的手機號碼!';
+      return;
+    }
+
+    //Email驗證
+    let email_pattern = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+    if (!email_pattern.test(this.state.my_mail)) {
+      document.querySelector('.m_mail').style.borderColor = 'red';
+      document.querySelector('.m_mailHelp').innerHTML = '請填寫正確的E-mail!';
+      return;
+    }
 
     const action = editMemberAction(edit_data);
     console.log(action);
@@ -98,6 +117,7 @@ class BloodStudies extends React.Component {
       m_mobile: this.state.my_mobile,
       m_birthday: this.state.my_birthday,
       shopping_cart: this.state.my_cart,
+      buy_record: this.state.my_buy_record,
       id: this.state.my_id,
     };
     const action = editPasswordAction(edit_pswd);
@@ -117,14 +137,14 @@ class BloodStudies extends React.Component {
             <h2 className="text-center">會員中心</h2>
             <ul className="d-flex   my-3 choose-title">
               <li
-                class="w-100 text-center the-title active"
+                className="w-100 text-center the-title active"
                 id="profile"
                 onClick={this.handleTitleClick}
               >
                 編輯個人檔案
               </li>
               <li
-                class="w-100  text-center the-title "
+                className="w-100  text-center the-title "
                 id="password"
                 onClick={this.handleTitleClick}
               >
@@ -133,7 +153,7 @@ class BloodStudies extends React.Component {
             </ul>
 
             <div className="profile thehide show">
-              <ul class="">
+              <ul>
                 <li>
                   姓名:
                   <input
@@ -152,8 +172,9 @@ class BloodStudies extends React.Component {
                     value={this.state.my_mail}
                     name="my_mail"
                     onChange={this.handleFormInputChange}
-                    className="form-control"
+                    className="form-control m_mail"
                   />
+                  <p className="m_mailHelp" style={{ color: 'red' }}></p>
                 </li>
 
                 <li>
@@ -163,8 +184,9 @@ class BloodStudies extends React.Component {
                     value={this.state.my_mobile}
                     name="my_mobile"
                     onChange={this.handleFormInputChange}
-                    className="form-control"
+                    className="form-control m_mobile"
                   />
+                  <p className="m_mobileHelp" style={{ color: 'red' }}></p>
                 </li>
 
                 <li>

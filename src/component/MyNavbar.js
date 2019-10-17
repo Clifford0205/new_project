@@ -115,6 +115,7 @@ class MyNavbar extends React.Component {
   };
 
   render() {
+    console.log(this.props.match.url === '/');
     return (
       <>
         <div className="MyNav">
@@ -178,10 +179,18 @@ class MyNavbar extends React.Component {
                       <Link to={`/productlist`}>商品專區</Link>
                     </li>
                     <li>
-                      <Link to={`/#contact-page`}>聯絡我們</Link>
+                      {this.props.match.url === '/' ? (
+                        <a href="#fifthPage">聯絡我們</a>
+                      ) : (
+                        <Link to={`/#fifthPage`}>聯絡我們</Link>
+                      )}
                     </li>
                     <li>
-                      <Link to={`/#thirdPage`}>關於我們</Link>
+                      {this.props.match.url === '/' ? (
+                        <a href="#thirdPage">關於我們</a>
+                      ) : (
+                        <Link to={`/#thirdPage`}>關於我們</Link>
+                      )}
                     </li>
                   </ul>
                 </div>

@@ -1560,6 +1560,16 @@
       "m_name": "ggg",
       "m_mobile": "0953830559",
       "m_birthday": "2019-09-30",
+      "shopping_cart": [
+        {
+          "product_id": 2017,
+          "product_name": "冥想",
+          "amount": 2,
+          "id": 1,
+          "price": 6990,
+          "img": "https://shoplineimg.com/5cc80df915c071000101084d/5d3ac4f44833290035a47696/600x.webp?source_format=png"
+        }
+      ],
       "buy_record": [
         {
           "time": "2019/10/17 17:30",
@@ -1588,16 +1598,6 @@
           "delivery_town": "集集鎮: 552",
           "recipient_road": "fghfghfgh",
           "pay_way2": "貨到付款"
-        }
-      ],
-      "shopping_cart": [
-        {
-          "product_id": 2017,
-          "product_name": "冥想",
-          "amount": 2,
-          "id": 1,
-          "price": 6990,
-          "img": "https://shoplineimg.com/5cc80df915c071000101084d/5d3ac4f44833290035a47696/600x.webp?source_format=png"
         }
       ],
       "id": 6

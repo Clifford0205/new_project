@@ -31,8 +31,8 @@ export class MyGooglemap extends React.Component {
         <div className="googleMap">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.558512438269!2d121.51592121537902!3d25.04905244384115!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a96d748b7e1b%3A0xa9fafd4eec67160d!2z5Lqs56uZ5pmC5bCa5buj5aC0IFEgU3F1YXJl!5e0!3m2!1szh-TW!2stw!4v1571154693597!5m2!1szh-TW!2stw"
-            frameborder="0"
-            allowfullscreen=""
+            frameBorder="0"
+            allowFullScreen=""
           ></iframe>
         </div>
       </>
