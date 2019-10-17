@@ -345,7 +345,6 @@ class ShoppingCart extends React.Component {
     console.log(this.state);
     return (
       <>
-        <GoBack />
         <MyNavbar />
         <Container className="CheckOut">
           <section>
@@ -398,19 +397,35 @@ class ShoppingCart extends React.Component {
                 <p className="text-right">總計:{this.state.bigTotal}</p>
               </div>
               <div className="order-info">
-                <div className="order-title">訂購人資料</div>
+                <div className="order-title text-center">訂購人資料</div>
                 <ul className="">
-                  <li>
-                    姓名:
-                    <input type="text" value={this.state.my_name} readOnly />
+                  <li className="mt-3 d-flex">
+                    <p>姓名:</p>
+                    <input
+                      type="text"
+                      value={this.state.my_name}
+                      readOnly
+                      className="form-control "
+                    />
                   </li>
-                  <li>
-                    E-mail:
-                    <input type="text" value={this.state.my_mail} readOnly />
+                  <li className="mt-3  d-flex">
+                    <p> E-mail:</p>
+                    <input
+                      type="text"
+                      value={this.state.my_mail}
+                      readOnly
+                      className="form-control "
+                    />
                   </li>
-                  <li>
-                    手機號碼:
-                    <input type="text" value={this.state.my_mobile} readOnly />
+
+                  <li className="mt-3  d-flex">
+                    <p> 手機號碼:</p>
+                    <input
+                      type="text"
+                      value={this.state.my_mobile}
+                      readOnly
+                      className="form-control "
+                    />
                   </li>
                 </ul>
               </div>
@@ -439,58 +454,77 @@ class ShoppingCart extends React.Component {
                   </li>
                 </ul>
                 <ul className="thehide same show">
-                  <li>
-                    姓名:
-                    <input type="text" value={this.state.my_name} readOnly />
+                  <li className="mt-3  d-flex">
+                    <p>姓名:</p>
+                    <input
+                      type="text"
+                      value={this.state.my_name}
+                      readOnly
+                      className="form-control "
+                    />
                   </li>
-                  <li>
-                    E-mail:
-                    <input type="text" value={this.state.my_mail} readOnly />
+                  <li className="mt-3  d-flex">
+                    <p>E-mail:</p>
+                    <input
+                      type="text"
+                      value={this.state.my_mail}
+                      readOnly
+                      className="form-control "
+                    />
                   </li>
-                  <li>
-                    手機號碼:
-                    <input type="text" value={this.state.my_mobile} readOnly />
+                  <li className="mt-3  d-flex">
+                    <p> 手機號碼:</p>
+                    <input
+                      type="text"
+                      value={this.state.my_mobile}
+                      readOnly
+                      className="form-control "
+                    />
                   </li>
                 </ul>
 
                 <ul className="thehide new">
-                  <li>
-                    姓名:
+                  <li className="mt-3  d-flex">
+                    <p>姓名:</p>
                     <input
                       type="text"
                       value={this.state.recipient_name}
                       onChange={this.handleFormInputChange}
                       name="recipient_name"
+                      className="form-control "
                     />
                   </li>
-                  <li>
-                    E-mail:
+                  <li className="mt-3  d-flex">
+                    <p>E-mail:</p>
                     <input
                       type="text"
                       value={this.state.recipient_mail}
                       onChange={this.handleFormInputChange}
                       name="recipient_mail"
+                      className="form-control "
                     />
                   </li>
-                  <li>
-                    手機號碼:
+                  <li className="mt-3  d-flex">
+                    <p>手機號碼:</p>
                     <input
                       type="text"
                       value={this.state.recipient_mobile}
                       onChange={this.handleFormInputChange}
                       name="recipient_mobile"
+                      className="form-control "
                     />
                   </li>
                 </ul>
 
                 <div className="row">
-                  <Col>
+                  <Col md={4} className="mt-3">
                     <select
                       onChange={e => {
                         this.changeArea(e);
                         this.handleAreaState(e);
                       }}
                       name="delivery_city"
+                      className="d-block mx-auto form-control"
                     >
                       {this.state.cityops.map((item, index) => {
                         if (index === 0) {
@@ -509,12 +543,13 @@ class ShoppingCart extends React.Component {
                       })}
                     </select>
                   </Col>
-                  <Col>
+                  <Col md={4} className="mt-3">
                     <select
                       onChange={e => {
                         this.handleAreaState(e);
                       }}
                       name="delivery_town"
+                      className="d-block mx-auto form-control"
                     >
                       {this.state.townops.map((item, index) => {
                         if (index === 0) {
@@ -534,20 +569,20 @@ class ShoppingCart extends React.Component {
                     </select>
                   </Col>
 
-                  <Col>
-                    路段地址:
+                  <Col md={4} className="d-flex mt-3">
+                    <p>路段地址:</p>
                     <input
                       type="text"
                       value={this.state.recipient_road}
                       onChange={this.handleFormInputChange}
                       name="recipient_road"
-                      className=""
+                      className="d-block mx-auto form-control"
                     />
                   </Col>
                 </div>
               </div>
               <div className="">
-                請選擇付款方式
+                <p>請選擇付款方式</p>
                 <select
                   name="pay_way"
                   id=""
@@ -568,7 +603,7 @@ class ShoppingCart extends React.Component {
                   }`,
                 }}
               >
-                <Col>
+                <Col md={4} className="mt-3">
                   信用卡卡號:
                   <input
                     type="text"
@@ -609,7 +644,7 @@ class ShoppingCart extends React.Component {
                     onChange={e => this.handleCardNo(e)}
                   />
                 </Col>
-                <Col>
+                <Col md={4} className="mt-3">
                   有效日期:
                   <select
                     name="valid_month"
@@ -651,7 +686,7 @@ class ShoppingCart extends React.Component {
                   </select>
                   年
                 </Col>
-                <Col>
+                <Col md={4} className="mt-3">
                   背面末三碼:
                   <input
                     type="text"

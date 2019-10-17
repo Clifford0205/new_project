@@ -231,6 +231,14 @@
                 img {
                     width: 250px;
 
+                    @include lg {
+                        width: 200px;
+                    }
+
+                    @include md {
+                        width: 150px;
+                    }
+
                 }
 
                 a {

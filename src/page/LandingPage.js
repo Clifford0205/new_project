@@ -304,7 +304,11 @@ class LandingPage extends React.Component {
                           {this.state.chinese ? '烏德之香' : 'THE HOUSE OF OUD'}
                         </h2>
                         <Row className="product-area">
-                          <Col className="d-flex justify-content-center">
+                          <Col
+                            xs={6}
+                            md={3}
+                            className="d-flex justify-content-center"
+                          >
                             <Link
                               to={
                                 '/ProductDetail/' + this.state.productList[0].id
@@ -325,7 +329,11 @@ class LandingPage extends React.Component {
                               </p>
                             </Link>
                           </Col>
-                          <Col className="d-flex justify-content-center">
+                          <Col
+                            xs={6}
+                            md={3}
+                            className="d-flex justify-content-center"
+                          >
                             <Link
                               to={
                                 '/ProductDetail/' + this.state.productList[1].id
@@ -347,7 +355,11 @@ class LandingPage extends React.Component {
                               </p>
                             </Link>
                           </Col>
-                          <Col className="d-flex justify-content-center">
+                          <Col
+                            xs={6}
+                            md={3}
+                            className="d-flex justify-content-center"
+                          >
                             <Link
                               to={
                                 '/ProductDetail/' + this.state.productList[2].id
@@ -369,7 +381,11 @@ class LandingPage extends React.Component {
                               </p>
                             </Link>
                           </Col>
-                          <Col className="d-flex justify-content-center">
+                          <Col
+                            xs={6}
+                            md={3}
+                            className="d-flex justify-content-center"
+                          >
                             <Link
                               to={
                                 '/ProductDetail/' + this.state.productList[3].id

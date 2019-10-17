@@ -23,6 +23,7 @@
     "react-pose": "^4.0.8",
     "react-pose-text": "^3.1.0",
     "react-router-dom": "^5.0.1",
+    "react-router-hash-link": "^1.2.2",
     "react-scripts": "3.0.1",
     "react-svg": "^10.0.12",
     "redux": "^4.0.1",

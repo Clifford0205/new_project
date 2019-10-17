@@ -86,7 +86,6 @@ class ShoppingCart extends React.Component {
   render() {
     return (
       <>
-        <GoBack />
         <MyNavbar />
         <Container className="ShoppingCart">
           <section>

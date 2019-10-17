@@ -108,7 +108,6 @@ class BloodStudies extends React.Component {
     console.log(this.state);
     return (
       <>
-        <GoBack />
         <MyNavbar />
         <Container className="MemberEdit">
           <section>

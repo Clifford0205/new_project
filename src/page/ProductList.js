@@ -199,39 +199,29 @@ class ProductList extends React.Component {
               ></div>
             </Col>
             <Col>
-              <div
-                className="filterimg"
-                id="cig"
-                onClick={this.toggleImg2}
-              ></div>
+              <div className="filterimg" id="cig" onClick={this.toggleImg2}>
+                <p>木質調</p>
+              </div>
             </Col>
             <Col>
-              <div
-                className="filterimg"
-                id="house"
-                onClick={this.toggleImg3}
-              ></div>
+              <div className="filterimg" id="house" onClick={this.toggleImg3}>
+                <p>花香調</p>
+              </div>
             </Col>
             <Col>
-              <div
-                className="filterimg"
-                id="wind"
-                onClick={this.toggleImg4}
-              ></div>
+              <div className="filterimg" id="wind" onClick={this.toggleImg4}>
+                <p>海洋調</p>
+              </div>
             </Col>
             <Col>
-              <div
-                className="filterimg"
-                id="factory"
-                onClick={this.toggleImg5}
-              ></div>
+              <div className="filterimg" id="factory" onClick={this.toggleImg5}>
+                <p>茶香調</p>
+              </div>
             </Col>
             <Col>
-              <div
-                className="filterimg"
-                id="sick"
-                onClick={this.toggleImg6}
-              ></div>
+              <div className="filterimg" id="sick" onClick={this.toggleImg6}>
+                <p>果香調</p>
+              </div>
             </Col>
           </Row>
 

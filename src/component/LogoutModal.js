@@ -18,6 +18,7 @@ import {
 } from 'react-bootstrap';
 import store from '../store/index.js';
 import $ from 'jquery';
+import './LogoutModal.scss';
 import { FaPlus, FaPen, FaTrashAlt } from 'react-icons/fa';
 
 import { Link, Redirect, withRouter } from 'react-router-dom';
@@ -58,14 +59,18 @@ class LogoutModal extends React.Component {
   render() {
     return (
       <>
-        <Modal show={this.state.showModalLogout} onHide={this.props.close}>
+        <Modal
+          show={this.state.showModalLogout}
+          onHide={this.props.close}
+          className="LogoutModal"
+        >
           <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
+            <Modal.Title>會員登出</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Container>
               <Row>
-                <h4>確定要登出嗎?</h4>
+                <h4 className="text-center w-100">確定要登出嗎?</h4>
               </Row>
             </Container>
           </Modal.Body>

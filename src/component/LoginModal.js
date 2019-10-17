@@ -19,7 +19,7 @@ import {
 import store from '../store/index.js';
 import $ from 'jquery';
 import { FaPlus, FaPen, FaTrashAlt } from 'react-icons/fa';
-
+import './LoginModal.scss';
 import { Link, Redirect, withRouter } from 'react-router-dom';
 
 import {
@@ -61,28 +61,32 @@ class LoginModal extends React.Component {
   render() {
     return (
       <>
-        <Modal show={this.props.show} onHide={this.props.close}>
+        <Modal
+          show={this.props.show}
+          onHide={this.props.close}
+          className="LoginModal"
+        >
           <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
+            <Modal.Title>會員登入</Modal.Title>
           </Modal.Header>
           <Modal.Body>
             <Container>
               <Row>
-                <Col md={12}>
+                <Col md={12} className="">
                   帳號(E-MAIL)
                   <input
                     type="text"
-                    className="w-100"
+                    className="w-100 form-control "
                     name="login_email"
                     onChange={this.handleFormInputChange}
                     value={this.state.login_email}
                   />
                 </Col>
-                <Col md={12}>
+                <Col md={12} className="mt-3">
                   密碼
                   <input
                     type="password"
-                    className="w-100"
+                    className="w-100 form-control "
                     name="login_password"
                     onChange={this.handleFormInputChange}
                     value={this.state.login_password}
@@ -91,8 +95,9 @@ class LoginModal extends React.Component {
 
                 <Col>
                   <Button
-                    className="d-block mx-auto"
+                    className="d-block mx-auto mt-3"
                     onClick={this.handleMemberLogin}
+                    variant="dark"
                   >
                     確認送出
                   </Button>

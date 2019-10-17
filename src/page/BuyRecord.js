@@ -87,7 +87,6 @@ class BuyRecord extends React.Component {
     console.log(this.state.my_buy_record);
     return (
       <>
-        <GoBack />
         <MyNavbar />
         <Container className="BuyRecord">
           <section>

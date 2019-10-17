@@ -19,7 +19,8 @@ import store from '../store/index.js';
 import $ from 'jquery';
 import { FaPlus, FaPen, FaTrashAlt } from 'react-icons/fa';
 
-import { Link, Redirect, withRouter } from 'react-router-dom';
+import { Redirect, withRouter } from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
 import RegisterModal from './RegisterModal';
 import LoginModal from './LoginModal';
 import LogoutModal from './LogoutModal';
@@ -177,7 +178,7 @@ class MyNavbar extends React.Component {
                       <Link to={`/productlist`}>商品專區</Link>
                     </li>
                     <li>
-                      <Link to={`/#fifthPage`}>聯絡我們</Link>
+                      <Link to={`/#contact-page`}>聯絡我們</Link>
                     </li>
                     <li>
                       <Link to={`/#thirdPage`}>關於我們</Link>
