@@ -165,7 +165,7 @@ export default (state = defaultState, action) => {
   //載入預設地區
   if (action.type === ZONE_LOAD) {
     const newState = JSON.parse(JSON.stringify(state));
-    console.log(action.cityops);
+    // console.log(action.cityops);
     newState.cityops = action.cityops;
     newState.townops = action.townops;
     return newState;
@@ -202,7 +202,7 @@ export default (state = defaultState, action) => {
 
   if (action.type === LOGIN_STATE) {
     const newState = JSON.parse(JSON.stringify(state));
-    console.log(action.userdata);
+    // console.log(action.userdata);
     newState.my_name = action.userdata.m_name;
     newState.o_name = action.userdata.m_name;
     newState.my_mail = action.userdata.m_mail;
@@ -279,7 +279,7 @@ export default (state = defaultState, action) => {
         newState[s] = action.value;
         // 注意：id(學號)與生日，需先轉為數字類型再進入state中
         if (action.name === 'm_birthday') action.value = +action.value;
-        console.log(s, newState[s]);
+        // console.log(s, newState[s]);
       }
     }
     return newState;
@@ -289,7 +289,7 @@ export default (state = defaultState, action) => {
     const newState = JSON.parse(JSON.stringify(state));
     newState.productfilter = action.id;
     newState.currentPage = 1;
-    console.log(newState);
+    // console.log(newState);
     return newState;
   }
 
@@ -305,7 +305,7 @@ export default (state = defaultState, action) => {
     newState.m_name = '';
     newState.m_mobile = '';
     newState.m_birthday = '';
-    console.log(newState);
+    // console.log(newState);
     return newState;
   }
 
@@ -317,7 +317,7 @@ export default (state = defaultState, action) => {
 
   if (action.type === PAGE_CHANGE) {
     const newState = JSON.parse(JSON.stringify(state));
-    console.log(action.item);
+    // console.log(action.item);
     newState.currentPage = action.item;
     return newState;
   }
@@ -338,7 +338,7 @@ export default (state = defaultState, action) => {
         // 注意：id(學號)與生日，需先轉為數字類型再進入state中
         if (action.name === 'id' || action.name === 'birth')
           action.value = +action.value;
-        console.log(r, newState[r]);
+        // console.log(r, newState[r]);
       }
     }
     return newState;
@@ -347,14 +347,14 @@ export default (state = defaultState, action) => {
   if (action.type === LANGUAGE_CHANGE) {
     const newState = JSON.parse(JSON.stringify(state));
     newState.chinese = !state.chinese;
-    console.log(newState.chinese);
+    // console.log(newState.chinese);
     return newState;
   }
 
   if (action.type === SEARCH_VALUE_CHANGE) {
     const newState = JSON.parse(JSON.stringify(state));
     newState.searchText = action.value;
-    console.log(newState.searchText);
+    // console.log(newState.searchText);
     return newState;
   }
 
@@ -373,9 +373,9 @@ export default (state = defaultState, action) => {
 
   if (action.type === SHOW_EDIT_MODAL) {
     const newState = JSON.parse(JSON.stringify(state));
-    console.log(action.id);
+    // console.log(action.id);
     const item = newState.list.find(item => item.id === action.id);
-    console.log(item);
+    // console.log(item);
     newState.id = item.id;
     newState.name = item.name;
     newState.birth = item.birth;
@@ -393,6 +393,6 @@ export default (state = defaultState, action) => {
     return newState;
   }
 
-  console.log(state, action);
+  // console.log(state, action);
   return state;
 };

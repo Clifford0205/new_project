@@ -23,12 +23,12 @@ class LandingPage extends React.Component {
     super(props);
     this.state = store.getState();
     store.subscribe(this.handleStoreChange);
-    console.log(this.state);
+    // console.log(this.state);
   }
 
   handleStoreChange = () => {
     this.setState(store.getState());
-    // console.log('store change');
+    // // console.log('store change');
   };
 
   //生命週期:一開始載入資料
@@ -122,17 +122,17 @@ class LandingPage extends React.Component {
   }
 
   onLeave(origin, destination, direction) {
-    console.log('Leaving section ' + origin.index);
+    // console.log('Leaving section ' + origin.index);
   }
 
   afterLoad(origin, destination, direction) {
     let body = document.getElementsByTagName('body');
-    console.log('After load: ' + destination.index);
-    console.log(body[0].className);
+    // console.log('After load: ' + destination.index);
+    // console.log(body[0].className);
   }
 
   render() {
-    console.log(this.state.productList);
+    // console.log(this.state.productList);
     if (this.state.productList.length === 0) return null;
     return (
       <>

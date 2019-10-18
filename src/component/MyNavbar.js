@@ -23,21 +23,17 @@ import { FaAngleDown } from 'react-icons/fa';
 class MyNavbar extends React.Component {
   constructor(props) {
     super(props);
+    this.mounted = false;
     this.state = store.getState();
     store.subscribe(this.handleStoreChange);
-    console.log(this.state);
   }
-
-  handleStoreChange = () => {
-    this.setState(store.getState());
-    // console.log('store change');
-  };
 
   //生命週期:一開始載入資料
   componentDidMount() {
+    this.mounted = true;
     $('.hanburger').click(function(e) {
       e.stopPropagation();
-      console.log($(this));
+      // console.log($(this));
       $(this).toggleClass('active');
       $('.my-nav-all').toggleClass('show');
       $('body').toggleClass('menu-open');
@@ -48,21 +44,29 @@ class MyNavbar extends React.Component {
       e.stopPropagation();
       $('.my-menu').toggleClass('show');
     });
-    // console.log(localStorage.getItem('user'));
-    console.log(localStorage.getItem('user'));
     if (localStorage.getItem('user')) {
       let this_user = JSON.parse(localStorage.getItem('user'));
       const action = checkLoginState(this_user);
-      console.log(action);
+      // console.log(action);
       store.dispatch(action);
     }
   }
+
+  componentWillUnmount() {
+    this.mounted = false;
+  }
+
+  handleStoreChange = () => {
+    if (this.mounted) {
+      this.setState(store.getState());
+    }
+  };
 
   componentDidUpdate() {}
 
   // 開啟註冊視窗
   hanldleOpenRegister = () => {
-    console.log(this.state);
+    // console.log(this.state);
     const action = memberModalShowAction();
     store.dispatch(action);
   };
@@ -75,7 +79,7 @@ class MyNavbar extends React.Component {
 
   // 開啟登入視窗
   hanldleOpenLogin = () => {
-    console.log(this.state);
+    // console.log(this.state);
     const action = loginModalShowAction();
     store.dispatch(action);
   };
@@ -99,7 +103,7 @@ class MyNavbar extends React.Component {
   };
 
   render() {
-    console.log(this.props.match.url === '/');
+    // console.log(this.props.match.url === '/');
     return (
       <>
         <div className="MyNav">

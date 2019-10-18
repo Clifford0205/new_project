@@ -18,12 +18,13 @@ class LandingPage extends React.Component {
     this.mounted = false;
     this.state = store.getState();
     store.subscribe(this.handleStoreChange);
-    console.log(this.state);
+    // console.log(this.state);
   }
 
   handleStoreChange = () => {
-    this.setState(store.getState());
-    console.log('store change');
+    if (this.mounted) {
+      this.setState(store.getState());
+    }
   };
 
   //生命週期:一開始載入資料
@@ -40,17 +41,17 @@ class LandingPage extends React.Component {
   }
 
   onLeave(origin, destination, direction) {
-    // console.log('Leaving section ' + origin.index);
+    // // console.log('Leaving section ' + origin.index);
   }
 
   afterLoad(origin, destination, direction) {
     let body = document.getElementsByTagName('body');
-    // console.log('After load: ' + destination.index);
-    // console.log(body[0].className);
+    // // console.log('After load: ' + destination.index);
+    // // console.log(body[0].className);
   }
 
   render() {
-    console.log(this.state.productList);
+    // console.log(this.state.productList);
 
     if (this.state.productList.length === 0) return null;
     return (
@@ -72,7 +73,7 @@ class LandingPage extends React.Component {
           render={({ state, fullpageApi }) => {
             // let data = this.state.productList;
 
-            // console.log(data);
+            // // console.log(data);
             // if (data.length === 0) return null;
 
             return (
@@ -204,21 +205,29 @@ class LandingPage extends React.Component {
                                 md={6}
                                 className="align-items-center justify-content-center d-flex"
                               >
-                                <p className="">
-                                  {this.state.chinese ? (
-                                    <p className="">
-                                      嗅覺是唯一先反應後思考的感官 <br />
-                                      在嗅聞某樣事物時 鼻子裡的氣味分子接收器
-                                      <br />
-                                      會闢出一條通暢無阻的道路 直達大腦皮質系統
-                                      <br />
-                                      而那正是控制情緒 記憶與幸福感的區域 <br />
-                                    </p>
-                                  ) : (
-                                    `45
-                                 6`
-                                  )}
-                                </p>
+                                {this.state.chinese ? (
+                                  <p className="">
+                                    嗅覺是唯一先反應後思考的感官 <br />
+                                    在嗅聞某樣事物時 鼻子裡的氣味分子接收器
+                                    <br />
+                                    會闢出一條通暢無阻的道路 直達大腦皮質系統
+                                    <br />
+                                    而那正是控制情緒 記憶與幸福感的區域 <br />
+                                  </p>
+                                ) : (
+                                  <p className="">
+                                    Smell is the only sensory that reacts first
+                                    and then thinks <br />
+                                    molecule receiver in the nose while sniffing
+                                    something
+                                    <br />
+                                    Will create an unobstructed path to the
+                                    cerebral cortex system
+                                    <br />
+                                    And that is the area that controls emotional
+                                    memory and happiness. <br />
+                                  </p>
+                                )}
                               </Col>
                               <Col md={6}>
                                 <h5>

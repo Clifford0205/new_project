@@ -11,17 +11,24 @@ class Pagination extends React.Component {
   constructor(props) {
     super(props);
     this.state = store.getState();
+    this.mounted = false;
     store.subscribe(this.handleStoreChange);
-    console.log(this.state);
+  }
+
+  //生命週期:一開始載入資料
+  componentDidMount() {
+    this.mounted = true;
+  }
+
+  componentWillUnmount() {
+    this.mounted = false;
   }
 
   handleStoreChange = () => {
-    this.setState(store.getState());
-    // console.log('store change');
+    if (this.mounted) {
+      this.setState(store.getState());
+    }
   };
-
-  //生命週期:一開始載入資料
-  componentDidMount() {}
 
   //生命週期:state的改變
   componentDidUpdate() {
@@ -46,7 +53,7 @@ class Pagination extends React.Component {
   paginate = item => () => {
     const action = paginateChangeAction(item);
     store.dispatch(action);
-    console.log(this.state.currentPage);
+    // console.log(this.state.currentPage);
   };
 
   goPrevious = () => {
@@ -54,7 +61,7 @@ class Pagination extends React.Component {
       this.state.currentPage - 1 < 1 ? 1 : this.state.currentPage - 1
     );
     store.dispatch(action);
-    console.log(this.state.currentPage);
+    // console.log(this.state.currentPage);
   };
 
   goNext = () => {
@@ -65,10 +72,11 @@ class Pagination extends React.Component {
         : this.state.currentPage + 1
     );
     store.dispatch(action);
-    console.log(this.state.currentPage);
+    // console.log(this.state.currentPage);
   };
 
   render() {
+    console.log(this.state.currentPage);
     const pageNumbers = [];
     let totalPosts = this.props.totalPosts;
     let postPerPage = this.state.postPerPage;

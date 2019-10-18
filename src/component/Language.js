@@ -12,25 +12,28 @@ class Language extends React.Component {
   constructor(props) {
     super(props);
     this.state = store.getState();
+    this.mounted = false;
     store.subscribe(this.handleStoreChange);
-    console.log(this.state);
+    // console.log(this.state);
   }
 
   handleStoreChange = () => {
-    this.setState(store.getState());
-    // console.log('store change');
+    if (this.mounted) {
+      this.setState(store.getState());
+    }
   };
 
   //生命週期:一開始載入資料
   componentDidMount() {
-    // $('.switch').click(function(e) {
-    //   e.stopPropagation();
-    //   $('.lanChange').toggleClass('active');
-    // });
+    this.mounted = true;
+  }
+
+  componentWillUnmount() {
+    this.mounted = false;
   }
 
   handleChangeLanguage = () => {
-    console.log('我被點即了');
+    // console.log('我被點即了');
     // $('.lanChange').toggleClass('active');
     const action = languageChangeAction();
     store.dispatch(action);

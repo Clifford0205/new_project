@@ -34,14 +34,25 @@ class LogoutModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = store.getState();
+    this.mounted = false;
     store.subscribe(this.handleStoreChange);
-    console.log(this.state);
+    // console.log(this.state);
   }
 
   handleStoreChange = () => {
-    this.setState(store.getState());
-    // console.log('store change');
+    if (this.mounted) {
+      this.setState(store.getState());
+    }
   };
+
+  //生命週期:一開始載入資料
+  componentDidMount() {
+    this.mounted = true;
+  }
+
+  componentWillUnmount() {
+    this.mounted = false;
+  }
 
   handleCleanStorage = () => {
     localStorage.removeItem('user');
@@ -52,9 +63,6 @@ class LogoutModal extends React.Component {
     store.dispatch(action);
     this.props.history.push('/');
   };
-
-  //生命週期:一開始載入資料
-  componentDidMount() {}
 
   render() {
     return (

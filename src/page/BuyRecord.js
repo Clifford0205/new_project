@@ -17,26 +17,37 @@ import {
 class BuyRecord extends React.Component {
   constructor(props) {
     super(props);
+    this.mounted = false;
     this.state = store.getState();
-    store.subscribe(this.handleStoreChange);
-    console.log(this.state);
+    if (this.mounted) {
+      store.subscribe(this.handleStoreChange);
+    }
+
+    // console.log(this.state);
   }
 
   handleStoreChange = () => {
     this.setState(store.getState());
-    // console.log('store change');
+    // // console.log('store change');
   };
 
   //生命週期:一開始載入資料
   componentDidMount() {
-    console.log(this.state);
+    // console.log(this.state);
     let url_id = this.props.match.params.id;
     let state_id = this.state.my_id;
-    console.log(url_id);
-    console.log(state_id);
-    let action = '';
-    action = getProducteAction();
-    store.dispatch(action);
+    // console.log(url_id);
+    // console.log(state_id);
+    this.mounted = true;
+    if (this.mounted) {
+      let action = '';
+      action = getProducteAction();
+      store.dispatch(action);
+    }
+  }
+
+  componentWillUnmount() {
+    this.mounted = false;
   }
 
   handleFormInputChange = e => {
@@ -45,7 +56,7 @@ class BuyRecord extends React.Component {
   };
 
   handleTitleClick = e => {
-    console.log(e.target.id);
+    // console.log(e.target.id);
     let allhide = document.querySelectorAll('.thehide');
     let alltitle = document.querySelectorAll('.the-title');
     for (let i = 0; i < allhide.length; i++) {
@@ -84,7 +95,7 @@ class BuyRecord extends React.Component {
   };
 
   render() {
-    console.log(this.state.my_buy_record);
+    // console.log(this.state.my_buy_record);
     return (
       <>
         <MyNavbar />
@@ -99,8 +110,8 @@ class BuyRecord extends React.Component {
                 <li key={item.id} className="single-order">
                   <Row>
                     <Col className="">
-                      {item.product.map(item => (
-                        <div className="d-flex">
+                      {item.product.map((item, index) => (
+                        <div className="d-flex" key={index}>
                           <Link
                             to={'/ProductDetail/' + item.product_id}
                             className=" name text-nowrap"

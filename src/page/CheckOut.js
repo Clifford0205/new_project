@@ -28,21 +28,21 @@ class ShoppingCart extends React.Component {
     super(props);
     this.state = store.getState();
     store.subscribe(this.handleStoreChange);
-    console.log(this.state);
+    // console.log(this.state);
   }
 
   handleStoreChange = () => {
     this.setState(store.getState());
-    // console.log('store change');
+    // // console.log('store change');
   };
 
   //生命週期:一開始載入資料
   componentDidMount() {
-    console.log(this.state);
+    // console.log(this.state);
     let url_id = this.props.match.params.id;
     let state_id = this.state.my_id;
-    console.log(url_id);
-    console.log(state_id);
+    // console.log(url_id);
+    // console.log(state_id);
     let action = '';
     action = getProducteAction();
     store.dispatch(action);
@@ -63,7 +63,7 @@ class ShoppingCart extends React.Component {
   }
 
   componentDidUpdate() {
-    console.log(this.state);
+    // console.log(this.state);
   }
 
   changeArea = e => {
@@ -87,7 +87,7 @@ class ShoppingCart extends React.Component {
   };
 
   handleTitleClick = e => {
-    console.log(e.target.id);
+    // console.log(e.target.id);
     let allhide = document.querySelectorAll('.thehide');
     let alltitle = document.querySelectorAll('.the-title');
     for (let i = 0; i < allhide.length; i++) {
@@ -102,7 +102,7 @@ class ShoppingCart extends React.Component {
   };
 
   handleTitleClick = e => {
-    console.log(e.target.id);
+    // console.log(e.target.id);
     let allhide = document.querySelectorAll('.thehide');
     let alltitle = document.querySelectorAll('.the-title');
     for (let i = 0; i < allhide.length; i++) {
@@ -227,7 +227,7 @@ class ShoppingCart extends React.Component {
 
     let total = this.state.bigTotal;
 
-    console.log(product);
+    // console.log(product);
 
     let orderer = this.state.my_name;
 
@@ -254,7 +254,7 @@ class ShoppingCart extends React.Component {
       alert('請輸入收件人手機號碼');
       return;
     }
-    console.log();
+    // console.log();
 
     let delivery_city = this.state.delivery_city;
 
@@ -310,7 +310,7 @@ class ShoppingCart extends React.Component {
     if (pay_way === 'cash') {
       pay_way2 = '貨到付款';
     }
-    console.log(delivery_city);
+    // console.log(delivery_city);
 
     const data = {
       buy_record: {
@@ -342,7 +342,7 @@ class ShoppingCart extends React.Component {
   };
 
   render() {
-    console.log(this.state);
+    // console.log(this.state);
     return (
       <>
         <MyNavbar />

@@ -31,17 +31,20 @@ class ProductDetail extends React.Component {
   constructor(props) {
     super(props);
     this.state = store.getState();
+    this.mounted = false;
     store.subscribe(this.handleStoreChange);
-    console.log(this.state);
+    // console.log(this.state);
   }
 
   handleStoreChange = () => {
-    this.setState(store.getState());
-    // console.log('store change');
+    if (this.mounted) {
+      this.setState(store.getState());
+    }
   };
 
   //生命週期:一開始載入資料
   componentDidMount() {
+    this.mounted = true;
     let action = '';
     action = getProducteAction();
     store.dispatch(action);
@@ -51,15 +54,19 @@ class ProductDetail extends React.Component {
     store.dispatch(action);
   }
 
+  componentWillUnmount() {
+    this.mounted = false;
+  }
+
   handleChangeimg = e => {
-    console.log(e.currentTarget);
+    // console.log(e.currentTarget);
     var now_img = e.target.getAttribute('src');
     const action = changeImgAction(now_img);
     store.dispatch(action);
     var node = e.currentTarget.parentNode;
     var node_li = node.querySelectorAll('li');
-    console.log(node.childNodes.length);
-    console.log(node_li);
+    // console.log(node.childNodes.length);
+    // console.log(node_li);
     for (var i = 0; i < node_li.length; i++) {
       node_li[i].classList.remove('active');
     }
@@ -78,7 +85,7 @@ class ProductDetail extends React.Component {
   };
 
   handleTitleClick = e => {
-    console.log(e.target.id);
+    // console.log(e.target.id);
     let allhide = document.querySelectorAll('.thehide');
     let alltitle = document.querySelectorAll('.the-title');
     for (let i = 0; i < allhide.length; i++) {
@@ -109,7 +116,7 @@ class ProductDetail extends React.Component {
     }
 
     alert('留言成功');
-    console.log(this.state.productList);
+    // console.log(this.state.productList);
     const theProductData = this.state.productList.find(
       item => item.id === +this.props.match.params.id
     );
@@ -139,7 +146,7 @@ class ProductDetail extends React.Component {
 
     if (theProductData.message.length !== 0) {
       // theProductMsg= theProductData
-      console.log(theProductData.message.slice(-1)[0].id);
+      // console.log(theProductData.message.slice(-1)[0].id);
       let lastid = theProductData.message.slice(-1)[0].id;
       let oldmsg = theProductData.message;
       const big_message = {
@@ -172,31 +179,31 @@ class ProductDetail extends React.Component {
       item => item.id === +this.props.match.params.id
     );
     //拿到該產品所有留言
-    console.log(theProductData.message);
+    // console.log(theProductData.message);
     //拿出所有留言中的大留言，用來對比
     var result = theProductData.message.map(item => item.text);
-    console.log(result);
+    // console.log(result);
     //是在哪一個大留言下做小留言
-    console.log(e.target.parentNode);
+    // console.log(e.target.parentNode);
     let thisLi = e.target.parentNode;
     let Bmsg = thisLi.querySelector('p').innerHTML;
-    console.log(Bmsg); //大留言的文字
+    // console.log(Bmsg); //大留言的文字
 
     var whichone = result.indexOf(Bmsg);
-    console.log(whichone);
+    // console.log(whichone);
     //小留言輸入框的值
     let littliemsg = thisLi.querySelector('textarea').value;
-    console.log(littliemsg);
+    // console.log(littliemsg);
 
     //該產品所有留言
     let newmsg = theProductData.message;
     let o_littleMsg = theProductData.message[whichone].little_message;
     const member = this.state.my_name ? this.state.my_name : '匿名';
-    console.log(o_littleMsg);
+    // console.log(o_littleMsg);
     //小留言的id
     let little_lastid =
       o_littleMsg.length === 0 ? 0 : o_littleMsg.slice(-1)[0].id;
-    console.log(little_lastid);
+    // console.log(little_lastid);
 
     //哪一個產品
     const product_id = this.props.match.params.id;
@@ -210,7 +217,7 @@ class ProductDetail extends React.Component {
         { text: member + ':' + littliemsg, id: little_lastid + 1 },
       ],
     });
-    console.log(newmsg);
+    // console.log(newmsg);
 
     //傳遞給API的資料
     const little_message = {
@@ -225,7 +232,7 @@ class ProductDetail extends React.Component {
 
     thisLi.querySelector('textarea').value = '';
 
-    // console.log(little_message.message.message);
+    // // console.log(little_message.message.message);
   };
 
   handleCart = () => {
@@ -249,7 +256,7 @@ class ProductDetail extends React.Component {
     //該品項名稱
     let product_name = theProductData.chinese.title;
 
-    console.log(theProductData.imglist[0].img);
+    // console.log(theProductData.imglist[0].img);
     let img = theProductData.imglist[0].img;
     //該品項id
     let product_id = +this.props.match.params.id;
@@ -259,14 +266,14 @@ class ProductDetail extends React.Component {
     let member_id = this.state.my_id;
 
     let cart_id = '';
-    console.log(this.state.my_cart.length);
+    // console.log(this.state.my_cart.length);
     if (this.state.my_cart.length !== 0) {
       cart_id = this.state.my_cart.slice(-1)[0].id + 1;
     } else {
       cart_id = 1;
     }
 
-    console.log(this.state.my_cart.slice(-1));
+    // console.log(this.state.my_cart.slice(-1));
 
     const cart_data = {
       m_mail: this.state.my_mail,
@@ -293,16 +300,16 @@ class ProductDetail extends React.Component {
   };
 
   render() {
-    console.log(this.state);
-    console.log(this.state.productList);
+    // console.log(this.state);
+    // console.log(this.state.productList);
     const theProductData = this.state.productList.find(
       item => item.id === +this.props.match.params.id
     );
-    // console.log(theProductData);
-    // console.log(theProductData !== undefined);
+    // // console.log(theProductData);
+    // // console.log(theProductData !== undefined);
 
     if (theProductData === undefined) return null;
-    console.log(theProductData);
+    // console.log(theProductData);
     return (
       <>
         {/* <GoBack /> */}
@@ -387,14 +394,14 @@ class ProductDetail extends React.Component {
               <Col>
                 <ul className="d-flex   my-3 choose-title">
                   <li
-                    class="w-100 text-center the-title active"
+                    className="w-100 text-center the-title active"
                     id="product-detail"
                     onClick={this.handleTitleClick}
                   >
                     {this.state.chinese ? '商品描述' : 'Describe'}
                   </li>
                   <li
-                    class="w-100  text-center the-title "
+                    className="w-100  text-center the-title "
                     id="pay-way"
                     onClick={this.handleTitleClick}
                   >

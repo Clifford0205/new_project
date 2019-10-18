@@ -17,10 +17,8 @@ import {
   Modal,
 } from 'react-bootstrap';
 import store from '../store/index.js';
-import $ from 'jquery';
-import { FaPlus, FaPen, FaTrashAlt } from 'react-icons/fa';
 import './LoginModal.scss';
-import { Link, Redirect, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import {
   InputChangeAction,
@@ -31,17 +29,25 @@ class LoginModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = store.getState();
+    this.mounted = false;
     store.subscribe(this.handleStoreChange);
-    console.log(this.state);
+    // console.log(this.state);
   }
 
   handleStoreChange = () => {
-    this.setState(store.getState());
-    // console.log('store change');
+    if (this.mounted) {
+      this.setState(store.getState());
+    }
   };
 
   //生命週期:一開始載入資料
-  componentDidMount() {}
+  componentDidMount() {
+    this.mounted = true;
+  }
+
+  componentWillUnmount() {
+    this.mounted = false;
+  }
 
   handleFormInputChange = e => {
     const action = InputChangeAction(e.target.value, e.target.name);
@@ -54,7 +60,7 @@ class LoginModal extends React.Component {
       login_password: this.state.login_password,
     };
     const action = memberLoginAction(login_data);
-    console.log(action);
+    // console.log(action);
     store.dispatch(action);
   };
 

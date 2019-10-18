@@ -1,7 +1,7 @@
 import React from 'react';
 import store from '../store/index.js';
 import './Bottomform.scss';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { Row, Col, Button } from 'react-bootstrap';
 import {
   InputChangeAction,
   sendmessageAction,
@@ -11,14 +11,25 @@ export class Bottomform extends React.Component {
   constructor(props) {
     super(props);
     this.state = store.getState();
+    this.mounted = false;
     store.subscribe(this.handleStoreChange);
-    console.log(this.state);
+    // console.log(this.state);
   }
 
   handleStoreChange = () => {
-    this.setState(store.getState());
-    // console.log('store change');
+    if (this.mounted) {
+      this.setState(store.getState());
+    }
   };
+
+  //生命週期:一開始載入資料
+  componentDidMount() {
+    this.mounted = true;
+  }
+
+  componentWillUnmount() {
+    this.mounted = false;
+  }
 
   handleFormInputChange = e => {
     const action = InputChangeAction(e.target.value, e.target.name);
@@ -42,10 +53,10 @@ export class Bottomform extends React.Component {
       message: this.state.message,
     };
     // const stateList = this.state.list;
-    // console.log(stateList);
-    console.log(item);
+    // // console.log(stateList);
+    // console.log(item);
     const action = sendmessageAction(item);
-    console.log(action);
+    // console.log(action);
     store.dispatch(action);
   };
   render() {

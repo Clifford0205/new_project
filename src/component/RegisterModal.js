@@ -32,17 +32,25 @@ class RegisterModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = store.getState();
+    this.mounted = false;
     store.subscribe(this.handleStoreChange);
-    console.log(this.state);
+    // console.log(this.state);
   }
 
   handleStoreChange = () => {
-    this.setState(store.getState());
-    // console.log('store change');
+    if (this.mounted) {
+      this.setState(store.getState());
+    }
   };
 
   //生命週期:一開始載入資料
-  componentDidMount() {}
+  componentDidMount() {
+    this.mounted = true;
+  }
+
+  componentWillUnmount() {
+    this.mounted = false;
+  }
 
   handleFormInputChange = e => {
     const action = InputChangeAction(e.target.value, e.target.name);
@@ -64,7 +72,7 @@ class RegisterModal extends React.Component {
 
     //手機號碼驗證
     let mobile_pattern = /^09\d{2}\-?\d{3}\-?\d{3}$/;
-    console.log(document.querySelector('.m_mobile').value);
+    // console.log(document.querySelector('.m_mobile').value);
     if (!mobile_pattern.test(document.querySelector('.m_mobile').value)) {
       document.querySelector('.m_mobile').style.borderColor = 'red';
       document.querySelector('.m_mobileHelp').innerHTML =
@@ -103,7 +111,7 @@ class RegisterModal extends React.Component {
 
     if (isPassed) {
       const action = memberRegisterAction(m_data);
-      console.log(action);
+      // console.log(action);
       store.dispatch(action);
     }
   };

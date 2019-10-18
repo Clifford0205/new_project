@@ -26,43 +26,50 @@ import PropTypes from 'prop-types';
 class ProductList extends React.Component {
   constructor(props) {
     super(props);
+    this.mounted = false;
     this.state = store.getState();
     store.subscribe(this.handleStoreChange);
-    console.log(this.state);
   }
-
-  handleStoreChange = () => {
-    this.setState(store.getState());
-    // console.log('store change');
-  };
 
   //生命週期:一開始載入資料
   componentDidMount() {
+    this.mounted = true;
     const action = getProducteAction();
-    store.dispatch(action);
-    console.log(this.state);
+    if (this.mounted) {
+      store.dispatch(action);
+    }
   }
 
+  componentWillUnmount() {
+    this.mounted = false;
+  }
+
+  handleStoreChange = () => {
+    if (this.mounted) {
+      this.setState(store.getState());
+    }
+  };
+
   handleClassify = e => {
-    console.log(e.target);
+    // console.log(e.target);
     let allfilter = document.querySelectorAll('.filter');
     for (let i = 0; i < allfilter.length; i++) {
       allfilter[i].classList.remove('active');
     }
     e.target.classList.add('active');
-    console.log(e.target.id);
+    // console.log(e.target.id);
     let action = setProductfilter(e.target.id);
     store.dispatch(action);
   };
 
   componentDidUpdate() {
-    console.log(this.state);
+    // console.log(this.state);
   }
 
   render() {
-    console.log(this.state);
+    // console.log(this.state);
     let data = this.state.productList;
-    console.log(data);
+    // console.log(data);
 
     if (this.state.productfilter && this.state.productfilter.trim() !== '') {
       data = this.state.productList.filter(item =>

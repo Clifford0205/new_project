@@ -43,16 +43,16 @@ function* getInitList() {
     const jsonObject = yield response.json();
     jsonObject.reverse();
     const action = initListAction(jsonObject);
-    console.log(action);
+    // console.log(action);
     yield put(action);
   } catch (e) {
-    console.log(e);
+    // console.log(e);
   }
 }
 
 //送出顧客意見
 function* saveclientmessage(newItem) {
-  console.log(newItem.item);
+  // console.log(newItem.item);
   try {
     const data = newItem.item;
     const response = yield fetch('http://localhost:5555/clientmessage', {
@@ -65,13 +65,13 @@ function* saveclientmessage(newItem) {
     });
     const jsonObject = yield response.json();
 
-    console.log(jsonObject);
+    // console.log(jsonObject);
     yield alert('您的意見已經提交');
     const action = cleanInputAction();
-    console.log(action);
+    // console.log(action);
     yield put(action);
   } catch (e) {
-    console.log(e);
+    // console.log(e);
   }
 }
 
@@ -89,16 +89,16 @@ function* getProductsInstate() {
     const jsonObject = yield response.json();
     jsonObject.reverse();
     const action = ProductInListActopn(jsonObject);
-    console.log(action);
+    // console.log(action);
     yield put(action);
   } catch (e) {
-    console.log(e);
+    // console.log(e);
   }
 }
 
 //會員註冊
 function* addMemberAction(newItem) {
-  console.log(newItem.m_data);
+  // console.log(newItem.m_data);
   try {
     const data = newItem.m_data;
     const response = yield fetch('http://localhost:5555/memberdata', {
@@ -111,16 +111,16 @@ function* addMemberAction(newItem) {
     });
     const jsonObject = yield response.json();
 
-    console.log(jsonObject);
+    // console.log(jsonObject);
     yield alert('註冊成功');
     let action = '';
     action = cleanInputAction();
-    // console.log(action);
+    // // console.log(action);
     yield put(action);
     action = memberModalCloseAction();
     yield put(action);
   } catch (e) {
-    console.log(e);
+    // console.log(e);
   }
 }
 
@@ -141,14 +141,14 @@ function* MemberLogin(newItem) {
     );
     // if (!response.ok) throw new Error(response.statusText);
     const jsonObject = yield response.json();
-    yield console.log(jsonObject);
+    yield // console.log(jsonObject);
     if (jsonObject.length !== 0) {
       alert('登入成功');
-      console.log(jsonObject[0]);
+      // console.log(jsonObject[0]);
       localStorage.setItem('user', JSON.stringify(jsonObject[0]));
-      console.log(JSON.parse(localStorage.getItem('user')));
+      // console.log(JSON.parse(localStorage.getItem('user')));
       let this_user = JSON.parse(localStorage.getItem('user'));
-      console.log(this_user);
+      // console.log(this_user);
       let action = '';
       action = checkLoginState(this_user);
       yield put(action);
@@ -158,17 +158,17 @@ function* MemberLogin(newItem) {
       alert('帳號密碼錯誤');
     }
   } catch (e) {
-    console.log(e);
+    // console.log(e);
   }
 }
 
 //修改會員資料
 function* editMemberaction(newItem) {
-  yield console.log(newItem.edit_data);
+  yield // console.log(newItem.edit_data);
   const member_id = newItem.edit_data.id;
   const data = newItem.edit_data;
-  console.log(member_id);
-  console.log(data);
+  // console.log(member_id);
+  // console.log(data);
 
   const response = yield fetch(
     'http://localhost:5555/memberdata/' + member_id,
@@ -182,11 +182,11 @@ function* editMemberaction(newItem) {
     }
   );
   const jsonObject = yield response.json();
-  console.log(jsonObject);
+  // console.log(jsonObject);
   localStorage.setItem('user', JSON.stringify(jsonObject));
-  console.log(JSON.parse(localStorage.getItem('user')));
+  // console.log(JSON.parse(localStorage.getItem('user')));
   let this_user = JSON.parse(localStorage.getItem('user'));
-  console.log(this_user);
+  // console.log(this_user);
   yield alert('資料修改成功');
   const action = checkLoginState(this_user);
   yield put(action);
@@ -194,7 +194,7 @@ function* editMemberaction(newItem) {
 
 //修改密碼
 function* editPasswordAction(newItem) {
-  yield console.log(newItem.edit_pswd);
+  yield // console.log(newItem.edit_pswd);
   const member_id = newItem.edit_pswd.id;
   const data = newItem.edit_pswd;
   const response = yield fetch(
@@ -209,11 +209,11 @@ function* editPasswordAction(newItem) {
     }
   );
   const jsonObject = yield response.json();
-  console.log(jsonObject);
+  // console.log(jsonObject);
   localStorage.setItem('user', JSON.stringify(jsonObject));
-  console.log(JSON.parse(localStorage.getItem('user')));
+  // console.log(JSON.parse(localStorage.getItem('user')));
   let this_user = JSON.parse(localStorage.getItem('user'));
-  console.log(this_user);
+  // console.log(this_user);
   yield alert('密碼修改成功');
   const action = checkLoginState(this_user);
   yield put(action);
@@ -221,9 +221,9 @@ function* editPasswordAction(newItem) {
 
 //大留言
 function* bigMessageAction(newItem) {
-  yield console.log(newItem.big_message.message);
+  yield // console.log(newItem.big_message.message);
   const data = newItem.big_message.message;
-  console.log(data);
+  // console.log(data);
   const ptid = newItem.big_message.product_id;
   const response = yield fetch('http://localhost:5555/products/' + ptid, {
     method: 'PATCH',
@@ -234,14 +234,14 @@ function* bigMessageAction(newItem) {
     }),
   });
   const jsonObject = yield response.json();
-  console.log(jsonObject);
+  // console.log(jsonObject);
   yield getProductsInstate();
 }
 
 //小留言
 function* littleMsg(newItem) {
   const data = newItem.little_message.message;
-  yield console.log(data);
+  yield // console.log(data);
   const ptid = newItem.little_message.product_id;
   const response = yield fetch('http://localhost:5555/products/' + ptid, {
     method: 'PATCH',
@@ -252,17 +252,17 @@ function* littleMsg(newItem) {
     }),
   });
   const jsonObject = yield response.json();
-  console.log(jsonObject);
+  // console.log(jsonObject);
   yield getProductsInstate();
 }
 
 //購物車
 
 function* addcartAction(newItem) {
-  yield console.log(newItem.cart_data);
+  yield // console.log(newItem.cart_data);
   const data = newItem.cart_data;
   const mbid = newItem.cart_data.id;
-  console.log(data);
+  // console.log(data);
   const response = yield fetch('http://localhost:5555/memberdata/' + mbid, {
     method: 'PUT',
     body: JSON.stringify(data),
@@ -272,11 +272,11 @@ function* addcartAction(newItem) {
     }),
   });
   const jsonObject = yield response.json();
-  console.log(jsonObject);
+  // console.log(jsonObject);
   localStorage.setItem('user', JSON.stringify(jsonObject));
-  console.log(JSON.parse(localStorage.getItem('user')));
+  // console.log(JSON.parse(localStorage.getItem('user')));
   let this_user = JSON.parse(localStorage.getItem('user'));
-  console.log(this_user);
+  // console.log(this_user);
   yield alert('成功加入購物車');
 
   let action = '';
@@ -289,7 +289,7 @@ function* addcartAction(newItem) {
 //刪除購物車品項
 
 function* deleteCartAction(newItem) {
-  yield console.log(newItem.delItem.shopping_cart);
+  yield // console.log(newItem.delItem.shopping_cart);
   const data = newItem.delItem.shopping_cart;
   const id = newItem.delItem.id;
   const response = yield fetch('http://localhost:5555/memberdata/' + id, {
@@ -301,11 +301,11 @@ function* deleteCartAction(newItem) {
     }),
   });
   const jsonObject = yield response.json();
-  console.log(jsonObject);
+  // console.log(jsonObject);
   localStorage.setItem('user', JSON.stringify(jsonObject));
-  console.log(JSON.parse(localStorage.getItem('user')));
+  // console.log(JSON.parse(localStorage.getItem('user')));
   let this_user = JSON.parse(localStorage.getItem('user'));
-  console.log(this_user);
+  // console.log(this_user);
   yield alert('刪除成功');
   const action = checkLoginState(this_user);
   yield put(action);
@@ -313,10 +313,10 @@ function* deleteCartAction(newItem) {
 
 //購物車到訂單
 function* addInOrderAction(newItem) {
-  // yield console.log(newItem);
+  // yield // console.log(newItem);
   const data = newItem.data.buy_record;
   const id = newItem.data.id;
-  yield console.log(data);
+  yield // console.log(data);
   const response = yield fetch('http://localhost:5555/memberdata/' + id, {
     method: 'PATCH',
     body: JSON.stringify(data),
@@ -326,12 +326,12 @@ function* addInOrderAction(newItem) {
     }),
   });
   const jsonObject = yield response.json();
-  console.log(jsonObject);
+  // console.log(jsonObject);
 
   localStorage.setItem('user', JSON.stringify(jsonObject));
-  console.log(JSON.parse(localStorage.getItem('user')));
+  // console.log(JSON.parse(localStorage.getItem('user')));
   let this_user = JSON.parse(localStorage.getItem('user'));
-  console.log(this_user);
+  // console.log(this_user);
   yield alert('購買成功');
   const action = checkLoginState(this_user);
   yield put(action);
@@ -339,8 +339,8 @@ function* addInOrderAction(newItem) {
 //窩窩專案
 
 function* addItemAction(newItem) {
-  console.log(newItem);
-  console.log(newItem.item);
+  // console.log(newItem);
+  // console.log(newItem.item);
   try {
     const data = newItem.item;
 
@@ -354,37 +354,37 @@ function* addItemAction(newItem) {
     });
     const jsonObject = yield response.json();
 
-    console.log(jsonObject);
+    // console.log(jsonObject);
     yield getInitList();
     const action = closeRegisterModal();
     yield put(action);
-    // console.log(action);
+    // // console.log(action);
     // yield put(action);
   } catch (e) {
-    console.log(e);
+    // console.log(e);
   }
 }
 
 function* deleteItem(newItem) {
   try {
     const data = newItem.item.id;
-    console.log(data);
+    // console.log(data);
     const response = yield fetch('http://localhost:5555/students/' + data, {
       method: 'DELETE',
     });
     const jsonObject = yield response.json();
 
-    console.log(jsonObject);
+    // console.log(jsonObject);
     yield getInitList();
-    // console.log(action);
+    // // console.log(action);
     // yield put(action);
   } catch (e) {
-    console.log(e);
+    // console.log(e);
   }
 }
 
 function* editItem(newItem) {
-  console.log(newItem.newData);
+  // console.log(newItem.newData);
   try {
     const studentID = newItem.newData.id;
     const data = newItem.newData;
@@ -402,14 +402,14 @@ function* editItem(newItem) {
     );
     const jsonObject = yield response.json();
 
-    console.log(jsonObject);
+    // console.log(jsonObject);
     yield getInitList();
     const action = closeRegisterModal();
     yield put(action);
-    // console.log(action);
+    // // console.log(action);
     // yield put(action);
   } catch (e) {
-    console.log(e);
+    // console.log(e);
   }
 }
 

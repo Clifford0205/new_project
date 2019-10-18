@@ -14,26 +14,26 @@ import {
   editPasswordAction,
 } from '../store/actionCreators.js';
 
-class BloodStudies extends React.Component {
+class MemberEdit extends React.Component {
   constructor(props) {
     super(props);
     this.state = store.getState();
     store.subscribe(this.handleStoreChange);
-    console.log(this.state);
+    // console.log(this.state);
   }
 
   handleStoreChange = () => {
     this.setState(store.getState());
-    // console.log('store change');
+    // // console.log('store change');
   };
 
   //生命週期:一開始載入資料
   componentDidMount() {
-    console.log(this.state);
+    // console.log(this.state);
     let url_id = this.props.match.params.id;
     let state_id = this.state.my_id;
-    console.log(url_id);
-    console.log(state_id);
+    // console.log(url_id);
+    // console.log(state_id);
   }
 
   handleFormInputChange = e => {
@@ -55,7 +55,7 @@ class BloodStudies extends React.Component {
 
     //手機號碼驗證
     let mobile_pattern = /^09\d{2}\-?\d{3}\-?\d{3}$/;
-    console.log(document.querySelector('.m_mobile').value);
+    // console.log(document.querySelector('.m_mobile').value);
     if (!mobile_pattern.test(this.state.my_mobile)) {
       document.querySelector('.m_mobile').style.borderColor = 'red';
       document.querySelector('.m_mobileHelp').innerHTML =
@@ -72,12 +72,12 @@ class BloodStudies extends React.Component {
     }
 
     const action = editMemberAction(edit_data);
-    console.log(action);
+    // console.log(action);
     store.dispatch(action);
   };
 
   handleTitleClick = e => {
-    console.log(e.target.id);
+    // console.log(e.target.id);
     let allhide = document.querySelectorAll('.thehide');
     let alltitle = document.querySelectorAll('.the-title');
     for (let i = 0; i < allhide.length; i++) {
@@ -125,7 +125,7 @@ class BloodStudies extends React.Component {
   };
 
   render() {
-    console.log(this.state);
+    // console.log(this.state);
     return (
       <>
         <MyNavbar />
@@ -260,4 +260,4 @@ class BloodStudies extends React.Component {
   }
 }
 
-export default withRouter(BloodStudies);
+export default withRouter(MemberEdit);

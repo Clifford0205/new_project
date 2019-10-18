@@ -19,13 +19,14 @@ class ShoppingCart extends React.Component {
     super(props);
     this.mounted = false;
     this.state = store.getState();
-    store.subscribe(this.handleStoreChange);
-    console.log(this.state);
+    if (this.mounted) {
+      store.subscribe(this.handleStoreChange);
+    }
   }
 
   handleStoreChange = () => {
     this.setState(store.getState());
-    // console.log('store change');
+    // // console.log('store change');
   };
 
   //生命週期:一開始載入資料
@@ -33,7 +34,7 @@ class ShoppingCart extends React.Component {
     let url_id = this.props.match.params.id;
     let state_id = this.state.my_id;
     this.mounted = true;
-    console.log(this.mounted);
+    // console.log(this.mounted);
     if (this.mounted) {
       let action = '';
       action = getProducteAction();
@@ -51,7 +52,7 @@ class ShoppingCart extends React.Component {
   };
 
   handleTitleClick = e => {
-    console.log(e.target.id);
+    // console.log(e.target.id);
     let allhide = document.querySelectorAll('.thehide');
     let alltitle = document.querySelectorAll('.the-title');
     for (let i = 0; i < allhide.length; i++) {
