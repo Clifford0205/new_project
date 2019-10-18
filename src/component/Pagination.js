@@ -1,11 +1,11 @@
 import React from 'react';
 import { paginateChangeAction } from '../store/actionCreators.js';
-import { Container, Row, Col } from 'react-bootstrap';
+
 import store from '../store/index.js';
 import './Pagination.scss';
 import $ from 'jquery';
 
-import { Link, Redirect, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 class Pagination extends React.Component {
   constructor(props) {
@@ -96,13 +96,9 @@ class Pagination extends React.Component {
                     : 'page-item'
                 }
               >
-                <a
-                  onClick={this.paginate(item)}
-                  href="javascript:;"
-                  className="page-link"
-                >
+                <div onClick={this.paginate(item)} className="page-link">
                   {item}
-                </a>
+                </div>
               </li>
             ))}
             <li onClick={this.goNext} className="d-flex">

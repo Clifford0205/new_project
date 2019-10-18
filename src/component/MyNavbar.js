@@ -1,25 +1,9 @@
 import React from 'react';
 import './MyNavbar.scss';
-import {
-  FormControl,
-  Button,
-  ListGroup,
-  Navbar,
-  Nav,
-  NavDropdown,
-  Container,
-  Form,
-  Row,
-  Col,
-  ButtonToolbar,
-  InputGroup,
-  Table,
-} from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import store from '../store/index.js';
 import $ from 'jquery';
-import { FaPlus, FaPen, FaTrashAlt } from 'react-icons/fa';
-
-import { Redirect, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { HashLink as Link } from 'react-router-hash-link';
 import RegisterModal from './RegisterModal';
 import LoginModal from './LoginModal';

@@ -40,13 +40,13 @@ class LandingPage extends React.Component {
   }
 
   onLeave(origin, destination, direction) {
-    console.log('Leaving section ' + origin.index);
+    // console.log('Leaving section ' + origin.index);
   }
 
   afterLoad(origin, destination, direction) {
     let body = document.getElementsByTagName('body');
-    console.log('After load: ' + destination.index);
-    console.log(body[0].className);
+    // console.log('After load: ' + destination.index);
+    // console.log(body[0].className);
   }
 
   render() {
@@ -90,7 +90,11 @@ class LandingPage extends React.Component {
                                 alt="First slide"
                               />
                               <Carousel.Caption>
-                                <h3>藉由香氣尋找與記憶</h3>
+                                <h3>
+                                  {this.state.chinese
+                                    ? '藉由香氣尋找與記憶'
+                                    : 'Looking for and remembering with aroma'}
+                                </h3>
                                 <p></p>
                               </Carousel.Caption>
                             </Carousel.Item>
@@ -102,7 +106,11 @@ class LandingPage extends React.Component {
                               />
 
                               <Carousel.Caption>
-                                <h3>幸福就像香水，灑給別人也一定會感染自己</h3>
+                                <h3>
+                                  {this.state.chinese
+                                    ? '幸福就像香水，灑給別人也一定會感染自己'
+                                    : 'Happiness is like perfume, and sprinkling on others will definitely infect yourself.'}
+                                </h3>
                                 <p></p>
                               </Carousel.Caption>
                             </Carousel.Item>
@@ -114,7 +122,11 @@ class LandingPage extends React.Component {
                               />
 
                               <Carousel.Caption>
-                                <h3>每次用香水，都像是赴一場約會</h3>
+                                <h3>
+                                  {this.state.chinese
+                                    ? '每次用香水，都像是赴一場約會'
+                                    : 'Every time I use perfume, it’s like going to a date.'}
+                                </h3>
                                 <p></p>
                               </Carousel.Caption>
                             </Carousel.Item>
@@ -127,7 +139,11 @@ class LandingPage extends React.Component {
                               />
 
                               <Carousel.Caption>
-                                <h3>有人說，幸​​福那就是靈魂的香水</h3>
+                                <h3>
+                                  {this.state.chinese
+                                    ? '有人說，幸​​福那就是靈魂的香水'
+                                    : 'Some people say that fortunately, that is the perfume of the soul.'}
+                                </h3>
                                 <p></p>
                               </Carousel.Caption>
                             </Carousel.Item>
@@ -189,13 +205,19 @@ class LandingPage extends React.Component {
                                 className="align-items-center justify-content-center d-flex"
                               >
                                 <p className="">
-                                  嗅覺是唯一先反應後思考的感官 <br />
-                                  在嗅聞某樣事物時 <br />
-                                  鼻子裡的氣味分子接收器 <br />
-                                  會闢出一條通暢無阻的道路 <br />
-                                  直達大腦皮質系統 <br />
-                                  而那正是控制情緒 <br />
-                                  記憶與幸福感的區域 <br />
+                                  {this.state.chinese ? (
+                                    <p className="">
+                                      嗅覺是唯一先反應後思考的感官 <br />
+                                      在嗅聞某樣事物時 鼻子裡的氣味分子接收器
+                                      <br />
+                                      會闢出一條通暢無阻的道路 直達大腦皮質系統
+                                      <br />
+                                      而那正是控制情緒 記憶與幸福感的區域 <br />
+                                    </p>
+                                  ) : (
+                                    `45
+                                 6`
+                                  )}
                                 </p>
                               </Col>
                               <Col md={6}>
