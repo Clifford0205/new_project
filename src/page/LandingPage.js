@@ -17,15 +17,15 @@ class LandingPage extends React.Component {
     super(props);
     this.mounted = false;
     this.state = store.getState();
-    store.subscribe(this.handleStoreChange);
+    // store.subscribe(this.handleStoreChange);
     // console.log(this.state);
   }
 
-  handleStoreChange = () => {
-    if (this.mounted) {
-      this.setState(store.getState());
-    }
-  };
+  // handleStoreChange = () => {
+  //   if (this.mounted) {
+  //     this.setState(store.getState());
+  //   }
+  // };
 
   //生命週期:一開始載入資料
   componentDidMount() {

@@ -19,14 +19,13 @@ class ShoppingCart extends React.Component {
     super(props);
     this.mounted = false;
     this.state = store.getState();
-    if (this.mounted) {
-      store.subscribe(this.handleStoreChange);
-    }
+    store.subscribe(this.handleStoreChange);
   }
 
   handleStoreChange = () => {
-    this.setState(store.getState());
-    // // console.log('store change');
+    if (this.mounted) {
+      this.setState(store.getState());
+    }
   };
 
   //生命週期:一開始載入資料
