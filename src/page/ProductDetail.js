@@ -290,7 +290,7 @@ class ProductDetail extends React.Component {
   };
 
   render() {
-    // console.log(this.state);
+    console.log(this.state);
     // console.log(this.state.productList);
     const theProductData = this.state.productList.find(
       item => item.id === +this.props.match.params.id
@@ -403,31 +403,41 @@ class ProductDetail extends React.Component {
             </Row>
             {/* 標題選單 */}
 
-            <Row>
+            <Row className="mb-5">
               <Col>
                 <div className="product-detail thehide show">
-                  <h4 className="text-center">
+                  <h4 className="text-center my-4">
                     {this.state.chinese ? '商品描述' : 'Describe'}
                   </h4>
-                  <h5>
+                  <h5 className="text-center my-4 font-weight-bold">
                     {this.state.chinese
                       ? theProductData.chinese.describe_title2
                       : theProductData.english.describe_title2}
                   </h5>
-                  <p>
-                    {this.state.chinese
-                      ? theProductData.chinese.describe_text
-                      : theProductData.english.describe_text}
-                  </p>
-                  <p>
-                    {this.state.chinese
-                      ? theProductData.chinese.flavor
-                      : theProductData.english.flavor}
-                  </p>
+                  <div className="describe-text my-4">
+                    <p>
+                      {this.state.chinese
+                        ? theProductData.chinese.describe_text
+                        : theProductData.english.describe_text}
+                    </p>
+                  </div>
+
+                  <div className="flavor-text">
+                    <h5 className="text-center mt-5 font-weight-bold">
+                      {this.state.chinese
+                        ? '香氛表現'
+                        : 'Fragrance Performance'}
+                    </h5>
+                    <p>
+                      {this.state.chinese
+                        ? theProductData.chinese.flavor
+                        : theProductData.english.flavor}
+                    </p>
+                  </div>
                 </div>
 
                 <div className="pay-way thehide">
-                  <h4 className="text-center"> 送貨及付款方式</h4>
+                  <h4 className="text-center my-4"> 送貨及付款方式</h4>
                   <Row>
                     <Col className="delivery">
                       <h5 className="text-center">送貨方式</h5>
@@ -497,6 +507,7 @@ class ProductDetail extends React.Component {
                     className="message-input mt-3"
                     name="Big_message"
                     placeholder="請輸入10個字以上的留言"
+                    value={this.state.Big_message}
                     onChange={this.handleFormInputChange}
                   />
                   <Button

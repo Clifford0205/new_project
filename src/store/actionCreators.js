@@ -1,15 +1,4 @@
 import {
-  CHANGE_INPUT_VALUE,
-  SEARCH_VALUE_CHANGE,
-  ADD_STUDENT_ITEM,
-  EDIT_STUDENT_ITEM,
-  DELETE_TODO_ITEM,
-  INIT_LIST_ACTION,
-  SHOW_REGISTER_MODAL,
-  CLOSE_REGISTER_MODAL,
-  HANDLE_MODAL_FORM_INPUT_CHANGE,
-  GET_INIT_LIST,
-  SHOW_EDIT_MODAL,
   LANGUAGE_CHANGE,
   PRODUCT_FILTER_CHANGE,
   HANDLE_INPUT_CHANGE,
@@ -34,6 +23,7 @@ import {
   PLUS_NUM,
   MINUS_NUM,
   BIG_MESSAGE,
+  CLEAN_BIG_MESSAGE,
   LITTLE_MESSAGE,
   ADD_CART,
   DELETE_CART,
@@ -48,7 +38,11 @@ import {
   LITTLE_TOTAL_TO_ZERO,
 } from './actionTypes.js';
 
-//窩窩專案的
+//專案
+
+export const cleanBigMessage = () => ({
+  type: CLEAN_BIG_MESSAGE,
+});
 
 export const totalZeroAction = () => ({
   type: LITTLE_TOTAL_TO_ZERO,
@@ -212,61 +206,8 @@ export const paginateChangeAction = item => ({
   item,
 });
 
-//窩窩專案的
-
 export const languageChangeAction = () => ({
   type: LANGUAGE_CHANGE,
 });
 
-export const getInputChangeAction = value => ({
-  type: CHANGE_INPUT_VALUE,
-  value,
-});
-
-export const searchChangeAction = value => ({
-  type: SEARCH_VALUE_CHANGE,
-  value,
-});
-
-export const modalInputChangeAction = (value, name) => ({
-  type: HANDLE_MODAL_FORM_INPUT_CHANGE,
-  value,
-  name,
-});
-
-export const DeleteItemAction = item => ({
-  type: DELETE_TODO_ITEM,
-  item,
-});
-
-export const initListAction = data => ({
-  type: INIT_LIST_ACTION,
-  data,
-});
-
-export const showregistermodal = () => ({
-  type: SHOW_REGISTER_MODAL,
-});
-
-export const closeRegisterModal = () => ({
-  type: CLOSE_REGISTER_MODAL,
-});
-
-export const getInitList = () => ({
-  type: GET_INIT_LIST,
-});
-
-export const addItemAction = item => ({
-  type: ADD_STUDENT_ITEM,
-  item,
-});
-
-export const editItemAction = newData => ({
-  type: EDIT_STUDENT_ITEM,
-  newData,
-});
-
-export const showEditModal = id => ({
-  type: SHOW_EDIT_MODAL,
-  id,
-});
+//專案

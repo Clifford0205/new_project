@@ -19,7 +19,7 @@
 
 .ProductDetail {
 
-   
+
 
     ul {
         padding: 0;
@@ -96,6 +96,22 @@
 
     .thehide.show {
         display: block;
+    }
+
+    .describe-text {
+        p {
+            width: 50%;
+            display: block;
+            margin: 0 auto;
+        }
+    }
+
+    .flavor-text {
+        p {
+            width: 50%;
+            display: block;
+            margin: 0 auto;
+        }
     }
 
     .message-board {
