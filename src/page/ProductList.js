@@ -1,27 +1,16 @@
 import React from 'react';
-
-import GoBack from '../component/GoBack';
 import Language from '../component/Language';
 import Pagination from '../component/Pagination';
 import MyNavbar from '../component/MyNavbar';
-import ReactDOM from 'react-dom';
-import ReactFullpage from '@fullpage/react-fullpage';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import store from '../store/index.js';
 import './ProductList.scss';
-import ReactSVG from 'react-svg';
 import {
   setProductfilter,
   getProducteAction,
 } from '../store/actionCreators.js';
-import $ from 'jquery';
-import { Link, Redirect, withRouter } from 'react-router-dom';
-import { TweenMax, Power2, TimelineLite } from 'gsap/TweenMax';
+import { Link, withRouter } from 'react-router-dom';
 import 'animate.css/animate.min.css';
-import ScrollAnimation from 'react-animate-on-scroll';
-import anime from 'animejs';
-import ReactPaginate from 'react-paginate';
-import PropTypes from 'prop-types';
 
 class ProductList extends React.Component {
   constructor(props) {

@@ -1,12 +1,10 @@
 import React from 'react';
-import GoBack from '../component/GoBack';
 import Language from '../component/Language';
 import MyNavbar from '../component/MyNavbar';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { Container, Button } from 'react-bootstrap';
 import store from '../store/index.js';
 import './MemberEdit.scss';
-import $ from 'jquery';
-import { Link, Redirect, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import 'animate.css/animate.min.css';
 import {
   InputChangeAction,
@@ -29,9 +27,6 @@ class MemberEdit extends React.Component {
 
   //生命週期:一開始載入資料
   componentDidMount() {
-    // console.log(this.state);
-    let url_id = this.props.match.params.id;
-    let state_id = this.state.my_id;
     // console.log(url_id);
     // console.log(state_id);
   }
@@ -54,7 +49,7 @@ class MemberEdit extends React.Component {
     };
 
     //手機號碼驗證
-    let mobile_pattern = /^09\d{2}\-?\d{3}\-?\d{3}$/;
+    let mobile_pattern = /^09\d{2}-?\d{3}-?\d{3}$/;
     // console.log(document.querySelector('.m_mobile').value);
     if (!mobile_pattern.test(this.state.my_mobile)) {
       document.querySelector('.m_mobile').style.borderColor = 'red';

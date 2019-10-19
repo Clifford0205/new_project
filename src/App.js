@@ -1,15 +1,6 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Switch,
-  NavLink,
-} from 'react-router-dom';
-
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import LandingPage from './page/LandingPage';
-import IntroductionPage from './page/IntroductionPage';
-
 import ProductDetail from './page/ProductDetail';
 import ProductList from './page/ProductList';
 import './Myapp.scss';
@@ -25,7 +16,6 @@ function App() {
         <>
           <Switch>
             <Route exact path="/" component={LandingPage} />
-            <Route path="/introduce" component={IntroductionPage} />
             <Route path="/productlist" component={ProductList} />
             <Route path="/ProductDetail/:id" component={ProductDetail} />
             <Route path="/member/edit/:id" component={MemberEdit} />

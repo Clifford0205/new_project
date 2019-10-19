@@ -1,12 +1,8 @@
 import React from 'react';
 import './Language.scss';
-import { Container, Row, Col } from 'react-bootstrap';
 import { languageChangeAction } from '../store/actionCreators.js';
 import store from '../store/index.js';
-import $ from 'jquery';
-import { FaPlus, FaPen, FaTrashAlt } from 'react-icons/fa';
-
-import { Link, Redirect, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';;
 
 class Language extends React.Component {
   constructor(props) {

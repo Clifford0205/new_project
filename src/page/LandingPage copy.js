@@ -11,6 +11,7 @@ import 'animate.css/animate.min.css';
 import {} from 'react-icons/fa';
 import MyGooglemap from '../component/GoogleMap';
 import Bottomform from '../component/Bottomform';
+import { connect } from 'react-redux';
 
 class LandingPage extends React.Component {
   constructor(props) {
@@ -18,7 +19,7 @@ class LandingPage extends React.Component {
     this.mounted = false;
     this.state = store.getState();
     store.subscribe(this.handleStoreChange);
-    // console.log(this.state);
+    console.log(this.state);
   }
 
   handleStoreChange = () => {
@@ -45,7 +46,7 @@ class LandingPage extends React.Component {
   }
 
   afterLoad(origin, destination, direction) {
-    // let body = document.getElementsByTagName('body');
+    let body = document.getElementsByTagName('body');
     // // console.log('After load: ' + destination.index);
     // // console.log(body[0].className);
   }
@@ -467,4 +468,12 @@ class LandingPage extends React.Component {
 }
 // ReactDOM.render(<FullpageWrapper />, document.getElementById("react-root"));
 
-export default withRouter(LandingPage);
+// export default withRouter(LandingPage);
+const stateToProps = state => {
+  return {};
+};
+
+export default connect(
+  stateToProps,
+  null
+)(LandingPage);

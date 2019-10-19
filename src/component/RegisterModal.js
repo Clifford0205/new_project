@@ -1,27 +1,10 @@
 import React from 'react';
 import './MyNavbar.scss';
-import {
-  FormControl,
-  Button,
-  ListGroup,
-  Navbar,
-  Nav,
-  NavDropdown,
-  Container,
-  Form,
-  Row,
-  Col,
-  ButtonToolbar,
-  InputGroup,
-  Table,
-  Modal,
-} from 'react-bootstrap';
+import { Button, Container, Row, Col, Modal } from 'react-bootstrap';
 import store from '../store/index.js';
-import $ from 'jquery';
 import './RegisterModal.scss';
-import { FaPlus, FaPen, FaTrashAlt } from 'react-icons/fa';
 
-import { Link, Redirect, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import {
   InputChangeAction,
@@ -71,7 +54,7 @@ class RegisterModal extends React.Component {
     };
 
     //手機號碼驗證
-    let mobile_pattern = /^09\d{2}\-?\d{3}\-?\d{3}$/;
+    let mobile_pattern = /^09\d{2}-?\d{3}-?\d{3}$/;
     // console.log(document.querySelector('.m_mobile').value);
     if (!mobile_pattern.test(document.querySelector('.m_mobile').value)) {
       document.querySelector('.m_mobile').style.borderColor = 'red';

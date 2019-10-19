@@ -1,4 +1,4 @@
-import { takeEvery, put, cancel } from 'redux-saga/effects';
+import { takeEvery, put } from 'redux-saga/effects';
 import {
   GET_INIT_LIST,
   ADD_STUDENT_ITEM,
@@ -63,7 +63,6 @@ function* saveclientmessage(newItem) {
         'Content-Type': 'application/json',
       }),
     });
-    const jsonObject = yield response.json();
 
     // console.log(jsonObject);
     yield alert('您的意見已經提交');
@@ -109,7 +108,6 @@ function* addMemberAction(newItem) {
         'Content-Type': 'application/json',
       }),
     });
-    const jsonObject = yield response.json();
 
     // console.log(jsonObject);
     yield alert('註冊成功');
@@ -141,7 +139,7 @@ function* MemberLogin(newItem) {
     );
     // if (!response.ok) throw new Error(response.statusText);
     const jsonObject = yield response.json();
-    yield // console.log(jsonObject);
+    yield; // console.log(jsonObject);
     if (jsonObject.length !== 0) {
       alert('登入成功');
       // console.log(jsonObject[0]);
@@ -164,7 +162,7 @@ function* MemberLogin(newItem) {
 
 //修改會員資料
 function* editMemberaction(newItem) {
-  yield // console.log(newItem.edit_data);
+  yield; // console.log(newItem.edit_data);
   const member_id = newItem.edit_data.id;
   const data = newItem.edit_data;
   // console.log(member_id);
@@ -194,7 +192,7 @@ function* editMemberaction(newItem) {
 
 //修改密碼
 function* editPasswordAction(newItem) {
-  yield // console.log(newItem.edit_pswd);
+  yield; // console.log(newItem.edit_pswd);
   const member_id = newItem.edit_pswd.id;
   const data = newItem.edit_pswd;
   const response = yield fetch(
@@ -221,7 +219,7 @@ function* editPasswordAction(newItem) {
 
 //大留言
 function* bigMessageAction(newItem) {
-  yield // console.log(newItem.big_message.message);
+  yield; // console.log(newItem.big_message.message);
   const data = newItem.big_message.message;
   // console.log(data);
   const ptid = newItem.big_message.product_id;
@@ -233,7 +231,6 @@ function* bigMessageAction(newItem) {
       'Content-Type': 'application/json',
     }),
   });
-  const jsonObject = yield response.json();
   // console.log(jsonObject);
   yield getProductsInstate();
 }
@@ -241,7 +238,7 @@ function* bigMessageAction(newItem) {
 //小留言
 function* littleMsg(newItem) {
   const data = newItem.little_message.message;
-  yield // console.log(data);
+  yield; // console.log(data);
   const ptid = newItem.little_message.product_id;
   const response = yield fetch('http://localhost:5555/products/' + ptid, {
     method: 'PATCH',
@@ -251,7 +248,6 @@ function* littleMsg(newItem) {
       'Content-Type': 'application/json',
     }),
   });
-  const jsonObject = yield response.json();
   // console.log(jsonObject);
   yield getProductsInstate();
 }
@@ -259,7 +255,7 @@ function* littleMsg(newItem) {
 //購物車
 
 function* addcartAction(newItem) {
-  yield // console.log(newItem.cart_data);
+  yield; // console.log(newItem.cart_data);
   const data = newItem.cart_data;
   const mbid = newItem.cart_data.id;
   // console.log(data);
@@ -289,7 +285,7 @@ function* addcartAction(newItem) {
 //刪除購物車品項
 
 function* deleteCartAction(newItem) {
-  yield // console.log(newItem.delItem.shopping_cart);
+  yield; // console.log(newItem.delItem.shopping_cart);
   const data = newItem.delItem.shopping_cart;
   const id = newItem.delItem.id;
   const response = yield fetch('http://localhost:5555/memberdata/' + id, {
@@ -316,7 +312,7 @@ function* addInOrderAction(newItem) {
   // yield // console.log(newItem);
   const data = newItem.data.buy_record;
   const id = newItem.data.id;
-  yield // console.log(data);
+  yield; // console.log(data);
   const response = yield fetch('http://localhost:5555/memberdata/' + id, {
     method: 'PATCH',
     body: JSON.stringify(data),
@@ -352,7 +348,6 @@ function* addItemAction(newItem) {
         'Content-Type': 'application/json',
       }),
     });
-    const jsonObject = yield response.json();
 
     // console.log(jsonObject);
     yield getInitList();
@@ -372,7 +367,6 @@ function* deleteItem(newItem) {
     const response = yield fetch('http://localhost:5555/students/' + data, {
       method: 'DELETE',
     });
-    const jsonObject = yield response.json();
 
     // console.log(jsonObject);
     yield getInitList();
@@ -400,7 +394,6 @@ function* editItem(newItem) {
         }),
       }
     );
-    const jsonObject = yield response.json();
 
     // console.log(jsonObject);
     yield getInitList();

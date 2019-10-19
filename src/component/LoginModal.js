@@ -1,21 +1,6 @@
 import React from 'react';
 import './MyNavbar.scss';
-import {
-  FormControl,
-  Button,
-  ListGroup,
-  Navbar,
-  Nav,
-  NavDropdown,
-  Container,
-  Form,
-  Row,
-  Col,
-  ButtonToolbar,
-  InputGroup,
-  Table,
-  Modal,
-} from 'react-bootstrap';
+import { Button, Container, Row, Col, Modal } from 'react-bootstrap';
 import store from '../store/index.js';
 import './LoginModal.scss';
 import { withRouter } from 'react-router-dom';

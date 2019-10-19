@@ -1,12 +1,10 @@
 import React from 'react';
-import GoBack from '../component/GoBack';
 import Language from '../component/Language';
 import MyNavbar from '../component/MyNavbar';
-import { Container, Row, Col, Form, Button } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import store from '../store/index.js';
 import './BuyRecord.scss';
-import $ from 'jquery';
-import { Link, Redirect, withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import 'animate.css/animate.min.css';
 import {
   InputChangeAction,
@@ -33,9 +31,6 @@ class BuyRecord extends React.Component {
 
   //生命週期:一開始載入資料
   componentDidMount() {
-    // console.log(this.state);
-    let url_id = this.props.match.params.id;
-    let state_id = this.state.my_id;
     // console.log(url_id);
     // console.log(state_id);
     this.mounted = true;

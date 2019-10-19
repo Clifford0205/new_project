@@ -147,9 +147,9 @@ export default (state = defaultState, action) => {
   //存取地區進入state
   if (action.type === ZONE_STATE) {
     const newState = JSON.parse(JSON.stringify(state));
-    for (var s in newState) {
-      if (s === action.name) {
-        newState[s] = action.value;
+    for (var y in newState) {
+      if (y === action.name) {
+        newState[y] = action.value;
       }
     }
     return newState;
@@ -274,9 +274,9 @@ export default (state = defaultState, action) => {
 
   if (action.type === HANDLE_INPUT_CHANGE) {
     const newState = JSON.parse(JSON.stringify(state));
-    for (var s in newState) {
-      if (s === action.name) {
-        newState[s] = action.value;
+    for (var u in newState) {
+      if (u === action.name) {
+        newState[u] = action.value;
         // 注意：id(學號)與生日，需先轉為數字類型再進入state中
         if (action.name === 'm_birthday') action.value = +action.value;
         // console.log(s, newState[s]);

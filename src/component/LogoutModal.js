@@ -1,31 +1,12 @@
 import React from 'react';
 import './MyNavbar.scss';
-import {
-  FormControl,
-  Button,
-  ListGroup,
-  Navbar,
-  Nav,
-  NavDropdown,
-  Container,
-  Form,
-  Row,
-  Col,
-  ButtonToolbar,
-  InputGroup,
-  Table,
-  Modal,
-} from 'react-bootstrap';
+import { Button, Container, Row, Modal } from 'react-bootstrap';
 import store from '../store/index.js';
-import $ from 'jquery';
 import './LogoutModal.scss';
-import { FaPlus, FaPen, FaTrashAlt } from 'react-icons/fa';
 
-import { Link, Redirect, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 import {
-  InputChangeAction,
-  memberRegisterAction,
   cleanlocalstorage,
   logoutModalCloseAction,
 } from '../store/actionCreators.js';

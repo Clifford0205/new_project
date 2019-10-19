@@ -1,14 +1,10 @@
 import React from 'react';
 
-import GoBack from '../component/GoBack';
 import MyNavbar from '../component/MyNavbar';
 import Language from '../component/Language';
-import ReactDOM from 'react-dom';
-import ReactFullpage from '@fullpage/react-fullpage';
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import store from '../store/index.js';
 import './ProductDetail.scss';
-import ReactSVG from 'react-svg';
 import {
   getProducteAction,
   changeImgAction,
@@ -20,12 +16,8 @@ import {
   addCartAction,
   totalZeroAction,
 } from '../store/actionCreators.js';
-import $ from 'jquery';
-import { Link, Redirect, withRouter } from 'react-router-dom';
-import { TweenMax, Power2, TimelineLite } from 'gsap/TweenMax';
+import { withRouter } from 'react-router-dom';
 import 'animate.css/animate.min.css';
-import ScrollAnimation from 'react-animate-on-scroll';
-import anime from 'animejs';
 
 class ProductDetail extends React.Component {
   constructor(props) {
@@ -263,8 +255,6 @@ class ProductDetail extends React.Component {
     //該品項數量
     let amount = this.state.little_total;
 
-    let member_id = this.state.my_id;
-
     let cart_id = '';
     // console.log(this.state.my_cart.length);
     if (this.state.my_cart.length !== 0) {
@@ -377,10 +367,9 @@ class ProductDetail extends React.Component {
                   </Button>
                 </div>
                 <Button
-                  className="d-block mx-auto"
+                  className="d-block mx-auto w-100 mt-3"
                   onClick={this.handleCart}
                   variant="info"
-                  className="w-100 mt-3"
                 >
                   {this.state.chinese ? '加入購物車' : 'Add to Cart'}
                 </Button>
